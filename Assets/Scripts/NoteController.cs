@@ -4,10 +4,14 @@ using System.Collections.Generic;
 
 public class NoteController : MonoBehaviour {
 
+	public Sprite clickSprite;
+
 	public float initialSpeed; // moving speed of notes
 	
-	public static float noteSpeed = 10;
+	public static float noteSpeed = PlaySong.MIN_SPEED;  // moving speed of notes
 	public GameObject sound; //sound of every note
+
+	public static int pause = 0; // all the notes stopped if pause == 1 ; when note is in the left boundry 
 
 	// Use this for initialization
 	void Start () {
@@ -17,39 +21,42 @@ public class NoteController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//testSpeed++;
+		
+		if(pause == 1){
+			noteSpeed = 0;
+		}
+	 
 		GetComponent<Rigidbody2D> ().velocity = new Vector3 (-noteSpeed, 0 ,0);
 		if ((PlaySong.clickSpeed < Time.time - PlaySong.lastClickTime))
-			noteSpeed = 10;
+			noteSpeed = PlaySong.MIN_SPEED;
+
+
 	}
 
 
 	void OnTriggerExit2D()
 	{
 		//GetComponent<SpriteRenderer> ().color = new Color (1, 0, 0);
-		Destroy (gameObject, .1f);
-		PlaySong.notesCount++;
-		PlaySong.bestStreak = 0; 
+		//Destroy (gameObject, .1f);
+		if (gameObject.GetComponent<SpriteRenderer> ().sprite != clickSprite) {
+			pause = 1;
+		}
 	}
 
 	void OnMouseDown(){
 		//Debug.Log (Input.mousePosition);
-		NoteController.noteSpeed = PlaySong.calculateSpeed ();
 		if (PlaySong.nextNotes.Count > PlaySong.notesCount) {
-			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject && transform.position.x <= -24) {
+			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject && transform.position.x <= PlaySong.TRIGGER_RIGHT) {
+				pause = 0;
+				NoteController.noteSpeed = PlaySong.calculateSpeed ();
+
 				Instantiate (sound, transform.position, Quaternion.identity);
-				Destroy (gameObject);
+				gameObject.GetComponent<SpriteRenderer> ().sprite = clickSprite;
+				Destroy (gameObject,.2f);
 				PlaySong.notesCount++;
 				PlaySong.totalCorrect++;
 				PlaySong.bestStreak++;
 			} 
-			else {
-				PlaySong.bestStreak = 0;		
-			}
 		} 
-		else {
-			PlaySong.bestStreak = 0;
-		}
-	
 	}
 }
