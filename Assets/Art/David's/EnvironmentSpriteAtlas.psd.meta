@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: c8cc7766415ca4267818074ceecd7502
+timeCreated: 1464460339
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BackgroundPink
+    21300002: BackgroundOrange
+    21300004: Foreground
+    21300006: Platform01
+    21300008: Platform02
+    21300010: Platform03
+    21300012: Platform04
+    21300014: BackgroundBlue
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 5
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BackgroundPink
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 421
+        width: 512
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 201, y: 44.5}
+        - {x: 108, y: 25.5}
+        - {x: 61, y: 45.5}
+        - {x: -14, y: 45.5}
+        - {x: -53, y: 32.5}
+        - {x: -59, y: 45.5}
+        - {x: -88, y: 45.5}
+        - {x: -162, y: 22.5}
+        - {x: -218, y: 44.5}
+        - {x: -256, y: 13.5}
+        - {x: -256, y: -45.5}
+        - {x: 256, y: -45.5}
+        - {x: 256, y: 21.5}
+        - {x: 213, y: 41.5}
+    - name: BackgroundOrange
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 331
+        width: 512
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52695847}
+      border: {x: 0, y: 89, z: 0, w: 0}
+      outline:
+      - - {x: 202, y: 36.046783}
+        - {x: 256, y: 40.046783}
+        - {x: 256, y: 43.046783}
+        - {x: -256, y: 43.046783}
+        - {x: -256, y: 40.046783}
+        - {x: 8, y: 40.046783}
+        - {x: -2, y: 31.046783}
+        - {x: -67, y: 38.046783}
+        - {x: -88, y: 27.046783}
+        - {x: -218, y: 40.046783}
+        - {x: -256, y: 9.046783}
+        - {x: -256, y: -47.953217}
+        - {x: 256, y: -47.953217}
+        - {x: 256, y: 17.046783}
+        - {x: 213, y: 37.046783}
+    - name: Foreground
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175
+        width: 512
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -254, y: 29.5}
+        - {x: -256, y: 27.5}
+        - {x: -256, y: -30.5}
+        - {x: 256, y: -30.5}
+        - {x: 256, y: 29.5}
+    - name: Platform01
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 114
+        width: 24
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Platform02
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 113
+        width: 24
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Platform03
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 113
+        width: 21
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Platform04
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 113
+        width: 19
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: BackgroundBlue
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 237
+        width: 510
+        height: 91
+      alignment: 9
+      pivot: {x: 0.49817845, y: 0.48553777}
+      border: {x: 0, y: 0, z: 0, w: 3}
+      outline:
+      - - {x: 158.92899, y: 46.81607}
+        - {x: 107.928986, y: 35.81607}
+        - {x: 41.928986, y: 38.81607}
+        - {x: 27.928986, y: 46.81607}
+        - {x: -11.071014, y: 46.81607}
+        - {x: -40.071014, y: 20.81607}
+        - {x: -75.071014, y: 45.81607}
+        - {x: -153.07101, y: 26.81607}
+        - {x: -217.07101, y: 43.81607}
+        - {x: -240.07101, y: 25.81607}
+        - {x: -254.07101, y: 11.816071}
+        - {x: -254.07101, y: -44.18393}
+        - {x: 255.92899, y: -44.18393}
+        - {x: 255.92899, y: 23.81607}
+        - {x: 235.92899, y: 46.81607}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
