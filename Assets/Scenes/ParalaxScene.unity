@@ -135,17 +135,10 @@ MonoBehaviour:
   NoteE: {fileID: 22407234, guid: eba90705a48f59a418595998c832ce53, type: 2}
   NoteF: {fileID: 22448638, guid: b1bb7913265e61a41a71c9cde1c9211b, type: 2}
   NoteG: {fileID: 22465558, guid: cf5fb22352b2e9e409915ae33b6cb144, type: 2}
-  locA: {x: 47.3, y: 12, z: 0}
-  locB: {x: 47.3, y: 7.7, z: 0}
-  locC: {x: 47.3, y: 3.4, z: 0}
-  locD: {x: 47.3, y: -0.9, z: 0}
-  locE: {x: 47.3, y: -5.2, z: 0}
-  locF: {x: 47.3, y: -9.5, z: 0}
-  locG: {x: 47.3, y: -13.8, z: 0}
   lastNote: {fileID: 0}
   scoreText: {fileID: 1221615932}
   streakText: {fileID: 685650680}
-  tap_glow: {fileID: 196152, guid: 787841812d822704a9622489c5c4204d, type: 2}
+  tap_glow: {fileID: 190946, guid: 9a3eaedc09f94494389798ed6909fb47, type: 2}
   errorSound: {fileID: 176646, guid: c65b7d8c33185be42ab57993150f00b9, type: 2}
 --- !u!212 &79561816
 SpriteRenderer:

@@ -87,17 +87,17 @@ public class PlaySong : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			Vector3 pPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			//Debug.Log (pPosition);  
-			if(PlaySong.last_tap_glow != null) {Destroy(PlaySong.last_tap_glow);}
-			PlaySong.last_tap_glow = (GameObject)Instantiate (PlaySong.tap_glow,pPosition,PlaySong.tap_glow.transform.rotation);
-			if (PlaySong.bestStreak != 0) {
-				PlaySong.last_tap_glow.GetComponent<Animator> ().SetBool ("Hit", true);
+			if(last_tap_glow != null) {Destroy(last_tap_glow);}
+			last_tap_glow = (GameObject)Instantiate (tap_glow,pPosition,tap_glow.transform.rotation);
+			if (bestStreak != 0) {
+				last_tap_glow.GetComponent<Animator> ().SetBool ("Hit", true);
 			} else {
-				PlaySong.last_tap_glow.GetComponent<Animator> ().SetBool ("Hit", false);
+				last_tap_glow.GetComponent<Animator> ().SetBool ("Hit", false);
 			}
 		}
 		if (Input.GetMouseButtonUp (0)) {
-			if (PlaySong.last_tap_glow != null) {
-				Destroy (PlaySong.last_tap_glow);
+			if (last_tap_glow != null) {
+				Destroy (last_tap_glow);
 			}
 		}
 	
