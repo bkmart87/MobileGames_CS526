@@ -25,6 +25,7 @@ public class PlaySong : MonoBehaviour {
 	public RectTransform NoteF;
 	public RectTransform NoteG;
 
+
 	private Vector3 locA = new Vector3 (47.3f,12f,0f);
 	private Vector3 locB = new Vector3 (47.3f,7.7f,0f);
 	private Vector3 locC = new Vector3 (47.3f,3.4f,0f);
@@ -32,6 +33,7 @@ public class PlaySong : MonoBehaviour {
 	private Vector3 locE = new Vector3 (47.3f,-5.2f,0f);
 	private Vector3 locF = new Vector3 (47.3f,-9.5f,0f);
 	private Vector3 locG = new Vector3 (47.3f,-13.8f,0f);
+
 
 
 	//song generating part
@@ -55,6 +57,7 @@ public class PlaySong : MonoBehaviour {
 
 	//click effect part
 	public GameObject tap_glow;
+	private GameObject last_tap_glow;
 
 	public GameObject errorSound;
 
@@ -66,9 +69,11 @@ public class PlaySong : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Load ("Assets/MusicFiles/test.txt");
+		Load ("Assets/MusicFiles/Song1.txt");
+
 		TRIGGER_RIGHT += gameObject.transform.position.x;
 		START_LOCATION += gameObject.transform.position.x;
+
 	}
 	
 	// Update is called once per frame
@@ -78,17 +83,29 @@ public class PlaySong : MonoBehaviour {
 			ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			Debug.Log (Input.mousePosition);
 		}*/
-
+		if (Input.GetMouseButtonDown (0)) {
+			Vector3 pPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			//Debug.Log (pPosition);  
+			if(PlaySong.last_tap_glow != null) {Destroy(PlaySong.last_tap_glow);}
+			PlaySong.last_tap_glow = (GameObject)Instantiate (PlaySong.tap_glow,pPosition,PlaySong.tap_glow.transform.rotation);
+			if (PlaySong.bestStreak != 0) {
+				PlaySong.last_tap_glow.GetComponent<Animator> ().SetBool ("Hit", true);
+			} else {
+				PlaySong.last_tap_glow.GetComponent<Animator> ().SetBool ("Hit", false);
+			}
+		}
+		if (Input.GetMouseButtonUp (0)) {
+			if (PlaySong.last_tap_glow != null) {
+				Destroy (PlaySong.last_tap_glow);
+			}
+		}
+	
 	}
 
 
 	void FixedUpdate () {
-		/*
-		if (Input.GetMouseButtonDown (0)) {
-			Vector3 pPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			Debug.Log (pPosition);
-			Instantiate (tap_glow,pPosition,tap_glow.transform.rotation);
-		}*/
+		
+
 		scoreText.GetComponent<TextMesh> ().text = "Score:" + totalCorrect.ToString ();
 		streakText.GetComponent<TextMesh> ().text = "BestStreak:" + bestStreak.ToString ();
 		if (songNotesCount < songNotes.Count) {
@@ -159,7 +176,7 @@ public class PlaySong : MonoBehaviour {
 		Debug.Log (speed);
 		return speed;
 	}
-		
+
 	private bool Load(string fileName){
 		Debug.Log("Start");
 		string line;
