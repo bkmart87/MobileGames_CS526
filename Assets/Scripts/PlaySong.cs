@@ -25,6 +25,17 @@ public class PlaySong : MonoBehaviour {
 	public RectTransform NoteF;
 	public RectTransform NoteG;
 
+
+	private Vector3 locA = new Vector3 (47.3f,12f,0f);
+	private Vector3 locB = new Vector3 (47.3f,7.7f,0f);
+	private Vector3 locC = new Vector3 (47.3f,3.4f,0f);
+	private Vector3 locD = new Vector3 (47.3f,-0.9f,0f);
+	private Vector3 locE = new Vector3 (47.3f,-5.2f,0f);
+	private Vector3 locF = new Vector3 (47.3f,-9.5f,0f);
+	private Vector3 locG = new Vector3 (47.3f,-13.8f,0f);
+
+
+
 	//song generating part
 	public static float GAP_NOTE = 15.0f; // gap distance between two notes
 	public static float START_LOCATION = 47.3f; // start location of generated note
@@ -58,6 +69,10 @@ public class PlaySong : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Load ("Assets/MusicFiles/test.txt");
+
+		TRIGGER_RIGHT += gameObject.transform.position.x;
+		START_LOCATION += gameObject.transform.position.x;
+
 	}
 	
 	// Update is called once per frame
@@ -98,25 +113,25 @@ public class PlaySong : MonoBehaviour {
 
 	void generateNote(char noteChar){
 		if (noteChar == 'A') {
-			nextNotes.Add (lastNote = (RectTransform)Instantiate (NoteA, NoteA.position, NoteA.rotation));
+			nextNotes.Add (lastNote = (RectTransform)Instantiate (NoteA, gameObject.transform.position+locA, NoteA.rotation));
 		}
 		if (noteChar == 'B') {
-			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteB, NoteB.position, NoteB.rotation));
+			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteB, gameObject.transform.position+locB, NoteB.rotation));
 		}
 		if (noteChar == 'C') {
-			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteC, NoteC.position, NoteC.rotation));
+			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteC, gameObject.transform.position+locC, NoteC.rotation));
 		}
 		if (noteChar == 'D') {
-			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteD, NoteD.position, NoteD.rotation));
+			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteD, gameObject.transform.position+locD, NoteD.rotation));
 		}
 		if (noteChar == 'E') {
-			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteE, NoteE.position, NoteE.rotation));
+			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteE, gameObject.transform.position+locE, NoteE.rotation));
 		}
 		if (noteChar == 'F') {
-			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteF, NoteF.position, NoteF.rotation));
+			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteF, gameObject.transform.position+locF, NoteF.rotation));
 		}
 		if (noteChar == 'G') {
-			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteG, NoteG.position, NoteG.rotation));
+			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteG, gameObject.transform.position+locG, NoteG.rotation));
 		}
 		lastNote.SetParent (gameObject.transform);
 	}
