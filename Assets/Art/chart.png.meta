@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4f6a5b35a7cfa5042b11c2107d809268
 timeCreated: 1464470471
+=======
+guid: 1e2be60525eb646e7936dc909f0848b5
+timeCreated: 1464735218
+>>>>>>> Bethany's-Branch
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
