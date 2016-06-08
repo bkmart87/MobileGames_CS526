@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -106,8 +107,8 @@ public class PlaySong : MonoBehaviour {
 	void FixedUpdate () {
 		
 
-		scoreText.GetComponent<TextMesh> ().text = "Score:" + totalCorrect.ToString ();
-		streakText.GetComponent<TextMesh> ().text = "BestStreak:" + bestStreak.ToString ();
+		scoreText.GetComponent<Text> ().text = "Score:" + totalCorrect.ToString ();
+		streakText.GetComponent<Text>().text = "BestStreak:" + bestStreak.ToString ();
 		if (songNotesCount < songNotes.Count) {
 			if (lastNote == null) {
 				generateNote (songNotes [songNotesCount]);
