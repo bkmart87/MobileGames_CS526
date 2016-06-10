@@ -27,6 +27,9 @@ GameObject:
   - 224: {fileID: 22412146}
   - 222: {fileID: 22235802}
   - 114: {fileID: 11402886}
+  - 50: {fileID: 5093436}
+  - 58: {fileID: 5837302}
+  - 114: {fileID: 11407110}
   m_Layer: 0
   m_Name: UINoteC
   m_TagString: Untagged
@@ -34,6 +37,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!50 &5093436
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155012}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &5837302
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155012}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 20
 --- !u!114 &11402886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,7 +87,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1afbd08491c324a4185c1ae62545c0fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8baea33afe72a8b45baba2420f360de9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -61,6 +95,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11407110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59ca1023fda0364f8d45545fea4a150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSprite: {fileID: 21300000, guid: 52c01dae726cc45e59a453431619c877, type: 3}
+  initialSpeed: 0
+  sound: {fileID: 128630, guid: 034970bf6fc13da4089abe9a3bdeaae8, type: 2}
 --- !u!114 &11473178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,7 +170,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 328, y: 18}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22498966

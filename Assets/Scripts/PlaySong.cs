@@ -7,7 +7,7 @@ using System.IO;
 
 public class PlaySong : MonoBehaviour {
 	//trigger part
-	public static float TRIGGER_RIGHT = -38; // x value of the trigger right boundry 
+	public static float TRIGGER_RIGHT = -250; // x value of the trigger right boundry 
 	//notes speed control part
 	public static float MAX_SPEED = 40.0f; // maximum moving speed of note
 	public static float MIN_SPEED = 10.0f;  // min moving speed of note
@@ -18,28 +18,36 @@ public class PlaySong : MonoBehaviour {
 	public static float clickSpeed = 0;   // current time - lastClickTime 
 
 	//seven notes part
+	private static int TOTAL_NOTES = 7;
+
+	public RectTransform[] notes = new RectTransform[TOTAL_NOTES];
+	/*
 	public RectTransform NoteA;
 	public RectTransform NoteB;
 	public RectTransform NoteC;
 	public RectTransform NoteD;
 	public RectTransform NoteE;
 	public RectTransform NoteF;
-	public RectTransform NoteG;
+	public RectTransform NoteG;*/
 
-
+	private Vector3[] notesLoc = new Vector3[TOTAL_NOTES];
+	private float NOTES_LOC_START_X = 328.0f;
+	private float NOTES_LOC_START_Y = 88.0f;
+	private float NOTES_LOC_GAP = 35.0f;
+	/*
 	private Vector3 locA = new Vector3 (47.3f,12f,0f);
 	private Vector3 locB = new Vector3 (47.3f,7.7f,0f);
 	private Vector3 locC = new Vector3 (47.3f,3.4f,0f);
 	private Vector3 locD = new Vector3 (47.3f,-0.9f,0f);
 	private Vector3 locE = new Vector3 (47.3f,-5.2f,0f);
 	private Vector3 locF = new Vector3 (47.3f,-9.5f,0f);
-	private Vector3 locG = new Vector3 (47.3f,-13.8f,0f);
+	private Vector3 locG = new Vector3 (47.3f,-13.8f,0f);*/
 
 
 
 	//song generating part
 	public static float GAP_NOTE = 15.0f; // gap distance between two notes
-	public static float START_LOCATION = 47.3f; // start location of generated note
+	public static float START_LOCATION = 328.0f; // start location of generated note
 
 	public static List<char> songNotes = new List<char> ();//{'A','B','C','D','E','F','G','B','C','A','D','F','E','G','A','B','C','D','E','F','G'};
 	public static int songNotesCount = 0; // index of the song list
@@ -53,8 +61,8 @@ public class PlaySong : MonoBehaviour {
 	//score counting part
 	public static int totalCorrect = 0; // correct notes
 	public static int bestStreak = 0; // 
-	public Transform scoreText;
-	public Transform streakText;
+	public RectTransform scoreText;
+	public RectTransform streakText;
 
 	//click effect part
 	public GameObject tap_glow;
@@ -70,10 +78,15 @@ public class PlaySong : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Load ("Assets/MusicFiles/Song1.txt");
+		Load (Application.dataPath + "/MusicFiles/Song1.txt");
 
-		TRIGGER_RIGHT += gameObject.transform.position.x;
-		START_LOCATION += gameObject.transform.position.x;
+		//TRIGGER_RIGHT += gameObject.transform.position.x;
+		//START_LOCATION += gameObject.transform.position.x;
+		for (int i = 0; i < TOTAL_NOTES; i++) {
+			notesLoc [i].x = NOTES_LOC_START_X;
+			notesLoc [i].y = NOTES_LOC_START_Y - (float)i * NOTES_LOC_GAP;
+			notesLoc [i].z = 0.0f;
+		}
 
 	}
 	
@@ -108,7 +121,7 @@ public class PlaySong : MonoBehaviour {
 		
 
 		scoreText.GetComponent<Text> ().text = "Score:" + totalCorrect.ToString ();
-		streakText.GetComponent<Text>().text = "BestStreak:" + bestStreak.ToString ();
+		streakText.GetComponent<Text>().text = "BestStreak: " + bestStreak.ToString () +"     ";
 		if (songNotesCount < songNotes.Count) {
 			if (lastNote == null) {
 				generateNote (songNotes [songNotesCount]);
@@ -116,7 +129,7 @@ public class PlaySong : MonoBehaviour {
 			} 
 			else {
 				
-				if (START_LOCATION - lastNote.position.x > GAP_NOTE) {
+				if (START_LOCATION - lastNote.localPosition.x > GAP_NOTE) {
 					generateNote (songNotes [songNotesCount]);
 					songNotesCount++;
 				}
@@ -126,6 +139,16 @@ public class PlaySong : MonoBehaviour {
 	}
 
 	void generateNote(char noteChar){
+
+		int index = (int)(noteChar - 'A');
+
+		nextNotes.Add (lastNote = (RectTransform)Instantiate (notes[index]));//,notesLoc[index], notes[index].rotation));
+		lastNote.SetParent (gameObject.transform);
+		lastNote.localPosition = notesLoc [index];
+		lastNote.localScale = new Vector3 (1, 1, 1);
+
+
+		/*
 		if (noteChar == 'A') {
 			nextNotes.Add (lastNote = (RectTransform)Instantiate (NoteA, gameObject.transform.position+locA, NoteA.rotation));
 		}
@@ -146,8 +169,8 @@ public class PlaySong : MonoBehaviour {
 		}
 		if (noteChar == 'G') {
 			nextNotes.Add (lastNote =(RectTransform)Instantiate (NoteG, gameObject.transform.position+locG, NoteG.rotation));
-		}
-		lastNote.SetParent (gameObject.transform);
+		}*/
+		//lastNote.SetParent (gameObject.transform);
 	}
 
 

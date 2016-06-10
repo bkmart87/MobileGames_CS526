@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ public class NoteController : MonoBehaviour {
 
 	public Sprite clickSprite;
 
-	public float initialSpeed; // moving speed of notes
+	public float initialSpeed = PlaySong.MIN_SPEED; // moving speed of notes
 	
 	public static float noteSpeed = PlaySong.MIN_SPEED;  // moving speed of notes
 	public GameObject sound; //sound of every note
@@ -38,9 +39,11 @@ public class NoteController : MonoBehaviour {
 	{
 		//GetComponent<SpriteRenderer> ().color = new Color (1, 0, 0);
 		//Destroy (gameObject, .1f);
-		if (gameObject.GetComponent<SpriteRenderer> ().sprite != clickSprite) {
+		if (gameObject.GetComponent<Image> ().sprite != clickSprite) {
 			pause = 1;
 		}
+
+		//gameObject.GetComponent<Image>().sprite 
 	}
 
 	void OnMouseDown(){
@@ -51,7 +54,7 @@ public class NoteController : MonoBehaviour {
 				NoteController.noteSpeed = PlaySong.calculateSpeed ();
 
 				Instantiate (sound, transform.position, Quaternion.identity);
-				gameObject.GetComponent<SpriteRenderer> ().sprite = clickSprite;
+				gameObject.GetComponent<Image> ().sprite = clickSprite;
 				Destroy (gameObject,.2f);
 				PlaySong.notesCount++;
 				PlaySong.totalCorrect++;
