@@ -4,6 +4,12 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public float speed = 10f;
+	Rigidbody2D myRB;
+
+
+	void Awake() {
+		myRB = GetComponent<Rigidbody2D> ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -12,8 +18,7 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//transform.Rotate (0, 0, 2);
-		//transform.Translate(0.1f, 0,0);
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (1 * speed, 0);
+		myRB.velocity = new Vector2 (speed, 0);
+		//myRB.AddForce(new Vector2(1, 0) * speed, ForceMode2D.Impulse);
 	}
 }
