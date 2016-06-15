@@ -9,8 +9,8 @@ public class PlaySong : MonoBehaviour {
 	//trigger part
 	public static float TRIGGER_RIGHT = -250; // x value of the trigger right boundry 
 	//notes speed control part
-	public static float MAX_SPEED = 40.0f; // maximum moving speed of note
-	public static float MIN_SPEED = 10.0f;  // min moving speed of note
+	public static float MAX_SPEED = 200.0f; // maximum moving speed of note
+	public static float MIN_SPEED = 120.0f;  // min moving speed of note
  	public static float MAX_CLICK_SPEED = 0.15f; // time spend from last click time to this click time
 	public static float SLOPE = -25.0f;
 
@@ -46,7 +46,7 @@ public class PlaySong : MonoBehaviour {
 
 
 	//song generating part
-	public static float GAP_NOTE = 15.0f; // gap distance between two notes
+	public static float GAP_NOTE = 120.0f; // gap distance between two notes
 	public static float START_LOCATION = 328.0f; // start location of generated note
 
 	public static List<char> songNotes = new List<char> ();//{'A','B','C','D','E','F','G','B','C','A','D','F','E','G','A','B','C','D','E','F','G'};
@@ -178,14 +178,27 @@ public class PlaySong : MonoBehaviour {
 		NoteController.pause = 0;
 		NoteController.noteSpeed = PlaySong.calculateSpeed ();
 		if (PlaySong.nextNotes.Count > PlaySong.notesCount) {
-			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject.transform.position.x <= PlaySong.TRIGGER_RIGHT) {
+			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject.transform.localPosition.x <= PlaySong.TRIGGER_RIGHT) {
 				bestStreak =  0;
-				Instantiate (errorSound, transform.position, Quaternion.identity);
+				Instantiate (errorSound, transform.localPosition, Quaternion.identity);
 				Destroy (PlaySong.nextNotes [PlaySong.notesCount].gameObject);
 				PlaySong.notesCount++;
 			} 
 		}
 
+	}
+
+	public void ClickEvent(){
+		NoteController.pause = 0;
+		NoteController.noteSpeed = PlaySong.calculateSpeed ();
+		if (PlaySong.nextNotes.Count > PlaySong.notesCount) {
+			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject.transform.localPosition.x <= PlaySong.TRIGGER_RIGHT) {
+				bestStreak =  0;
+				Instantiate (errorSound, transform.localPosition, Quaternion.identity);
+				Destroy (PlaySong.nextNotes [PlaySong.notesCount].gameObject);
+				PlaySong.notesCount++;
+			} 
+		}
 	}
 
 	public static float calculateSpeed(){

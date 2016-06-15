@@ -47,9 +47,26 @@ public class NoteController : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		//Debug.Log (Input.mousePosition);
+		Debug.Log (Input.mousePosition);
 		if (PlaySong.nextNotes.Count > PlaySong.notesCount) {
-			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject && transform.position.x <= PlaySong.TRIGGER_RIGHT) {
+			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject && transform.localPosition.x <= PlaySong.TRIGGER_RIGHT) {
+				pause = 0;
+				NoteController.noteSpeed = PlaySong.calculateSpeed ();
+
+				Instantiate (sound, transform.position, Quaternion.identity);
+				gameObject.GetComponent<Image> ().sprite = clickSprite;
+				Destroy (gameObject,.2f);
+				PlaySong.notesCount++;
+				PlaySong.totalCorrect++;
+				PlaySong.bestStreak++;
+			} 
+		} 
+	}
+
+	public void ClickEvent(){
+		Debug.Log (Input.mousePosition);
+		if (PlaySong.nextNotes.Count > PlaySong.notesCount) {
+			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject && transform.localPosition.x <= PlaySong.TRIGGER_RIGHT) {
 				pause = 0;
 				NoteController.noteSpeed = PlaySong.calculateSpeed ();
 
