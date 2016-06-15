@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22223400}
   - 114: {fileID: 11472112}
   - 114: {fileID: 11452754}
-  - 114: {fileID: 11473384}
+  - 114: {fileID: 11445690}
   m_Layer: 5
   m_Name: NoteUIButton
   m_TagString: Untagged
@@ -36,6 +36,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11445690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbf95d4c334d48e6a0d47cde5605d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSpeed: 100
+  sound: {fileID: 0}
 --- !u!114 &11452754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -57,7 +70,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.365368, g: 0.8455882, b: 0.32953072, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -75,8 +88,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11473384}
-        m_MethodName: BigMove
+      - m_Target: {fileID: 11445690}
+        m_MethodName: ClickNote
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -148,17 +161,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11473384
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad49ca49f1822483e82f42d611b2ecbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &22220694
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -9,14 +9,20 @@ public class NoteMovement : MonoBehaviour {
 
 	public GameObject baseNote;
 
+	//note position 
 	float initPosX = 447;
 	float initPosY = 126;
 	float gapY = 22;
 	float gapX = 120;
 
+	//note variables
 	public int noteIndex = 0;
 	public List<int> noteArray = new List<int>();
 	public GameObject lastNote = null;
+
+	//sound variable
+	public GameObject[] soundArray;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,23 +36,12 @@ public class NoteMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< Updated upstream
-=======
 		if (Input.GetMouseButtonDown (0)) {
 			Vector3 pos = Input.mousePosition;
-			GameObject mouse = new GameObject ();
-			mouse.transform.position = pos;
-			Debug.Log (mouse.transform.position.ToString());
-			GameObject canvas = GameObject.Find ("Canvas");
-			mouse.transform.SetParent (canvas.transform);
-			mouse.transform.localPosition = ScreenToCanvasPoint (pos);
-			Debug.Log (mouse.transform.localPosition.ToString());
-			Debug.Log (Screen.width.ToString() + ", " + Screen.height.ToString());
-
-			float w = canvas.GetComponent<RectTransform> ().rect.width;
-			Debug.Log (w.ToString ());
+			pos = ScreenToCanvasPoint (pos);
+			Debug.Log (pos.ToString());
 		}
->>>>>>> Stashed changes
+
 	
 	}
 
@@ -67,6 +62,7 @@ public class NoteMovement : MonoBehaviour {
 		GameObject note = Instantiate (baseNote, new Vector3(initPosX, initPosY - index * 34, 0), Quaternion.identity) as GameObject;
 		note.transform.SetParent (gameObject.transform, false);
 		note.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + (char)('A' + index);
+		note.GetComponent<NoteButtonController> ().sound = soundArray [index];
 		return note;
 	}
 

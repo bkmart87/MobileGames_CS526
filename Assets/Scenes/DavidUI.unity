@@ -135,6 +135,14 @@ MonoBehaviour:
   noteIndex: 0
   noteArray: 
   lastNote: {fileID: 0}
+  soundArray:
+  - {fileID: 195858, guid: 1ba2146d0533bf042ba8e41a49db1fbe, type: 2}
+  - {fileID: 121618, guid: 9be0614fdfaede6429107c5713939ead, type: 2}
+  - {fileID: 128630, guid: 034970bf6fc13da4089abe9a3bdeaae8, type: 2}
+  - {fileID: 118868, guid: 573f4d5c3655c864aa3d57216f2dd7ba, type: 2}
+  - {fileID: 123742, guid: 5eb375f3798bcc04b82570b2d81b14ad, type: 2}
+  - {fileID: 141560, guid: 452acbb6b4172ba48b1e9888f853b350, type: 2}
+  - {fileID: 153422, guid: e474b625c7e4f094783bd7396675eb7e, type: 2}
 --- !u!1001 &178824324
 Prefab:
   m_ObjectHideFlags: 0
@@ -640,7 +648,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 0, y: 300.21}
+  m_SizeDelta: {x: 0, y: 291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1915287288
 GameObject:

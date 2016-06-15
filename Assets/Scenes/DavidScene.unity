@@ -1069,6 +1069,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21271182, guid: e3db2578d41cf4ca39a1668c85591760, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21271182, guid: e3db2578d41cf4ca39a1668c85591760, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21271182, guid: e3db2578d41cf4ca39a1668c85591760, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3db2578d41cf4ca39a1668c85591760, type: 2}
   m_IsPrefabParent: 0
@@ -9206,6 +9218,18 @@ Prefab:
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21270478, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21270478, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21270478, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11439808, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
@@ -10046,6 +10070,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1737435857}
+  - 212: {fileID: 1737435858}
   m_Layer: 0
   m_Name: BGs
   m_TagString: Untagged
@@ -10073,6 +10098,36 @@ Transform:
   - {fileID: 538494385}
   m_Father: {fileID: 894201952}
   m_RootOrder: 2
+--- !u!212 &1737435858
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1737435856}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1737695180
 GameObject:
   m_ObjectHideFlags: 0
