@@ -9,8 +9,8 @@ public class PlaySong : MonoBehaviour {
 	//trigger part
 	public static float TRIGGER_RIGHT = -250; // x value of the trigger right boundry 
 	//notes speed control part
-	public static float MAX_SPEED = 40.0f; // maximum moving speed of note
-	public static float MIN_SPEED = 10.0f;  // min moving speed of note
+	public static float MAX_SPEED = 100.0f; // maximum moving speed of note
+	public static float MIN_SPEED = 60.0f;  // min moving speed of note
  	public static float MAX_CLICK_SPEED = 0.15f; // time spend from last click time to this click time
 	public static float SLOPE = -25.0f;
 
@@ -46,7 +46,7 @@ public class PlaySong : MonoBehaviour {
 
 
 	//song generating part
-	public static float GAP_NOTE = 60.0f; // gap distance between two notes
+	public static float GAP_NOTE = 120.0f; // gap distance between two notes
 	public static float START_LOCATION = 328.0f; // start location of generated note
 
 	public static List<char> songNotes = new List<char> ();//{'A','B','C','D','E','F','G','B','C','A','D','F','E','G','A','B','C','D','E','F','G'};
