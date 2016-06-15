@@ -30,6 +30,23 @@ public class NoteMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< Updated upstream
+=======
+		if (Input.GetMouseButtonDown (0)) {
+			Vector3 pos = Input.mousePosition;
+			GameObject mouse = new GameObject ();
+			mouse.transform.position = pos;
+			Debug.Log (mouse.transform.position.ToString());
+			GameObject canvas = GameObject.Find ("Canvas");
+			mouse.transform.SetParent (canvas.transform);
+			mouse.transform.localPosition = ScreenToCanvasPoint (pos);
+			Debug.Log (mouse.transform.localPosition.ToString());
+			Debug.Log (Screen.width.ToString() + ", " + Screen.height.ToString());
+
+			float w = canvas.GetComponent<RectTransform> ().rect.width;
+			Debug.Log (w.ToString ());
+		}
+>>>>>>> Stashed changes
 	
 	}
 
@@ -51,5 +68,14 @@ public class NoteMovement : MonoBehaviour {
 		note.transform.SetParent (gameObject.transform, false);
 		note.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + (char)('A' + index);
 		return note;
+	}
+
+	Vector3 ScreenToCanvasPoint(Vector3 pos) {
+		GameObject canvas = GameObject.Find ("Canvas");
+		float canvasWidth = canvas.GetComponent<RectTransform> ().rect.width;
+		float canvasHeight = canvas.GetComponent<RectTransform> ().rect.height;
+		float newX = (pos.x / Screen.width - 0.5f) * canvasWidth;
+		float newY = (pos.y / Screen.height - 0.5f) * canvasHeight;
+		return new Vector3 (newX, newY, 0f);
 	}
 }
