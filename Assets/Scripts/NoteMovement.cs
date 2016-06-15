@@ -30,6 +30,16 @@ public class NoteMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetMouseButtonDown (0)) {
+			Debug.Log ("Press left click");
+			//Vector3 pos = Input.mousePosition;
+			Vector3 pos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			GameObject mouse = new GameObject ();
+			mouse.transform.position = pos;
+			Debug.Log (mouse.transform.localPosition.ToString());
+			//mouse.transform.SetParent (gameObject.transform);
+			Debug.Log (mouse.transform.localPosition.ToString());
+		}
 	
 	}
 
