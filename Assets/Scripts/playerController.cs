@@ -8,7 +8,9 @@ public class playerController : MonoBehaviour {
 	public float minSpeed;
 	public bool speedUp;
 	public bool speedDown;
+	public float jumpHeight;
 	public static float currentSpeed = 0f;
+
 
 
 	Rigidbody2D myRB;
@@ -32,6 +34,9 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
+		if (Input.GetAxis ("Jump") > 0) {
+			myRB.AddForce (new Vector2 (0, jumpHeight));
+		}
 
 
 	}
@@ -59,7 +64,7 @@ public class playerController : MonoBehaviour {
 
 		if (PlaySong.bestStreak > preBestStreak) {
 			speedUp = true;
-		}
+		} 
 
 
 		if (speedUp && currentSpeed < maxSpeed) {
@@ -75,8 +80,12 @@ public class playerController : MonoBehaviour {
 			speedDown = false;
 		}
 
-		if (NoteController.pause == 1) {
+		if (PlaySong.bestStreak == 0) {
 			currentSpeed = minSpeed;
+		}
+
+		if (NoteController.pause == 1) {
+			currentSpeed = 0f;
 		}
 
 		preBestStreak = PlaySong.bestStreak;
