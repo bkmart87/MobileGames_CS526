@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class playerHit : MonoBehaviour {
+public class destController : MonoBehaviour {
+	public playerController pc = null;
+	public EnemyController ec = null;
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +18,10 @@ public class playerHit : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//Destroy (gameObject);
-			playerController.currentSpeed = 0f;
-			EnemyController.currentSpeed = 0f;
+			//playerController.currentSpeed = 0f;
+			pc.Stop ();
+			ec.Stop ();
+
 		}
 	}
 }
