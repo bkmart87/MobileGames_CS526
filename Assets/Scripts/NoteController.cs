@@ -66,7 +66,7 @@ public class NoteController : MonoBehaviour {
 	public void ClickEvent(){
 		Debug.Log (Input.mousePosition);
 		if (PlaySong.nextNotes.Count > PlaySong.notesCount) {
-			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject){ // && transform.localPosition.x <= PlaySong.TRIGGER_RIGHT) {
+			if (PlaySong.nextNotes [PlaySong.notesCount].gameObject == gameObject && transform.localPosition.x <= PlaySong.TRIGGER_RIGHT) {
 				pause = 0;
 				NoteController.noteSpeed = PlaySong.calculateSpeed ();
 
