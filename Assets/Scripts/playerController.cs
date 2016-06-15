@@ -5,10 +5,17 @@ public class playerController : MonoBehaviour {
 
 	//movement variables
 	public float maxSpeed;
+	public float minSpeed;
+	public bool speedUp;
+	public bool speedDown;
+	public float jumpHeight;
+	public static float currentSpeed = 0f;
+
 
 
 	Rigidbody2D myRB;
 	Animator myAnim;
+	int preBestStreak = 0;
 
 	bool facingRight;
 
@@ -18,6 +25,8 @@ public class playerController : MonoBehaviour {
 		myAnim = GetComponent<Animator> ();
 
 		facingRight = true;
+		currentSpeed = minSpeed;
+		preBestStreak = PlaySong.bestStreak;
 	
 	}
 
@@ -25,6 +34,9 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
+		if (Input.GetAxis ("Jump") > 0) {
+			myRB.AddForce (new Vector2 (0, jumpHeight));
+		}
 
 
 	}
@@ -33,19 +45,59 @@ public class playerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		float move = Input.GetAxis ("Horizontal");
-		myAnim.SetFloat ("Speed", Mathf.Abs(move));
+		GetSpeed ();
+		myAnim.SetFloat ("Speed", Mathf.Abs(currentSpeed));
 
-		myRB.velocity = new Vector2 (move * maxSpeed, myRB.velocity.y);
+		myRB.velocity = new Vector2 (currentSpeed, myRB.velocity.y);
 
 		if (move > 0 && !facingRight) {
-			flip ();
+			Flip ();
 		} else if (move < 0 && facingRight) {
-			flip ();
+			Flip ();
 		}
 
 	}
 
-	void flip() {
+	void GetSpeed() {
+
+
+
+		if (PlaySong.bestStreak > preBestStreak) {
+			speedUp = true;
+		} 
+
+
+		if (speedUp && currentSpeed < maxSpeed) {
+			currentSpeed += 2;
+			if (currentSpeed > maxSpeed)
+				currentSpeed = maxSpeed;
+			speedUp = false;
+		}
+		else if(speedDown && currentSpeed > minSpeed) {
+			currentSpeed -= 2;
+			if (currentSpeed < minSpeed)
+				currentSpeed = minSpeed;
+			speedDown = false;
+		}
+
+		if (PlaySong.bestStreak == 0) {
+			currentSpeed = minSpeed;
+		}
+
+		if (NoteController.pause == 1) {
+			currentSpeed = 0f;
+		}
+
+		preBestStreak = PlaySong.bestStreak;
+			
+
+	}
+
+	public void Stop() {
+		currentSpeed = 0;
+	}
+
+	void Flip() {
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;

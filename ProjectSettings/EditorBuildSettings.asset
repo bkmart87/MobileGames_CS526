@@ -7,5 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/TestScene2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DavidScene.unity
+  - enabled: 0
+    path: Assets/Scenes/UI.unity
+  - enabled: 1
+    path: Assets/Scenes/DavidUI.unity

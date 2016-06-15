@@ -3,12 +3,16 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
-	public float speed = 10f;
+	public static float currentSpeed = 5f;
+	public playerController pc = null;
+
 	Rigidbody2D myRB;
+	Animator myAnim;
 
 
 	void Awake() {
 		myRB = GetComponent<Rigidbody2D> ();
+		myAnim = GetComponentInParent<Animator> ();
 	}
 
 	// Use this for initialization
@@ -18,7 +22,25 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		myRB.velocity = new Vector2 (speed, 0);
-		//myRB.AddForce(new Vector2(1, 0) * speed, ForceMode2D.Impulse);
+	}
+
+	void FixedUpdate() {
+		myAnim.SetFloat ("Speed", Mathf.Abs(currentSpeed));
+		myRB.velocity = new Vector2 (currentSpeed, 0);
+
+	}
+
+	public void Stop() {
+		currentSpeed = 0;
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
+			//Destroy (gameObject);
+			//playerController.currentSpeed = 0f;
+			Stop();
+			pc.Stop ();
+
+		}
 	}
 }
