@@ -147,6 +147,8 @@ public class PlaySong : MonoBehaviour {
 		lastNote.localPosition = notesLoc [index];
 		lastNote.localScale = new Vector3 (1, 1, 1);
 
+		
+
 
 		/*
 		if (noteChar == 'A') {
