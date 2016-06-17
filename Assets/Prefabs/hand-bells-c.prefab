@@ -11,7 +11,7 @@ GameObject:
   - 82: {fileID: 8299560}
   - 114: {fileID: 11472226}
   m_Layer: 0
-  m_Name: hand-bells-low-c
+  m_Name: hand-bells-c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a9c1d526a31342dcb6056b4eed2290b, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

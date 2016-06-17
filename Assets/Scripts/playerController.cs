@@ -6,8 +6,13 @@ public class playerController : MonoBehaviour {
 	//movement variables
 	public float maxSpeed;
 	public float minSpeed;
+
+	//control speed bool
 	public bool speedUp;
 	public bool speedDown;
+	public bool speedMin;
+	public bool speedZero;
+	public bool jump;
 	public float jumpHeight;
 	public static float currentSpeed = 0f;
 
@@ -15,7 +20,7 @@ public class playerController : MonoBehaviour {
 
 	Rigidbody2D myRB;
 	Animator myAnim;
-	int preBestStreak = 0;
+
 
 	bool facingRight;
 
@@ -26,7 +31,6 @@ public class playerController : MonoBehaviour {
 
 		facingRight = true;
 		currentSpeed = minSpeed;
-		preBestStreak = PlaySong.bestStreak;
 	
 	}
 
@@ -34,9 +38,7 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		if (Input.GetAxis ("Jump") > 0) {
-			myRB.AddForce (new Vector2 (0, jumpHeight));
-		}
+		Jump ();
 
 
 	}
@@ -58,44 +60,51 @@ public class playerController : MonoBehaviour {
 
 	}
 
+
+
 	void GetSpeed() {
 
 
-
-		if (PlaySong.bestStreak > preBestStreak) {
-			speedUp = true;
-		} 
-
+	
 
 		if (speedUp && currentSpeed < maxSpeed) {
-			currentSpeed += 2;
+
+			currentSpeed += 2f;
 			if (currentSpeed > maxSpeed)
 				currentSpeed = maxSpeed;
 			speedUp = false;
-		}
-		else if(speedDown && currentSpeed > minSpeed) {
-			currentSpeed -= 2;
+		} else if (speedDown && currentSpeed > minSpeed) {
+			currentSpeed -= 2f;
 			if (currentSpeed < minSpeed)
 				currentSpeed = minSpeed;
 			speedDown = false;
-		}
-
-		if (PlaySong.bestStreak == 0) {
+		} else if (speedDown && currentSpeed == 0f) {
 			currentSpeed = minSpeed;
+			speedDown = false;
 		}
 
-		if (NoteController.pause == 1) {
+		if (speedMin) {
+			currentSpeed = minSpeed;
+			speedMin = false;
+		}
+
+		if (speedZero) {
 			currentSpeed = 0f;
+			speedZero = false;
 		}
-
-		preBestStreak = PlaySong.bestStreak;
-			
-
 	}
 
 	public void Stop() {
-		currentSpeed = 0;
+		currentSpeed = 0f;
 	}
+
+	void Jump() {
+		if (jump) {
+			myRB.AddForce (new Vector2 (0, jumpHeight));
+			jump = false;
+		}
+	}
+		
 
 	void Flip() {
 		facingRight = !facingRight;

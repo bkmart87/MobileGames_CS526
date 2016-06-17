@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbf95d4c334d48e6a0d47cde5605d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSpeed: 100
   sound: {fileID: 0}
 --- !u!114 &11452754
 MonoBehaviour:

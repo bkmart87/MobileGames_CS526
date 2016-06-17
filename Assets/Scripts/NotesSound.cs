@@ -6,10 +6,13 @@ public class NotesSound : MonoBehaviour {
 	// Use this for initialization
 	AudioSource audio;
 
-	void Start () {
+	void Awake() {
 		audio = GetComponent<AudioSource> ();
-	
 		StartCoroutine(Sound ());
+	}
+
+	void Start () {
+
 	}
 	
 
