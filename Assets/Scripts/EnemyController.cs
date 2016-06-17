@@ -36,10 +36,9 @@ public class EnemyController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			//Destroy (gameObject);
-			//playerController.currentSpeed = 0f;
-			Stop();
-			pc.Stop ();
+			GameController.GameOver ();
+			//Stop();
+			//pc.speedZero = true;
 
 		}
 	}

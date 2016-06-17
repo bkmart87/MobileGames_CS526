@@ -19,8 +19,10 @@ public class destController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//Destroy (gameObject);
 			//playerController.currentSpeed = 0f;
-			pc.Stop ();
-			ec.Stop ();
+			//Debug.Log("Hit");
+			//pc.Stop ();
+			//ec.Stop ();
+			GameController.GameWin();
 
 		}
 	}
