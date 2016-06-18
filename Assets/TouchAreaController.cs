@@ -17,10 +17,8 @@ public class TouchAreaController : MonoBehaviour {
 	public void Click() {
 		GameObject myErrorSound = Instantiate(errorSound);
 
-		UnityEngine.UI.Text inputStatus = GameObject.Find ("InputStatusText").GetComponent<UnityEngine.UI.Text> ();
 		playerController pc = GameObject.Find ("Peter").GetComponent<playerController> ();
 		BestStreakTextController.score = 0;
-		inputStatus.text = "Wrong!";
 		pc.speedMin = true;
 
 	}

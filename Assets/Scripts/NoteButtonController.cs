@@ -9,13 +9,22 @@ public class NoteButtonController : MonoBehaviour {
 	float triggerRight = -148f;
 	float triggerLeft = -400f;
 
-	public static bool click = false;
 	public static bool pause = false;
 	public static float noteSpeed = 2f;
 
+	//PlayerController script
+	playerController pc;
+
+	//hold button for jumping
+	bool holdButton = false;
+	float holdTime = 0f;
+	float totalHoldTime = 0.3f;
+
+	/*
 	float perfectX;
 	float perfectInteval = 25f;
 	static int perfectCount = 0;
+	*/
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +33,7 @@ public class NoteButtonController : MonoBehaviour {
 		triggerRight = GameObject.Find ("Glowbit").transform.localPosition.x;
 		RectTransform touchRect = GameObject.Find ("TouchArea").GetComponent<RectTransform> ();
 		triggerLeft = touchRect.localPosition.x - touchRect.rect.width / 2f;
-		perfectX = GameObject.Find ("PerfectLine").transform.localPosition.x;
+		pc = GameObject.Find ("Peter").GetComponent<playerController> ();
 
 
 	}
@@ -37,51 +46,50 @@ public class NoteButtonController : MonoBehaviour {
 		if (!pause) {
 			Move ();
 		} else {
-			GameObject.Find ("Peter").GetComponent<playerController> ().speedZero = true;
+			pc.speedZero = true;
 		}
 
-	}
+		Hold ();
 
-	public void BigMove() {
-		Vector3 currentPos = GetComponent<RectTransform> ().localPosition;
-		GetComponent<RectTransform> ().localPosition = new Vector3 (currentPos.x - 100f, currentPos.y, currentPos.z);
 	}
+		
 
 	public void Move() {
 		Vector3 currentPos = GetComponent<RectTransform> ().localPosition;
 		GetComponent<RectTransform> ().localPosition = new Vector3 (currentPos.x - noteSpeed, currentPos.y, currentPos.z);
 	}
 
-	public void ClickNote() {
+	public void Click() {
 
 		GameObject mySound = Instantiate (sound);
-		click = true;
-		pause = false;
+		pause = false; //if pause, start moving
 		ScoreTextController.score++;
 		BestStreakTextController.score++;
-
-
-		float x = transform.localPosition.x;
-		UnityEngine.UI.Text inputStatus = GameObject.Find ("InputStatusText").GetComponent<UnityEngine.UI.Text> ();
-		playerController pc = GameObject.Find ("Peter").GetComponent<playerController> ();
-
-
-		if (x >= perfectX - perfectInteval && x <= perfectX + perfectInteval) {
-			perfectCount++;
-			inputStatus.text = "Perfect X " + perfectCount.ToString();
-			pc.speedUp = true;
-		} else if (x >= perfectX + perfectInteval) {
-			inputStatus.text = "Fast!";
-			perfectCount = 0;
-			pc.speedDown = true;
-		} else {
-			inputStatus.text = "Slow!";
-			perfectCount = 0;
-			pc.speedDown = true;
-		}
-			
-
+		pc.speedUp = true;
 		Destroy (gameObject);
 
 	}
+
+	public void Down() {
+		holdButton = true;
+	}
+
+	public void Up() {
+		holdButton = false;
+		holdTime = 0f;
+	}
+
+	public void Hold() {
+		if (holdButton) {
+			holdTime += Time.deltaTime;
+			if (holdTime > totalHoldTime) {
+				GameObject mySound = Instantiate (sound);
+				Debug.Log ("Jump");
+				pc.jump = true;
+				holdButton = false;
+				Destroy (gameObject);
+			}
+		}
+	}
+
 }
