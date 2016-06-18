@@ -64,6 +64,8 @@ public class NoteButtonController : MonoBehaviour {
 		float x = transform.localPosition.x;
 		UnityEngine.UI.Text inputStatus = GameObject.Find ("InputStatusText").GetComponent<UnityEngine.UI.Text> ();
 		playerController pc = GameObject.Find ("Peter").GetComponent<playerController> ();
+
+
 		if (x >= perfectX - perfectInteval && x <= perfectX + perfectInteval) {
 			perfectCount++;
 			inputStatus.text = "Perfect X " + perfectCount.ToString();
@@ -77,6 +79,7 @@ public class NoteButtonController : MonoBehaviour {
 			perfectCount = 0;
 			pc.speedDown = true;
 		}
+			
 
 		Destroy (gameObject);
 

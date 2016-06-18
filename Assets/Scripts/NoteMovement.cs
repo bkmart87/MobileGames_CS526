@@ -7,6 +7,8 @@ using System.IO;
 
 public class NoteMovement : MonoBehaviour {
 
+	public string musicFileName = "";
+
 	public GameObject baseNote;
 	public GameObject empyNote;
 	public float noteSpeed;
@@ -29,7 +31,7 @@ public class NoteMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Load (Application.dataPath + "/MusicFiles/TwinkleLittleStar.txt");
+		Load (Application.dataPath + "/MusicFiles/" + musicFileName);
 	
 	}
 	
