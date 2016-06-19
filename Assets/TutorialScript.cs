@@ -14,7 +14,7 @@ public class TutorialScript : MonoBehaviour {
 	void Start () {
 		count = 0;
 		hints[0] = "Hi, Welcome To Peter and The Wolf Game!";
-		hints[1] = "You need to press the notes correctly to contorl the moving speed of PETER!";
+		hints[1] = "Press the notes correctly to contorl the speed of PETER!";
 		hints[2] = "Now, Please press the note! "; 
 		hints[3] = "Great! "; 
 		hints[4] = " "; 
