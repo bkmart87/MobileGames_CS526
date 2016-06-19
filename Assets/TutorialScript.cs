@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class TutorialScript : MonoBehaviour {
 
+	public GameObject cameraUI;
 	private static int numHints = 10;
 	private string[] hints = new string[numHints];
 	int count = 0;
 
-	public RectTransform note;
+//	public RectTransform note;
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +36,10 @@ public class TutorialScript : MonoBehaviour {
 
 		//note come out
 		if (count == 2) {
-			Instantiate (note);
+//			Instantiate (note);
 		}
+		cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled = 
+			!cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled;
 	}
 
 }
