@@ -14,7 +14,11 @@ public class playerController : MonoBehaviour {
 	public bool speedZero;
 	public bool jump;
 	public float jumpHeight;
+	public float jumpDistance;
 	public static float currentSpeed = 0f;
+
+	//jump manipulation
+	float groundY = 3.50f;
 
 
 
@@ -39,6 +43,10 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		Jump ();
+		if (transform.localPosition.y > groundY) {
+			Debug.Log ("jumping!");
+			transform.Translate (jumpDistance, 0, 0);
+		}
 
 
 	}

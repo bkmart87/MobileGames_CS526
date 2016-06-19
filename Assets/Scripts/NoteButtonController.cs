@@ -6,19 +6,23 @@ public class NoteButtonController : MonoBehaviour {
 
 	public GameObject sound = null;
 
-	float triggerRight = -148f;
-	float triggerLeft = -400f;
+	public static float triggerRight = -148f;
+	public float triggerLeft = -400f;
 
 	public static bool pause = false;
 	public static float noteSpeed = 2f;
+	float tempSpeed = 0f;
 
 	//PlayerController script
 	playerController pc;
+	NoteMovement notemovement;
 
 	//hold button for jumping
 	bool holdButton = false;
 	float holdTime = 0f;
 	float totalHoldTime = 0.3f;
+
+	public bool isDouble = false;
 
 	/*
 	float perfectX;
@@ -27,8 +31,13 @@ public class NoteButtonController : MonoBehaviour {
 	*/
 
 	// Use this for initialization
+	void Awake() {
+
+		//noteSpeed = notemovement.noteSpeed;
+	}
+
 	void Start () {
-		noteSpeed = GameObject.Find ("Notes").GetComponent<NoteMovement> ().noteSpeed;
+		notemovement = GameObject.Find ("Notes").GetComponent<NoteMovement> ();
 		GetComponent<UnityEngine.UI.Button> ().interactable = false;
 		triggerRight = GameObject.Find ("Glowbit").transform.localPosition.x;
 		RectTransform touchRect = GameObject.Find ("TouchArea").GetComponent<RectTransform> ();
@@ -48,7 +57,6 @@ public class NoteButtonController : MonoBehaviour {
 		} else {
 			pc.speedZero = true;
 		}
-
 		Hold ();
 
 	}
@@ -62,16 +70,27 @@ public class NoteButtonController : MonoBehaviour {
 	public void Click() {
 
 		GameObject mySound = Instantiate (sound);
-		pause = false; //if pause, start moving
+
 		ScoreTextController.score++;
 		BestStreakTextController.score++;
-		pc.speedUp = true;
+
+		if (pause) {
+			pause = false; //if pause, start moving 
+			noteSpeed = NoteMovement.minSpeed;
+			pc.speedMin = true;
+
+		} else {
+			if(!isDouble) noteSpeed = notemovement.calculateSpeed ();
+			pc.speedUp = true;
+		}
+		notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
 		Destroy (gameObject);
 
 	}
 
 	public void Down() {
 		holdButton = true;
+		tempSpeed = noteSpeed;
 	}
 
 	public void Up() {
@@ -85,8 +104,26 @@ public class NoteButtonController : MonoBehaviour {
 			if (holdTime > totalHoldTime) {
 				GameObject mySound = Instantiate (sound);
 				Debug.Log ("Jump");
+
+
+
+				ScoreTextController.score++;
+				BestStreakTextController.score++;
+				pc.speedUp = true;
+
+				if (pause) {
+					pause = false; //if pause, start moving 
+					noteSpeed = NoteMovement.minSpeed;
+					pc.speedMin = true;
+
+				} else {
+					if(!isDouble) noteSpeed = notemovement.calculateSpeed ();
+					pc.speedUp = true;
+				}
+
 				pc.jump = true;
 				holdButton = false;
+				notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
 				Destroy (gameObject);
 			}
 		}

@@ -36,10 +36,7 @@ public class EnemyController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			GameController.GameOver ();
-			//Stop();
-			//pc.speedZero = true;
-
+			GameObject.Find("Game").GetComponent<GameController>().GameOver ();
 		}
 	}
 }

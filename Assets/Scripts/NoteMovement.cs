@@ -7,31 +7,40 @@ using System.IO;
 
 public class NoteMovement : MonoBehaviour {
 
-	public string musicFileName = "";
 
 	public GameObject baseNote;
-	public GameObject empyNote;
-	public float noteSpeed;
+	public GameObject errorSound = null;
+
+	//note speed
+	float lastClickTime = 0f;
+	public static float maxSpeed = 8f;
+	public static float minSpeed = 2f;
+	float slope = -2.8f;
 
 	//note position 
 	float initPosX = 447;
-	//float initPosY = 126;
-	float[] initPosYArray = {0,53,86,115,-63,-35,-6,23};
+	float[] initPosYArray = {0,53,86,86,115,115,-63,-35,-35,-6,-6,23,23};
 	float gapY = 22;
-	float gapX = 120;
+	float gapX = 170;
 
 	//note variables
 	public int noteIndex = 0;
-	public List<char> noteArray = new List<char>();
+	public string[] noteArray;
 	public GameObject lastNote = null;
+	public List<GameObject> nextNotes = new List<GameObject>();
+	public int nextNotesIndex = 0;
 
 	//sound variable
 	public GameObject[] soundArray;
 
+	//read music file
+	public TextAsset musicFile = null;
+	string[] noteIndexArray = { "0", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B" };
+
 
 	// Use this for initialization
 	void Start () {
-		Load (Application.dataPath + "/MusicFiles/" + musicFileName);
+		noteArray = Load ();
 	
 	}
 	
@@ -40,26 +49,100 @@ public class NoteMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (noteIndex < noteArray.Count) {
-			//Debug.Log (lastNote.transform.position.x + "");
+		if (noteIndex < noteArray.Length) { // generate new node from noteArray
 			if (lastNote == null) {
-				lastNote = GenerateNote (NoteLetterToIndex(noteArray [noteIndex]));
+				GenerateNote (noteArray[noteIndex]);
 				noteIndex++;
 			} else if(initPosX - lastNote.transform.localPosition.x > gapX){
-				lastNote = GenerateNote (NoteLetterToIndex(noteArray [noteIndex]));
+				GenerateNote (noteArray[noteIndex]);
 				noteIndex++;
 			}
 		}
 	}
 
-	GameObject GenerateNote(int index) {
-		GameObject note = Instantiate (baseNote, new Vector3(initPosX, initPosYArray[index], 0), Quaternion.identity) as GameObject;
-		note.transform.SetParent (gameObject.transform, false);
-		note.GetComponentInChildren<UnityEngine.UI.Text>().text = "" + IndexToNoteLetter(index);
-		note.GetComponent<NoteButtonController> ().sound = soundArray [index];
-		return note;
+	void GenerateNote(string s) { //generate note GameObject to move in chart
+		string[] sArray = s.Split (',');
+		for (int i = 0; i < sArray.Length; i++) { 
+			int index = NoteToIndex (sArray[i]);
+			//Debug.Log ("index: " + index);
+			GameObject note = Instantiate (baseNote, new Vector3 (initPosX, initPosYArray [index % 12], 0), Quaternion.identity) as GameObject;
+			note.transform.SetParent (gameObject.transform, false);
+			note.GetComponentInChildren<UnityEngine.UI.Text> ().text = sArray[i];
+			note.GetComponent<NoteButtonController> ().sound = soundArray [index];
+			if (sArray.Length > 1) {
+				note.GetComponent<NoteButtonController> ().isDouble = true;
+			}
+			//5D1F1F80 FF878EFF
+			if (sArray [i] [sArray[i].Length - 1] == '5') {
+				ColorBlock cb = note.GetComponent<UnityEngine.UI.Button> ().colors;
+				cb.highlightedColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
+				cb.normalColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
+				cb.disabledColor = new Color (255f / 255f, 192f / 255f, 203f / 255f, 1f);
+				note.GetComponent<UnityEngine.UI.Button> ().colors = cb;
+			}
+			nextNotes.Add (note);
+			lastNote = note;
+		}
 	}
 
+	//get index of note string (like "Eb4" -- 4)
+	public int NoteToIndex(string s) {
+		int index = 0;
+		if (s [s.Length - 1] == '5')
+			index = 12;
+		s = s.Substring (0, s.Length - 1);
+		for (int i = 1; i < noteIndexArray.Length; i++) {
+			if(s.Equals(noteIndexArray[i])) {
+				index += i;
+				break;
+			}
+		}
+		return index;
+	}
+
+	public void ClickTouchArea() { // run when click on touch area
+		if (nextNotesIndex < nextNotes.Count) {
+			if (nextNotes [nextNotesIndex].transform.localPosition.x <= NoteButtonController.triggerRight) {// there is note in touch area
+				GameObject myErrorSound = Instantiate (errorSound);
+				BestStreakTextController.score = 0;
+
+				if (NoteButtonController.pause) {
+					NoteButtonController.pause = false;
+					NoteButtonController.noteSpeed = minSpeed;
+				} else {
+					NoteButtonController.noteSpeed = calculateSpeed ();
+					playerController pc = GameObject.Find ("Peter").GetComponent<playerController> ();
+					pc.speedMin = true;
+				}
+				Destroy (nextNotes [nextNotesIndex]);
+				nextNotes [nextNotesIndex++] = null;
+			} else { //note has not came to touch area yet 
+				NoteButtonController.noteSpeed = calculateSpeed ();
+
+			}
+		}
+	}
+
+	public float calculateSpeed() {
+		float clickTimeInterval = Time.time - lastClickTime;
+		lastClickTime = Time.time;	
+		Debug.Log ("interval: " + clickTimeInterval);
+		float speed = slope * clickTimeInterval + maxSpeed;
+		if (speed > maxSpeed)
+			speed = maxSpeed;
+		else if (speed < minSpeed)
+			speed = minSpeed;
+		Debug.Log ("Speed: " + speed);
+		return speed;
+	}
+
+	//load music file
+	string[] Load (){
+		return musicFile.text.Split ('\n');
+	}
+
+
+	//no use now 
 	Vector3 ScreenToCanvasPoint(Vector3 pos) {
 		GameObject canvas = GameObject.Find ("Canvas");
 		float canvasWidth = canvas.GetComponent<RectTransform> ().rect.width;
@@ -67,44 +150,6 @@ public class NoteMovement : MonoBehaviour {
 		float newX = (pos.x / Screen.width - 0.5f) * canvasWidth;
 		float newY = (pos.y / Screen.height - 0.5f) * canvasHeight;
 		return new Vector3 (newX, newY, 0f);
-	}
-
-	char IndexToNoteLetter(int index) {
-		if (index == 0)
-			return '.';
-		if (index <= 5) {
-			return (char)('C' + (index - 1));
-		} else {
-			return (char)('A' + (index - 6));
-		}
-	}
-
-	int NoteLetterToIndex(char c) {
-		if (c == '.')
-			return 0;
-		if (c <= 'B')
-			return (int)(c - 'A') + 6;
-		else
-			return (int)(c - 'C') + 1;
-	}
-
-	void Load(string fileName){
-		string line;
-		StreamReader theReader = new StreamReader (fileName, Encoding.Default);
-		using (theReader) {
-			do {
-				line = theReader.ReadLine ();
-				if (line != null) {
-					char[] entries = line.ToCharArray();//Split (' ');
-					if (entries.Length > 0) {
-						for(int i =0;i<entries.Length;i++)
-							noteArray.Add(entries[i]);
-						//Debug.Log(entries[i]);
-					}
-				}
-			} while(line != null);
-			theReader.Close ();
-		}
 	}
 		
 }
