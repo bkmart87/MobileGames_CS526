@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class GameController : MonoBehaviour {
 
 	public GameObject player;
@@ -42,7 +43,14 @@ public class GameController : MonoBehaviour {
 		notes.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Game Over";
 
+		Invoke("GameOverDelay", 3F);
 
+
+	}
+
+	void GameOverDelay() {
+		Debug.Log ("GameOverDelay");
+		Application.LoadLevel("GameOver");
 	}
 
 	public void GameWin() {
@@ -54,11 +62,12 @@ public class GameController : MonoBehaviour {
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
 
 
-		Invoke("stopPlayer", 3f);
+		Invoke("GameWinDelay", 3f);
 
 	}
 
-	void stopPlayer() {
+	void GameWinDelay() {
 		player.GetComponent<playerController> ().Stop ();
+		Application.LoadLevel("GameOver");
 	}
 }

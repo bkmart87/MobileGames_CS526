@@ -11,7 +11,7 @@ public class BestStreakTextController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<UnityEngine.UI.Text> ().text = "Best Streak: " + score.ToString ();
+		GetComponent<UnityEngine.UI.Text> ().text = "Best Streak " + score.ToString ();
 	
 	}
 }

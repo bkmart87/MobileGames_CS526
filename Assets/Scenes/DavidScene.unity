@@ -329,7 +329,7 @@ Prefab:
       objectReference: {fileID: 104020, guid: 2b87d88acc6b84d668c461e258179c6e, type: 2}
     - target: {fileID: 22409272, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -157
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 22460902, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -388,6 +388,76 @@ Prefab:
       value: 
       objectReference: {fileID: 199158, guid: 51e835edf30e347d5b7713a0ee9260b5, type: 2}
     - target: {fileID: 199772, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3dd0f3f86cc1f4391814e8136cecbf46,
+        type: 3}
+    - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453688, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -289
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Color.g
+      value: 0.46249557
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Color.r
+      value: 0.20907131
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Color.b
+      value: 0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Color.r
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Color.g
+      value: 0.45882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Color.b
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3dd0f3f86cc1f4391814e8136cecbf46,
+        type: 3}
+    - target: {fileID: 22491360, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 205
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491360, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 362
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Text
+      value: Score 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_Text
+      value: Best Streak 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453688, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 146252, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -524,7 +594,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759087834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 995, y: 4.7, z: 0}
+  m_LocalPosition: {x: 275.5, y: 4.7, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

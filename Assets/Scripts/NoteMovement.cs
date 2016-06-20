@@ -13,15 +13,15 @@ public class NoteMovement : MonoBehaviour {
 
 	//note speed
 	float lastClickTime = 0f;
-	public static float maxSpeed = 8f;
-	public static float minSpeed = 2f;
-	float slope = -2.8f;
+	public static float maxSpeed = 10f;
+	public static float minSpeed = 4f;
+	float slope = -2f;
 
 	//note position 
 	float initPosX = 447;
 	float[] initPosYArray = {0,53,86,86,115,115,-63,-35,-35,-6,-6,23,23};
 	float gapY = 22;
-	float gapX = 170;
+	float gapX = 140;
 
 	//note variables
 	public int noteIndex = 0;

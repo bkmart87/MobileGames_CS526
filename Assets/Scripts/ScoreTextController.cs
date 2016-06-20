@@ -11,6 +11,6 @@ public class ScoreTextController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<UnityEngine.UI.Text> ().text = "Score: " + score.ToString ();
+		GetComponent<UnityEngine.UI.Text> ().text = "Score " + score.ToString ();
 	}
 }
