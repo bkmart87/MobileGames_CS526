@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddff03c6124ca2d4fb91aa1f9bb8cdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 195858, guid: 1ba2146d0533bf042ba8e41a49db1fbe, type: 2}
+  sound: {fileID: 166540, guid: ac6cb31db01f34d40b9bce1522ef58a8, type: 2}
 --- !u!1 &22309758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddff03c6124ca2d4fb91aa1f9bb8cdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 121618, guid: 9be0614fdfaede6429107c5713939ead, type: 2}
+  sound: {fileID: 126758, guid: 835566e90ae724156ac53933394e59ba, type: 2}
 --- !u!1 &201227843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,7 +3159,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11465086, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
       propertyPath: m_Text
-      value: B
+      value: B4
       objectReference: {fileID: 0}
     - target: {fileID: 11445690, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
       propertyPath: sound
@@ -3212,6 +3212,14 @@ Prefab:
     - target: {fileID: 11452754, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 22401328, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22401328, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11445690, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
@@ -14219,6 +14227,10 @@ Prefab:
     - target: {fileID: 11452754, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465086, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
+      propertyPath: m_Text
+      value: A4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11445690, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}

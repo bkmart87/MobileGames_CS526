@@ -21,11 +21,11 @@ public class TutorialScript : MonoBehaviour {
 		hints[0] = "Hi, Welcome To Peter and The Wolf Game!";
 		hints[1] = "You need to press the notes correctly to contorl the moving speed of PETER!";
 		hints[2] = "You can press the note when the note reached the left side of the glow!"; 
-		hints[3] = "Now, Please press the note A which was already on the left side of the glow! "; 
-		hints[4] = "Great! If you press note B which was still on the right side, nothing happened!"; 
+		hints[3] = "Now, Please press the note A4 which was already on the left side of the glow! "; 
+		hints[4] = "Great! If you press note B4 which was still on the right side, nothing happened!"; 
 		hints[5] = "Now! Try to press the note B when it's moving!"; 
 		hints[6] = "Congratulations! You learned how to PLAY the music!"; 
-		hints[7] = ""; 
+		hints[7] = "Try your best to press notes correctly as much as you can! Save the PETER!"; 
 		hints[8] = " "; 
 		hints[9] = " ";
 
@@ -63,11 +63,14 @@ public class TutorialScript : MonoBehaviour {
 			if (count == 6) {
 				cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled = 
 					!cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled;
-				GameObject text = GameObject.Find ("ButtonText");
-				text.GetComponent<Text> ().text = "END";
+				
 			}
 
 			if (count == 7) {
+				GameObject text = GameObject.Find ("ButtonText");
+				text.GetComponent<Text> ().text = "END";
+			}
+			if (count == 8) {
 				Application.LoadLevel ("level0");
 			}
 		}
