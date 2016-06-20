@@ -9,6 +9,7 @@ public class TutorialScript : MonoBehaviour {
 	int count = 0;
 
 	public GameObject baseNote;
+	public GameObject cameraUI;
 
 	private GameObject noteA;
 	private GameObject noteB;
@@ -48,6 +49,8 @@ public class TutorialScript : MonoBehaviour {
 
 			//note come out
 			if (count == 3) {
+				cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled = 
+					!cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled;
 				noteA.SetActive (true);
 				noteB.SetActive (true);
 			}
@@ -58,6 +61,8 @@ public class TutorialScript : MonoBehaviour {
 			}
 
 			if (count == 6) {
+				cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled = 
+					!cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled;
 				GameObject text = GameObject.Find ("ButtonText");
 				text.GetComponent<Text> ().text = "END";
 			}

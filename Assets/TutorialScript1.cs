@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class TutorialScript : MonoBehaviour {
-
+public class TutorialScript1 : MonoBehaviour {
+	
 	public GameObject cameraUI;
 	private static int numHints = 10;
 	private string[] hints = new string[numHints];
