@@ -2,21 +2,22 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class TutorialScript : MonoBehaviour {
-
+public class TutorialScript1 : MonoBehaviour {
+	
+	public GameObject cameraUI;
 	private static int numHints = 10;
 	private string[] hints = new string[numHints];
 	int count = 0;
 
-	public RectTransform note;
+//	public RectTransform note;
 
 	// Use this for initialization
 	void Start () {
 		count = 0;
 		hints[0] = "Hi, Welcome To Peter and The Wolf Game!";
-		hints[1] = "You need to press the notes correctly to contorl the moving speed of PETER!";
+		hints[1] = "Press the notes correctly to contorl the speed of PETER!";
 		hints[2] = "Now, Please press the note! "; 
-		hints[3] = " "; 
+		hints[3] = "Great! "; 
 		hints[4] = " "; 
 		hints[5] = " "; 
 		hints[6] = " "; 
@@ -35,8 +36,10 @@ public class TutorialScript : MonoBehaviour {
 
 		//note come out
 		if (count == 2) {
-			Instantiate (note);
+//			Instantiate (note);
 		}
+		cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled = 
+			!cameraUI.GetComponent<UnityStandardAssets.ImageEffects.BlurOptimized> ().enabled;
 	}
 
 }

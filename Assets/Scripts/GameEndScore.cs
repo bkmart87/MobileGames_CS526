@@ -7,7 +7,7 @@ public class GameEndScore : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		gameObject.GetComponent<Text> ().text = "Score: " + PlaySong.totalCorrect;
+		gameObject.GetComponent<Text> ().text = "Score: " + ScoreTextController.score;
 	}
 	
 	// Update is called once per frame
