@@ -19,7 +19,7 @@ public class NoteMovement : MonoBehaviour {
 
 	//note position 
 	float initPosX = 447;
-	float[] initPosYArray = {0,53,86,86,115,115,-63,-35,-35,-6,-6,23,23};
+	float[] initPosYArray = {0,59,92,92,133,133,-75,-40,-40,-6,-6,26,26};
 	float gapY = 22;
 	float gapX = 140;
 

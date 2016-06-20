@@ -258,7 +258,7 @@ Prefab:
     - target: {fileID: 11412642, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: musicFile
       value: 
-      objectReference: {fileID: 4900000, guid: 4b254de5f36a94d69b13ec01c0d768e3, type: 3}
+      objectReference: {fileID: 4900000, guid: fce0aec7027f9f84a8ce50d4a1d4f7fe, type: 3}
     - target: {fileID: 11412642, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: soundArray.Array.data[8]
       value: 
@@ -468,6 +468,26 @@ Prefab:
     - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_FontData.m_Alignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22436882, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 22436882, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409272, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000018119812
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409272, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 22460902, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 280
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11490038, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
