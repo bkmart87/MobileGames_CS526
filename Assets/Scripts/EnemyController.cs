@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
+	public float wolfSpeed = 5f;
 	public static float currentSpeed = 5f;
 	public playerController pc = null;
 
@@ -17,7 +18,7 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		currentSpeed = wolfSpeed;
 	}
 	
 	// Update is called once per frame

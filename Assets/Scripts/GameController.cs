@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("Game Start");
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
+		NoteButtonController.noteSpeed = NoteMovement.minSpeed;
 		notes.SetActive (true);
 
 	}

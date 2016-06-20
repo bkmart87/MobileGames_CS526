@@ -35,6 +35,7 @@ public class playerController : MonoBehaviour {
 
 		facingRight = true;
 		currentSpeed = minSpeed;
+		Debug.Log ("peter speed: " + currentSpeed.ToString ());
 	
 	}
 

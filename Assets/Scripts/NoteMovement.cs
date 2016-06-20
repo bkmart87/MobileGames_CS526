@@ -10,10 +10,11 @@ public class NoteMovement : MonoBehaviour {
 
 	public GameObject baseNote;
 	public GameObject errorSound = null;
+	public GameObject dest = null;
 
 	//note speed
 	float lastClickTime = 0f;
-	public static float maxSpeed = 10f;
+	public static float maxSpeed = 8f;
 	public static float minSpeed = 4f;
 	float slope = -2f;
 
@@ -37,6 +38,8 @@ public class NoteMovement : MonoBehaviour {
 	public TextAsset musicFile = null;
 	string[] noteIndexArray = { "0", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B" };
 
+	bool hasDest = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -57,6 +60,15 @@ public class NoteMovement : MonoBehaviour {
 				GenerateNote (noteArray[noteIndex]);
 				noteIndex++;
 			}
+		}
+
+		if (noteIndex == noteArray.Length && !hasDest) {
+			hasDest = true;
+			GameObject myDest = Instantiate (dest);
+			myDest.transform.SetParent (GameObject.Find ("Game").transform);
+			GameObject pc = GameObject.Find ("Peter");
+			Debug.Log (pc.transform.localPosition.x.ToString ());
+			myDest.transform.localPosition = new Vector3 (pc.transform.localPosition.x + 30f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 

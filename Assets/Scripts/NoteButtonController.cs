@@ -43,6 +43,7 @@ public class NoteButtonController : MonoBehaviour {
 		RectTransform touchRect = GameObject.Find ("TouchArea").GetComponent<RectTransform> ();
 		triggerLeft = touchRect.localPosition.x - touchRect.rect.width / 2f;
 		pc = GameObject.Find ("Peter").GetComponent<playerController> ();
+		Debug.Log ("note speed: " + noteSpeed);
 
 
 	}
