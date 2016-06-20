@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
 	
 	}
 
-	public void GameStart() {
+	public void GameStart() { // game start with initialization
 		Debug.Log ("Game Start");
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	public void GameOver() {
+	public void GameOver() { 
 		Debug.Log ("GameOver");
 		player.GetComponent<playerController> ().Stop ();
 		enemy.GetComponent<EnemyController> ().Stop();
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
 		notes.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Game Over";
 
-		Invoke("GameOverDelay", 3F);
+		Invoke("GameOverDelay", 2F);
 
 
 	}

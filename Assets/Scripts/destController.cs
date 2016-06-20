@@ -4,6 +4,7 @@ using System.Collections;
 public class destController : MonoBehaviour {
 	public playerController pc = null;
 	public EnemyController ec = null;
+	bool win = false;
 
 	// Use this for initialization
 	void Start () {

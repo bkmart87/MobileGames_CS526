@@ -398,39 +398,39 @@ Prefab:
         type: 3}
     - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 22453688, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -289
+      value: -268
       objectReference: {fileID: 0}
     - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Color.g
-      value: 0.46249557
+      value: 0.14509805
       objectReference: {fileID: 0}
     - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Color.r
-      value: 0.20907131
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Color.b
-      value: 0.034
+      value: 0.34509805
       objectReference: {fileID: 0}
     - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Color.r
-      value: 0.20784314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Color.g
-      value: 0.45882353
+      value: 0.14597929
       objectReference: {fileID: 0}
     - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Color.b
-      value: 0.03137255
+      value: 0.347
       objectReference: {fileID: 0}
     - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_FontData.m_Font
@@ -439,11 +439,11 @@ Prefab:
         type: 3}
     - target: {fileID: 22491360, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 205
+      value: 222
       objectReference: {fileID: 0}
     - target: {fileID: 22491360, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 362
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 11436422, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_Text
@@ -455,7 +455,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453688, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 193
+      value: 235
       objectReference: {fileID: 0}
     - target: {fileID: 146252, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: m_IsActive
@@ -464,7 +464,11 @@ Prefab:
     - target: {fileID: 11412642, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
       propertyPath: dest
       value: 
-      objectReference: {fileID: 114236, guid: d694960767be1438fb81e91f20a47c67, type: 2}
+      objectReference: {fileID: 143866, guid: d694960767be1438fb81e91f20a47c67, type: 2}
+    - target: {fileID: 11492220, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11490038, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9b8e24f84db9e49ceb2c4cb92336c3a8, type: 2}
@@ -864,6 +868,18 @@ Prefab:
     - target: {fileID: 132044, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135984, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
+      propertyPath: m_Offset.y
+      value: 1.1319388
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135984, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
+      propertyPath: m_Size.x
+      value: 0.63000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135984, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}
+      propertyPath: m_Size.y
+      value: 2.3538768
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11439808, guid: 6b0a23fae933f4ed1912680d3929c84a, type: 2}

@@ -17,6 +17,8 @@ public class playerController : MonoBehaviour {
 	public float jumpDistance;
 	public static float currentSpeed = 0f;
 
+	bool grounded = true;
+
 	//jump manipulation
 	float groundY = 3.50f;
 
@@ -34,8 +36,8 @@ public class playerController : MonoBehaviour {
 		myAnim = GetComponent<Animator> ();
 
 		facingRight = true;
+		grounded = true;
 		currentSpeed = minSpeed;
-		Debug.Log ("peter speed: " + currentSpeed.ToString ());
 	
 	}
 
@@ -43,10 +45,13 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		Jump ();
+		if(grounded) Jump ();
 		if (transform.localPosition.y > groundY) {
+			grounded = false;
 			Debug.Log ("jumping!");
 			transform.Translate (jumpDistance, 0, 0);
+		} else {
+			grounded = true;
 		}
 
 

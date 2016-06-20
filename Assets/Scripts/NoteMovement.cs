@@ -7,16 +7,15 @@ using System.IO;
 
 public class NoteMovement : MonoBehaviour {
 
-
 	public GameObject baseNote;
 	public GameObject errorSound = null;
 	public GameObject dest = null;
 
 	//note speed
 	float lastClickTime = 0f;
-	public static float maxSpeed = 8f;
-	public static float minSpeed = 4f;
-	float slope = -2f;
+	public static float maxSpeed = 8.5f;
+	public static float minSpeed = 3f;
+	float slope = -3f;
 
 	//note position 
 	float initPosX = 447;
