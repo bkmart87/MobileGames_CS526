@@ -137,13 +137,13 @@ public class NoteMovement : MonoBehaviour {
 	public float calculateSpeed() {
 		float clickTimeInterval = Time.time - lastClickTime;
 		lastClickTime = Time.time;	
-		Debug.Log ("interval: " + clickTimeInterval);
+		//Debug.Log ("interval: " + clickTimeInterval);
 		float speed = slope * clickTimeInterval + maxSpeed;
 		if (speed > maxSpeed)
 			speed = maxSpeed;
 		else if (speed < minSpeed)
 			speed = minSpeed;
-		Debug.Log ("Speed: " + speed);
+		//Debug.Log ("Speed: " + speed);
 		return speed;
 	}
 

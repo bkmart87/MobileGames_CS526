@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 	public GameObject scoreText;
 	public GameObject bestStreakText;
 	public GameObject notes;
+	public GameObject touchArea;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour {
 		enemy = GameObject.Find ("Wolf");
 		gameMessageUi = GameObject.Find ("GameMessageUI");
 		notes = GameObject.Find ("Notes");
+		touchArea = GameObject.Find ("TouchArea");
 
 		GameStart ();
 	
@@ -30,10 +32,11 @@ public class GameController : MonoBehaviour {
 
 	public void GameStart() { // game start with initialization
 		Debug.Log ("Game Start");
+		notes.SetActive (true);
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
 		NoteButtonController.noteSpeed = NoteMovement.minSpeed;
-		notes.SetActive (true);
+
 
 	}
 
@@ -43,6 +46,7 @@ public class GameController : MonoBehaviour {
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0;
 		notes.SetActive (false);
+		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Game Over";
 
 		Invoke("GameOverDelay", 2F);
@@ -61,6 +65,7 @@ public class GameController : MonoBehaviour {
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0;
 		notes.SetActive (false);
+		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
 
 

@@ -10,16 +10,19 @@ public class TestScript : MonoBehaviour {
 
 	public static float count = 0f;
 
+	Camera cam;
+
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("Start!!!!");
-		
+		cam = GameObject.Find ("Main Camera").GetComponent<Camera> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		count += Time.deltaTime;
-		//Debug.Log ("test: " + count);
+		Vector3 pos = cam.WorldToViewportPoint (transform.position);
+		Debug.Log (pos.ToString());
 	}
 		
 	public void Click1() {
@@ -29,6 +32,5 @@ public class TestScript : MonoBehaviour {
 	public void Click2() {
 		SceneManager.LoadScene ("DavidTest");
 	}
-
-
+		
 }

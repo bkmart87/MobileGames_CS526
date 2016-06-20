@@ -24,7 +24,7 @@ public class MainCameraController : MonoBehaviour {
 	void Update () {
 		Vector3 pos = transform.localPosition;
 		transform.localPosition = new Vector3(player.transform.localPosition.x, pos.y, pos.z);
-		if (pos.x + camRight > bg.transform.localPosition.x + bgRight) {
+		if (GetComponent<Camera> ().WorldToViewportPoint (bg.transform.position).x < 0.5f) { 
 			float oldX = bg.transform.localPosition.x;
 			bg = Instantiate (newBg);
 			bg.transform.SetParent (bgs.transform);

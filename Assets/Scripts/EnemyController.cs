@@ -3,9 +3,15 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
+	float minSpeed = 7f;
+	float midSpeed = 10f;
+	float maxSpeed = 20f;
 	public float wolfSpeed = 5f;
 	public static float currentSpeed = 5f;
 	public playerController pc = null;
+	public GameObject wolfMessage = null;
+
+	float inCameraDistance = 5f;
 
 	Rigidbody2D myRB;
 	Animator myAnim;
@@ -23,6 +29,18 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float distance = getPlayerDistance ();
+		if (distance > inCameraDistance) {
+			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "Wolf is " + (int)distance + "M behind";
+		} else {
+			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "";
+		}
+		Debug.Log ("wolf speed: " + wolfSpeed);
+		if (distance > 2f && distance < inCameraDistance)
+			currentSpeed = minSpeed;
+		else if (distance > 10f)
+			currentSpeed = maxSpeed;
+
 	}
 
 	void FixedUpdate() {
@@ -39,5 +57,11 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			GameObject.Find("Game").GetComponent<GameController>().GameOver ();
 		}
+	}
+
+	float getPlayerDistance() {
+		float distance = (pc.transform.localPosition.x - transform.localPosition.x - 4f) / 4f;
+		//Debug.Log ("Distance: " + distance);
+		return distance;
 	}
 }
