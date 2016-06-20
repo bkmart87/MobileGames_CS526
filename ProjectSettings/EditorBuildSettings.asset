@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/UI.unity
   - enabled: 1
     path: Assets/Scenes/DavidTest.unity
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity

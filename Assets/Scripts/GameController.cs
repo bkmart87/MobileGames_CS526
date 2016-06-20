@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour {
@@ -51,7 +52,7 @@ public class GameController : MonoBehaviour {
 
 	void GameOverDelay() {
 		Debug.Log ("GameOverDelay");
-		Application.LoadLevel("GameOver");
+		SceneManager.LoadScene ("GameOver");
 	}
 
 	public void GameWin() {
@@ -69,6 +70,6 @@ public class GameController : MonoBehaviour {
 
 	void GameWinDelay() {
 		player.GetComponent<playerController> ().Stop ();
-		Application.LoadLevel("GameOver");
+		SceneManager.LoadScene ("WinScene");
 	}
 }
