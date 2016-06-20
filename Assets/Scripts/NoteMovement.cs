@@ -67,7 +67,7 @@ public class NoteMovement : MonoBehaviour {
 			myDest.transform.SetParent (GameObject.Find ("Game").transform);
 			GameObject pc = GameObject.Find ("Peter");
 			Debug.Log (pc.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (pc.transform.localPosition.x + 30f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (pc.transform.localPosition.x + 50f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 
