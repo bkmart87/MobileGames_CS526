@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour {
 	public void GameOver() { 
 		Debug.Log ("GameOver");
 		player.GetComponent<playerController> ().Stop ();
+		player.GetComponent<Animator> ().SetBool ("HitDie", true);
+		Debug.Log ("After hit die");
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0f;
 		notes.SetActive (false);

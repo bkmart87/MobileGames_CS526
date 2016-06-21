@@ -13,7 +13,7 @@ public class NoteMovement : MonoBehaviour {
 
 	//note speed
 	float lastClickTime = 0f;
-	public static float maxSpeed = 8.5f;
+	public static float maxSpeed = 9f;
 	public static float minSpeed = 3f;
 	float slope = -3f;
 
@@ -67,7 +67,7 @@ public class NoteMovement : MonoBehaviour {
 			myDest.transform.SetParent (GameObject.Find ("Game").transform);
 			GameObject pc = GameObject.Find ("Peter");
 			//Debug.Log (pc.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (pc.transform.localPosition.x + 45f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (pc.transform.localPosition.x + 50f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 

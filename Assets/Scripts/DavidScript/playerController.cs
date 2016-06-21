@@ -19,6 +19,8 @@ public class playerController : MonoBehaviour {
 
 	bool grounded = true;
 
+	public GameObject self;
+
 	//jump manipulation
 	float groundY = 3.50f;
 
@@ -77,7 +79,6 @@ public class playerController : MonoBehaviour {
 
 
 	void GetSpeed() {
-
 
 	
 

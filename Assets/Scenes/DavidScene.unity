@@ -106,6 +106,7 @@ MonoBehaviour:
   jump: 0
   jumpHeight: 1150
   jumpDistance: 0.2
+  self: {fileID: 856543562}
 --- !u!1 &191315971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1157,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -167.7, y: 126}
+  m_AnchoredPosition: {x: -167.7, y: 167}
   m_SizeDelta: {x: 462.6, y: 61.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1365459130
@@ -1247,7 +1248,7 @@ MonoBehaviour:
   - {fileID: 146408, guid: 17bacb73efa4c42e09d4a73babc023d7, type: 2}
   - {fileID: 145968, guid: f5066a189e84846ebbf1034c86ee0008, type: 2}
   - {fileID: 104020, guid: 2b87d88acc6b84d668c461e258179c6e, type: 2}
-  musicFile: {fileID: 4900000, guid: 642d6c3f2ee53ff47851d81d4532ce77, type: 3}
+  musicFile: {fileID: 4900000, guid: 54544fb015c84432fa513a2b95e7c486, type: 3}
 --- !u!4 &1484140164
 Transform:
   m_ObjectHideFlags: 0
@@ -1255,7 +1256,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856543562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.95, y: 3.38, z: 0}
+  m_LocalPosition: {x: 15.1, y: 3.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
