@@ -27,16 +27,17 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Debug.Log ("NoteSpeed: " + NoteButtonController.noteSpeed);
+
 	}
 
 	public void GameStart() { // game start with initialization
-		Debug.Log ("Game Start");
 		notes.SetActive (true);
+		touchArea.SetActive (true);
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
 		NoteButtonController.noteSpeed = NoteMovement.minSpeed;
-
+		Debug.Log ("Game Start" + NoteButtonController.noteSpeed);
 
 	}
 
@@ -44,12 +45,12 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("GameOver");
 		player.GetComponent<playerController> ().Stop ();
 		enemy.GetComponent<EnemyController> ().Stop();
-		NoteButtonController.noteSpeed = 0;
+		NoteButtonController.noteSpeed = 0f;
 		notes.SetActive (false);
 		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Game Over";
 
-		Invoke("GameOverDelay", 2F);
+		Invoke("GameOverDelay", 2f);
 
 
 	}
@@ -63,7 +64,7 @@ public class GameController : MonoBehaviour {
 		//Debug.Log ("GameWin");
 		player.GetComponent<playerController> ().speedMin = true;
 		enemy.GetComponent<EnemyController> ().Stop();
-		NoteButtonController.noteSpeed = 0;
+		NoteButtonController.noteSpeed = 0f;
 		notes.SetActive (false);
 		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";

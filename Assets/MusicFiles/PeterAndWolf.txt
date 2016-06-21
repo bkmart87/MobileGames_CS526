@@ -13,13 +13,13 @@ C5
 A5
 F5
 G5 
-Ab4,Fb4
+Ab4
 A4,F4
 E5
-Ab4,Fb4
-a4,f4
+Ab4
+A4,F4
 E5
-Ab4,Fb4
+Ab4
 Eb4
 Eb4
 D4

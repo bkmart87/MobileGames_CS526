@@ -71,6 +71,7 @@ public class NoteButtonController : MonoBehaviour {
 
 		GameObject mySound = Instantiate (sound);
 
+
 		ScoreTextController.score++;
 		BestStreakTextController.score++;
 

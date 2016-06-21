@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour {
 
 	float inCameraDistance = 5f;
 
+	bool stop = false;
+
 	Rigidbody2D myRB;
 	Animator myAnim;
 
@@ -25,22 +27,24 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentSpeed = wolfSpeed;
+		stop = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		float distance = getPlayerDistance ();
 		if (distance > inCameraDistance) {
-			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "Wolf is " + (int)distance + "M behind";
+			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "Wolf " + (int)distance + "M behind";
 		} else {
 			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "";
 		}
-		Debug.Log ("wolf speed: " + wolfSpeed);
-		if (distance > 2f && distance < inCameraDistance)
-			currentSpeed = minSpeed;
-		else if (distance > 10f)
-			currentSpeed = maxSpeed;
-
+		//Debug.Log ("wolf speed: " + wolfSpeed);
+		if (!stop) {
+			if (distance > 2f && distance < inCameraDistance)
+				currentSpeed = minSpeed;
+			else if (distance > 10f)
+				currentSpeed = maxSpeed;
+		}
 	}
 
 	void FixedUpdate() {
@@ -51,6 +55,7 @@ public class EnemyController : MonoBehaviour {
 
 	public void Stop() {
 		currentSpeed = 0;
+		stop = true;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
