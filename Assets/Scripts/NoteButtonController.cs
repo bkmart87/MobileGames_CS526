@@ -65,6 +65,7 @@ public class NoteButtonController : MonoBehaviour {
 	public void Move() {
 		Vector3 currentPos = GetComponent<RectTransform> ().localPosition;
 		GetComponent<RectTransform> ().localPosition = new Vector3 (currentPos.x - noteSpeed, currentPos.y, currentPos.z);
+
 	}
 
 	public void Click() {

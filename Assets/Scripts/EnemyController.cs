@@ -62,6 +62,7 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			GameObject.Find("Game").GetComponent<GameController>().GameOver ();
 		}
+
 	}
 
 	float getPlayerDistance() {

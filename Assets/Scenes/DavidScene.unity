@@ -1247,7 +1247,7 @@ MonoBehaviour:
   - {fileID: 146408, guid: 17bacb73efa4c42e09d4a73babc023d7, type: 2}
   - {fileID: 145968, guid: f5066a189e84846ebbf1034c86ee0008, type: 2}
   - {fileID: 104020, guid: 2b87d88acc6b84d668c461e258179c6e, type: 2}
-  musicFile: {fileID: 4900000, guid: 54544fb015c84432fa513a2b95e7c486, type: 3}
+  musicFile: {fileID: 4900000, guid: 642d6c3f2ee53ff47851d81d4532ce77, type: 3}
 --- !u!4 &1484140164
 Transform:
   m_ObjectHideFlags: 0

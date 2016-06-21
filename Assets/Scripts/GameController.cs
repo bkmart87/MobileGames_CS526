@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("NoteSpeed: " + NoteButtonController.noteSpeed);
 
 	}
 
@@ -37,7 +36,8 @@ public class GameController : MonoBehaviour {
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
 		NoteButtonController.noteSpeed = NoteMovement.minSpeed;
-		Debug.Log ("Game Start" + NoteButtonController.noteSpeed);
+		NoteButtonController.pause = false;
+		Debug.Log ("Game Start");
 
 	}
 

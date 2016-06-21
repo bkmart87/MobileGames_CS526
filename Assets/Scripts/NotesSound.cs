@@ -17,7 +17,7 @@ public class NotesSound : MonoBehaviour {
 	
 
 	IEnumerator Sound () {
-		Debug.Log ("Sound!");
+		//Debug.Log ("Sound!");
 		audio.Play ();
 		yield return new WaitForSeconds(audio.clip.length);
 		Destroy (gameObject);
