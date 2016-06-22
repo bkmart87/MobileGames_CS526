@@ -47,8 +47,16 @@ public class NoteButtonController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () { // move note
 		if(transform.localPosition.x < triggerRight) GetComponent<UnityEngine.UI.Button> ().interactable = true;
-		if (transform.localPosition.x <= triggerLeft)
+		// miss one note
+		if (transform.localPosition.x <= triggerLeft){
 			pause = true;
+			/*
+			BestStreakTextController.score = 0;
+			noteSpeed = NoteMovement.minSpeed;
+			pc.speedMin = true;
+			notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
+			Destroy (gameObject);*/
+		}
 		if (!pause) {
 			Move ();
 		} else {

@@ -36,6 +36,10 @@ public class TutorialScript : MonoBehaviour {
 		noteB = GameObject.Find ("NoteUIButtonB");
 		noteA.SetActive (false);
 		noteB.SetActive (false);
+
+		//clear the score text
+		ScoreTextController.score = 0;
+		BestStreakTextController.score = 0;
 	}
 
 	public void clickEvent(){
