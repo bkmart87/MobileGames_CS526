@@ -34,9 +34,9 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		float distance = getPlayerDistance ();
 		if (distance > inCameraDistance) {
-			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "Wolf " + (int)distance + "M behind";
+			wolfMessage.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Wolf " + (int)distance + "M behind";
 		} else {
-			wolfMessage.GetComponent<UnityEngine.UI.Text> ().text = "";
+			wolfMessage.GetComponentInChildren<UnityEngine.UI.Text> ().text = "";
 		}
 		//Debug.Log ("wolf speed: " + wolfSpeed);
 		if (!stop) {

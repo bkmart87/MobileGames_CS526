@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour {
 
 
 	void FixedUpdate () {
-		Debug.Log ("here");
 		float move = Input.GetAxis ("Horizontal");
 		GetSpeed ();
 		myAnim.SetFloat ("Speed", Mathf.Abs(currentSpeed));
