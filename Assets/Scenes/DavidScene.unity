@@ -1263,18 +1263,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1457427617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c828720695d4998ab9942555831407, type: 3}
+  m_Script: {fileID: 11500000, guid: 69604dd93d1ad45529a2da99b517c9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
-  minSpeed: 0
+  maxSpeed: 12
+  minSpeed: 3
   speedUp: 0
   speedDown: 0
   speedMin: 0
   speedZero: 0
   jump: 0
-  jumpHeight: 0
-  jumpDistance: 0
+  jumpHeight: 1200
+  jumpDistance: 0.1
 --- !u!50 &1457427620
 Rigidbody2D:
   serializedVersion: 2
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   errorSound: {fileID: 176646, guid: c65b7d8c33185be42ab57993150f00b9, type: 2}
   dest: {fileID: 171202, guid: d694960767be1438fb81e91f20a47c67, type: 2}
   game: {fileID: 894201951}
-  player: {fileID: 856543562}
+  player: {fileID: 1457427617}
   noteIndex: 0
   noteArray: []
   lastNote: {fileID: 0}
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   - {fileID: 146408, guid: 17bacb73efa4c42e09d4a73babc023d7, type: 2}
   - {fileID: 145968, guid: f5066a189e84846ebbf1034c86ee0008, type: 2}
   - {fileID: 104020, guid: 2b87d88acc6b84d668c461e258179c6e, type: 2}
-  musicFile: {fileID: 4900000, guid: 642d6c3f2ee53ff47851d81d4532ce77, type: 3}
+  musicFile: {fileID: 4900000, guid: fce0aec7027f9f84a8ce50d4a1d4f7fe, type: 3}
 --- !u!4 &1484140164
 Transform:
   m_ObjectHideFlags: 0
