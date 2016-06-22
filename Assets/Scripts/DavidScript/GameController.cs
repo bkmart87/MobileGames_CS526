@@ -8,19 +8,11 @@ public class GameController : MonoBehaviour {
 	public GameObject player;
 	public GameObject enemy;
 	public GameObject gameMessageUi;
-	public GameObject scoreText;
-	public GameObject bestStreakText;
 	public GameObject notes;
 	public GameObject touchArea;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Peter");
-		enemy = GameObject.Find ("Wolf");
-		gameMessageUi = GameObject.Find ("GameMessageUI");
-		notes = GameObject.Find ("Notes");
-		touchArea = GameObject.Find ("TouchArea");
-
 		GameStart ();
 	
 	}
@@ -31,8 +23,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void GameStart() { // game start with initialization
-		notes.SetActive (true);
-		touchArea.SetActive (true);
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
 		NoteButtonController.noteSpeed = NoteMovement.minSpeed;
@@ -43,8 +33,7 @@ public class GameController : MonoBehaviour {
 
 	public void GameOver() { 
 		Debug.Log ("GameOver");
-		player.GetComponent<playerController> ().Stop ();
-		player.GetComponent<Animator> ().SetBool ("HitDie", true);
+		player.GetComponent<PlayerController> ().Stop ();
 		Debug.Log ("After hit die");
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0f;
@@ -64,7 +53,7 @@ public class GameController : MonoBehaviour {
 
 	public void GameWin() {
 		//Debug.Log ("GameWin");
-		player.GetComponent<playerController> ().speedMin = true;
+		player.GetComponent<PlayerController> ().speedMin = true;
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0f;
 		notes.SetActive (false);
@@ -77,7 +66,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void GameWinDelay() {
-		player.GetComponent<playerController> ().Stop ();
+		player.GetComponent<PlayerController> ().Stop ();
 		SceneManager.LoadScene ("WinScene");
 	}
 }

@@ -9,7 +9,9 @@ public class NoteMovement : MonoBehaviour {
 
 	public GameObject baseNote;
 	public GameObject errorSound = null;
-	public GameObject dest = null;
+	public GameObject dest;
+	public GameObject game;
+	public GameObject player;
 
 	//note speed
 	float lastClickTime = 0f;
@@ -40,6 +42,8 @@ public class NoteMovement : MonoBehaviour {
 	bool hasDest = false;
 
 
+
+
 	// Use this for initialization
 	void Start () {
 		noteArray = Load ();
@@ -61,13 +65,12 @@ public class NoteMovement : MonoBehaviour {
 			}
 		}
 
-		if (noteIndex == noteArray.Length && !hasDest) {
+		if (noteIndex == noteArray.Length && !hasDest) {  // set destination when last note generate
 			hasDest = true;
 			GameObject myDest = Instantiate (dest);
-			myDest.transform.SetParent (GameObject.Find ("Game").transform);
-			GameObject pc = GameObject.Find ("Peter");
-			//Debug.Log (pc.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (pc.transform.localPosition.x + 50f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.SetParent (game.transform);
+			//Debug.Log (player.transform.localPosition.x.ToString ());
+			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 50f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 
@@ -84,7 +87,7 @@ public class NoteMovement : MonoBehaviour {
 				note.GetComponent<NoteButtonController> ().isDouble = true;
 			}
 			//5D1F1F80 FF878EFF
-			if (sArray [i] [sArray[i].Length - 1] == '5') {
+			if (sArray [i] [sArray[i].Length - 1] == '5') { // change color
 				ColorBlock cb = note.GetComponent<UnityEngine.UI.Button> ().colors;
 				cb.highlightedColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
 				cb.normalColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
@@ -111,7 +114,7 @@ public class NoteMovement : MonoBehaviour {
 		return index;
 	}
 
-	public void ClickTouchArea() { // run when click on touch area
+	public void ClickTouchArea() { // call when click on touch area
 		if (nextNotesIndex < nextNotes.Count) {
 			if (nextNotes [nextNotesIndex].transform.localPosition.x <= NoteButtonController.triggerRight) {// there is note in touch area
 				GameObject myErrorSound = Instantiate (errorSound);
@@ -122,8 +125,7 @@ public class NoteMovement : MonoBehaviour {
 					NoteButtonController.noteSpeed = minSpeed;
 				} else {
 					NoteButtonController.noteSpeed = calculateSpeed ();
-					playerController pc = GameObject.Find ("Peter").GetComponent<playerController> ();
-					pc.speedMin = true;
+					player.GetComponent<PlayerController>().speedMin = true;
 				}
 				Destroy (nextNotes [nextNotesIndex]);
 				nextNotes [nextNotesIndex++] = null;

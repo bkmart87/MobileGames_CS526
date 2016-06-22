@@ -11,10 +11,9 @@ public class NoteButtonController : MonoBehaviour {
 
 	public static bool pause = false;
 	public static float noteSpeed = 2f;
-	float tempSpeed = 0f;
 
 	//PlayerController script
-	playerController pc;
+	PlayerController pc;
 	NoteMovement notemovement;
 
 	//hold button for jumping
@@ -38,17 +37,15 @@ public class NoteButtonController : MonoBehaviour {
 
 	void Start () {
 		notemovement = GameObject.Find ("Notes").GetComponent<NoteMovement> ();
-		GetComponent<UnityEngine.UI.Button> ().interactable = false;
-		triggerRight = GameObject.Find ("Glowbit").transform.localPosition.x;
+		pc = GameObject.Find ("Peter").GetComponent<PlayerController> ();
 		RectTransform touchRect = GameObject.Find ("TouchArea").GetComponent<RectTransform> ();
+		triggerRight = GameObject.Find ("Glowbit").transform.localPosition.x;
+		GetComponent<UnityEngine.UI.Button> ().interactable = false;
 		triggerLeft = touchRect.localPosition.x - touchRect.rect.width / 2f;
-		pc = GameObject.Find ("Peter").GetComponent<playerController> ();
-
-
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () { // move note
 		if(transform.localPosition.x < triggerRight) GetComponent<UnityEngine.UI.Button> ().interactable = true;
 		if (transform.localPosition.x <= triggerLeft)
 			pause = true;
@@ -68,9 +65,9 @@ public class NoteButtonController : MonoBehaviour {
 
 	}
 
-	public void Click() {
+	public void Click() { //onclick call
 
-		GameObject mySound = Instantiate (sound);
+		Instantiate (sound);
 
 
 		ScoreTextController.score++;
@@ -92,7 +89,6 @@ public class NoteButtonController : MonoBehaviour {
 
 	public void Down() {
 		holdButton = true;
-		tempSpeed = noteSpeed;
 	}
 
 	public void Up() {
@@ -100,7 +96,7 @@ public class NoteButtonController : MonoBehaviour {
 		holdTime = 0f;
 	}
 
-	public void Hold() {
+	public void Hold() { //hold button effect
 		if (holdButton) {
 			holdTime += Time.deltaTime;
 			if (holdTime > totalHoldTime) {

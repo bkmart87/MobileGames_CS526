@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class destController : MonoBehaviour {
-	public playerController pc = null;
-	public EnemyController ec = null;
-	bool win = false;
+public class DestController : MonoBehaviour {
+	GameObject game;
 
 	// Use this for initialization
 	void Start () {
-	
+		game = GameObject.Find ("Game");
 	}
 	
 	// Update is called once per frame
@@ -16,9 +14,9 @@ public class destController : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) { // player hit the destination and then "you win".
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			GameObject.Find("Game").GetComponent<GameController>().GameWin();
+			game.GetComponent<GameController>().GameWin();
 		}
 	}
 }

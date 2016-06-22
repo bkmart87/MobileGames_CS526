@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class playerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
 	//movement variables
 	public float maxSpeed;
@@ -19,7 +19,6 @@ public class playerController : MonoBehaviour {
 
 	bool grounded = true;
 
-	public GameObject self;
 
 	//jump manipulation
 	float groundY = 3.50f;
@@ -34,8 +33,8 @@ public class playerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		myRB = GetComponent<Rigidbody2D> ();
-		myAnim = GetComponent<Animator> ();
+		myRB = GetComponentInChildren<Rigidbody2D> ();
+		myAnim = GetComponentInChildren<Animator> ();
 
 		facingRight = true;
 		grounded = true;

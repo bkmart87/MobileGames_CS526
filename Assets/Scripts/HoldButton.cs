@@ -6,8 +6,6 @@ public class HoldButton : MonoBehaviour {
 	bool isBegin = false;
 	float countTime = 0f;
 
-	float timer_f = 0f;
-	int   timer_i = 0;
 
 	// Use this for initialization
 	void Start () {

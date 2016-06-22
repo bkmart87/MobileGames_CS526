@@ -3,13 +3,16 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
+	//speed 
 	float minSpeed = 7.5f;
 	float midSpeed = 10f;
 	float maxSpeed = 20f;
+
 	public float wolfSpeed = 5f;
 	public static float currentSpeed = 5f;
-	public playerController pc = null;
+	public GameObject player;
 	public GameObject wolfMessage = null;
+	public GameObject game = null;
 
 	float inCameraDistance = 5f;
 
@@ -19,13 +22,10 @@ public class EnemyController : MonoBehaviour {
 	Animator myAnim;
 
 
-	void Awake() {
-		myRB = GetComponent<Rigidbody2D> ();
-		myAnim = GetComponentInParent<Animator> ();
-	}
-
 	// Use this for initialization
 	void Start () {
+		myRB = GetComponent<Rigidbody2D> ();
+		myAnim = GetComponentInChildren<Animator> ();
 		currentSpeed = wolfSpeed;
 		stop = false;
 	}
@@ -58,15 +58,15 @@ public class EnemyController : MonoBehaviour {
 		stop = true;
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) { //hit player then game over
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			GameObject.Find("Game").GetComponent<GameController>().GameOver ();
+			game.GetComponent<GameController>().GameOver ();
 		}
 
 	}
 
-	float getPlayerDistance() {
-		float distance = (pc.transform.localPosition.x - transform.localPosition.x - 4f) / 4f;
+	float getPlayerDistance() { //get enemy distance to playr
+		float distance = (player.transform.localPosition.x - transform.localPosition.x - 4f) / 4f;
 		//Debug.Log ("Distance: " + distance);
 		return distance;
 	}
