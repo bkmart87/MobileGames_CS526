@@ -1232,8 +1232,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1457427618}
-  - 114: {fileID: 1457427619}
   - 50: {fileID: 1457427620}
+  - 114: {fileID: 1457427619}
   m_Layer: 8
   m_Name: Peter
   m_TagString: Untagged
@@ -1266,16 +1266,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c828720695d4998ab9942555831407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 12
-  minSpeed: 3
+  maxSpeed: 0
+  minSpeed: 0
   speedUp: 0
   speedDown: 0
   speedMin: 0
   speedZero: 0
   jump: 0
-  jumpHeight: 1200
+  jumpHeight: 0
   jumpDistance: 0
-  self: {fileID: 0}
 --- !u!50 &1457427620
 Rigidbody2D:
   serializedVersion: 2
