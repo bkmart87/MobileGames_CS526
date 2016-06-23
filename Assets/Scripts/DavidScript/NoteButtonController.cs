@@ -20,7 +20,7 @@ public class NoteButtonController : MonoBehaviour {
 	//hold button for jumping
 	bool holdButton = false;
 	float holdTime = 0f;
-	float totalHoldTime = 0.3f;
+	float totalHoldTime = 0.19f;
 
 	public bool isDouble = false;
 
@@ -52,14 +52,13 @@ public class NoteButtonController : MonoBehaviour {
 	void Update () { // move note
 		if(transform.localPosition.x < triggerRight) GetComponent<UnityEngine.UI.Button> ().interactable = true;
 		// miss one note
-		if (transform.localPosition.x <= triggerLeft){
+		if (transform.localPosition.x <= triggerLeft){  //button should disapeear if it's to left bound
 			//pause = true;
 			//Instantiate (sound);
 			BestStreakTextController.score = 0;
 			noteSpeed = NoteMovement.minSpeed;
 			pc.speedMin = true;
-			notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
-			Destroy (gameObject);
+			DestroyButton ();
 		}
 		//if (!pause) {
 			Move ();
@@ -95,8 +94,8 @@ public class NoteButtonController : MonoBehaviour {
 			if(!isDouble) noteSpeed = notemovement.calculateSpeed ();
 			pc.speedUp = true;
 		}
-		notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
-		Destroy (gameObject);
+		Debug.Log ("Click button");
+		DestroyButton ();
 
 	}
 
@@ -134,10 +133,17 @@ public class NoteButtonController : MonoBehaviour {
 
 				pc.jump = true;
 				holdButton = false;
-				notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
-				Destroy (gameObject);
+				DestroyButton ();
 			}
 		}
+	}
+
+	void DestroyButton() {
+		//Debug.Log ("Destroy button");
+		if (notemovement.nextNotesIndex < notemovement.nextNotes.Count) {
+			notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
+		}
+		Destroy (gameObject);
 	}
 
 }

@@ -27,8 +27,10 @@ public class TestScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		Vector3 pos = cam.WorldToViewportPoint (transform.position);
 		Debug.Log (pos.ToString());
+		*/
 	}
 		
 	public void Click1() {
