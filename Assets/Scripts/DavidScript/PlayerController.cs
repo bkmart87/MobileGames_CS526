@@ -95,15 +95,16 @@ public class PlayerController : MonoBehaviour {
 
 	void GetSpeed() {
 		if (speedUp && currentSpeed < maxSpeed) {
-
 			currentSpeed += 2f;
 			if (currentSpeed > maxSpeed)
 				currentSpeed = maxSpeed;
+			GetComponentInChildren<PeterTextController> ().Show ("Speed Up");
 			speedUp = false;
 		} else if (speedDown && currentSpeed > minSpeed) {
 			currentSpeed -= 2f;
 			if (currentSpeed < minSpeed)
 				currentSpeed = minSpeed;
+			GetComponentInChildren<PeterTextController> ().Show ("Speed Down");
 			speedDown = false;
 		} else if (speedDown && currentSpeed == 0f) {
 			currentSpeed = minSpeed;
@@ -160,10 +161,12 @@ public class PlayerController : MonoBehaviour {
 		if (hpUp == true) {
 			hpUp = false;
 			hp++;
+			GetComponentInChildren<PeterTextController> ().Show ("HP +1");
 
 		} else if (hpDown == true) {
 			hpDown = false;
 			hp--;
+			GetComponentInChildren<PeterTextController> ().Show ("HP -1");
 			if (hp > 0) {
 				hit = true;
 				speedUp = true;

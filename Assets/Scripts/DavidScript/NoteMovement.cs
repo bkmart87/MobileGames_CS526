@@ -21,10 +21,11 @@ public class NoteMovement : MonoBehaviour {
 	float streakSlope = 0f;
 
 	//note position 
-	float initPosX = 447;
+	float initPosX = 0f;
 	float[] initPosYArray = {0,59,92,92,133,133,-75,-40,-40,-6,-6,26,26};
-	float gapY = 22;
-	float gapX = 140;
+	float gapY = 22f;
+	public float gapX = 140f;
+	float rightBoundX = 447f;
 
 	//note variables
 	public int noteIndex = 0;
@@ -71,13 +72,13 @@ public class NoteMovement : MonoBehaviour {
 		}
 		*/
 
-		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < initPosX ) {  // set destination when last note generate
+		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < rightBoundX ) {  // set destination when last note generate
 			Debug.Log("Has Dest");
 			hasDest = true;
 			GameObject myDest = Instantiate (dest);
 			myDest.transform.SetParent (game.transform);
 			//Debug.Log (player.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 50f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 60f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 
