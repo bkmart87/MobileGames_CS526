@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class NoteButtonController : MonoBehaviour {
 
@@ -22,6 +23,9 @@ public class NoteButtonController : MonoBehaviour {
 	float totalHoldTime = 0.3f;
 
 	public bool isDouble = false;
+
+	//sprite change 
+	//public Sprite clickSprite;
 
 	/*
 	float perfectX;
@@ -49,19 +53,19 @@ public class NoteButtonController : MonoBehaviour {
 		if(transform.localPosition.x < triggerRight) GetComponent<UnityEngine.UI.Button> ().interactable = true;
 		// miss one note
 		if (transform.localPosition.x <= triggerLeft){
-			pause = true;
-			/*
+			//pause = true;
+			//Instantiate (sound);
 			BestStreakTextController.score = 0;
 			noteSpeed = NoteMovement.minSpeed;
 			pc.speedMin = true;
 			notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
-			Destroy (gameObject);*/
+			Destroy (gameObject);
 		}
-		if (!pause) {
+		//if (!pause) {
 			Move ();
-		} else {
-			pc.speedZero = true;
-		}
+		//} else {
+		//	pc.speedZero = true;
+		//}
 		Hold ();
 
 	}
@@ -77,6 +81,7 @@ public class NoteButtonController : MonoBehaviour {
 
 		Instantiate (sound);
 
+		//gameObject.GetComponent<Image> ().sprite = clickSprite;
 
 		ScoreTextController.score++;
 		BestStreakTextController.score++;

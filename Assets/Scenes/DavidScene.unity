@@ -234,6 +234,28 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1457427617}
+    - target: {fileID: 22495508, guid: 5cae457beafbc44d3aa31900268e4899, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -268
+      objectReference: {fileID: 0}
+    - target: {fileID: 22495508, guid: 5cae457beafbc44d3aa31900268e4899, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 259
+      objectReference: {fileID: 0}
+    - target: {fileID: 11443076, guid: 5cae457beafbc44d3aa31900268e4899, type: 2}
+      propertyPath: musicFile
+      value: 
+      objectReference: {fileID: 4900000, guid: aaf6746f3b8fcc5428032018c36f3d27, type: 3}
+    - target: {fileID: 11443076, guid: 5cae457beafbc44d3aa31900268e4899, type: 2}
+      propertyPath: highSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ccfd7497410e9a4f8f178ceb431662b,
+        type: 3}
+    - target: {fileID: 11443076, guid: 5cae457beafbc44d3aa31900268e4899, type: 2}
+      propertyPath: blendSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c5c9cedf4da5b274ca6f16c2d039cb9b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cae457beafbc44d3aa31900268e4899, type: 2}
   m_IsPrefabParent: 0

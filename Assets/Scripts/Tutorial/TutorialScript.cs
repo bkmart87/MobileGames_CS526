@@ -19,7 +19,7 @@ public class TutorialScript : MonoBehaviour {
 	void Start () {
 		count = 0;
 		hints[0] = "Hi, Welcome To Peter and The Wolf Game!";
-		hints[1] = "You need to press the notes correctly to contorl the moving speed of PETER!";
+		hints[1] = "You need to press the notes correctly to control the moving speed of PETER!";
 		hints[2] = "You can press the note when the note reached the left side of the glow!"; 
 		hints[3] = "Now, Please press the note A4 which was already on the left side of the glow! "; 
 		hints[4] = "Great! If you press note B4 which was still on the right side, nothing happened!"; 

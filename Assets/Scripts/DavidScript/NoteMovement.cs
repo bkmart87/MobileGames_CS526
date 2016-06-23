@@ -18,6 +18,7 @@ public class NoteMovement : MonoBehaviour {
 	public static float maxSpeed = 9f;
 	public static float minSpeed = 3f;
 	float slope = -3f;
+	float streakSlope = 0f;
 
 	//note position 
 	float initPosX = 447;
@@ -41,7 +42,9 @@ public class NoteMovement : MonoBehaviour {
 
 	bool hasDest = false;
 
-
+	//sprite change
+	public Sprite highSprite;
+	public Sprite blendSprite;
 
 
 	// Use this for initialization
@@ -87,13 +90,19 @@ public class NoteMovement : MonoBehaviour {
 				note.GetComponent<NoteButtonController> ().isDouble = true;
 			}
 			//5D1F1F80 FF878EFF
-			if (sArray [i] [sArray[i].Length - 1] == '5') { // change color
+			if (sArray [i] [sArray [i].Length - 2] == 'b') {
+				note.GetComponentInChildren<Image> ().sprite = blendSprite;
+			}
+			else if (sArray [i] [sArray[i].Length - 1] == '5') { // change color
+				/*
 				ColorBlock cb = note.GetComponent<UnityEngine.UI.Button> ().colors;
 				cb.highlightedColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
 				cb.normalColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
 				cb.disabledColor = new Color (255f / 255f, 192f / 255f, 203f / 255f, 1f);
-				note.GetComponent<UnityEngine.UI.Button> ().colors = cb;
+				note.GetComponent<UnityEngine.UI.Button> ().colors = cb;*/
+				note.GetComponentInChildren<Image> ().sprite = highSprite;
 			}
+
 			nextNotes.Add (note);
 			lastNote = note;
 		}
@@ -140,7 +149,7 @@ public class NoteMovement : MonoBehaviour {
 		float clickTimeInterval = Time.time - lastClickTime;
 		lastClickTime = Time.time;	
 		//Debug.Log ("interval: " + clickTimeInterval);
-		float speed = slope * clickTimeInterval + maxSpeed;
+		float speed = slope * clickTimeInterval + maxSpeed + streakSlope * (float)BestStreakTextController.score;
 		if (speed > maxSpeed)
 			speed = maxSpeed;
 		else if (speed < minSpeed)
@@ -151,7 +160,11 @@ public class NoteMovement : MonoBehaviour {
 
 	//load music file
 	string[] Load (){
-		return musicFile.text.Split ('\n');
+		
+		if(System.Environment.NewLine == "\n")
+			return musicFile.text.Split ('\n');
+		else
+			return musicFile.text.Split (' ');
 	}
 
 
