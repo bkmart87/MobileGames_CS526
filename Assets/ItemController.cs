@@ -11,7 +11,7 @@ public class ItemController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.Rotate(0,Time.deltaTime*100,0);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) { // player hit the destination and then "you win".

@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	//jump manipulation
-	float groundY = 3.50f;
+	float groundY = 3.40f;
 
 
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		if(grounded) Jump ();
+		
 		if (transform.localPosition.y > groundY) {
 			grounded = false;
 			//Debug.Log ("jumping!");
@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			grounded = true;
 		}
+		if(grounded) Jump ();
 
 
 	}

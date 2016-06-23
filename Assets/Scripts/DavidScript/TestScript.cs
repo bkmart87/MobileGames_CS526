@@ -5,17 +5,23 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System;
 
 public class TestScript : MonoBehaviour {
 
 	public static float count = 0f;
+	public TextAsset temp;
 
 	Camera cam;
 
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("Start!!!!");
-		cam = GameObject.Find ("Main Camera").GetComponent<Camera> ();
+		cam = GameObject.Find ("MainCamera").GetComponent<Camera> ();
+		string[] s = temp.text.Split (Environment.NewLine.ToCharArray());
+		for (int i = 0; i < s.Length; i++) {
+			Debug.Log ("s: " + s [i]);
+		}
 
 	}
 	
