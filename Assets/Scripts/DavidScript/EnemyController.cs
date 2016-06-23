@@ -58,9 +58,11 @@ public class EnemyController : MonoBehaviour {
 		stop = true;
 	}
 
-	void OnTriggerEnter2D(Collider2D other) { //hit player then game over
+	void OnTriggerEnter2D(Collider2D other) { //hit player 
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			game.GetComponent<GameController>().GameOver ();
+			//game.GetComponent<GameController>().GameOver ();
+			player.GetComponent<PlayerController>().hpDown = true;
+			Stop ();
 		}
 
 	}

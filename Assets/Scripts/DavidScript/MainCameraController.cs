@@ -7,6 +7,7 @@ public class MainCameraController : MonoBehaviour {
 	public GameObject bg;
 	public GameObject newBg;
 	public GameObject bgs;
+	public GameObject violin;
 	float gapX = 87f;
 
 	// Use this for initialization
@@ -21,7 +22,14 @@ public class MainCameraController : MonoBehaviour {
 			float oldX = bg.transform.localPosition.x;
 			bg = Instantiate (newBg);
 			bg.transform.SetParent (bgs.transform);
-			bg.transform.localPosition = new Vector3 (oldX + gapX, bg.transform.localPosition.y, bg.transform.localPosition.z);
+			float newX = oldX + gapX;
+			bg.transform.localPosition = new Vector3 (newX, bg.transform.localPosition.y, bg.transform.localPosition.z);
+
+			GameObject vl = Instantiate (violin) as GameObject;
+			vl.transform.SetParent (bg.transform);
+			float rand = Random.Range (-0.5f, 0.5f);
+			Debug.Log ("Rand: " + rand);
+			vl.transform.localPosition = new Vector3 (gapX * rand, vl.transform.localPosition.y, vl.transform.localPosition.z);
 		}
 	}
 }
