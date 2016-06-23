@@ -27,7 +27,7 @@ public class PeterTextController : MonoBehaviour {
 	}
 
 	public void Show(string s) {
-		GetComponent<TextMesh> ().text = s;
+		GetComponent<TextMesh> ().text += s + ' ';
 		showtext = true;
 	}
 }
