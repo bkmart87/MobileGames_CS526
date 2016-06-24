@@ -62,9 +62,6 @@ public class NoteButtonController : MonoBehaviour {
 			BestStreakTextController.score = 0;
 			noteSpeed = NoteMovement.minSpeed;
 			pc.speedMin = true;
-
-			notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
-			Destroy (gameObject);
 			Instantiate (notemovement.errorSound);
 
 			DestroyButton ();
