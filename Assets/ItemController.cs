@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ItemController : MonoBehaviour {
 	public bool isViolin;
+	public bool isHeart;
 
 	// Use this for initialization
 	void Start () {
@@ -16,9 +17,13 @@ public class ItemController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) { // player hit the destination and then "you win".
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			if (isViolin) {
-				Debug.Log ("get item");
+			if (isViolin) { // violin bonus
+				Debug.Log ("get violin");
 				ScoreTextController.score += 20;
+				Destroy (gameObject);
+			} else if (isHeart) {
+				Debug.Log ("get heart");
+				other.gameObject.GetComponentInParent<PlayerController> ().hpUp = true; // player add hp
 				Destroy (gameObject);
 			}
 		}

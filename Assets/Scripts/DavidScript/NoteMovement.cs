@@ -21,10 +21,11 @@ public class NoteMovement : MonoBehaviour {
 	float streakSlope = 0f;
 
 	//note position 
-	float initPosX = 447;
+	float initPosX = 0f;
 	float[] initPosYArray = {0,59,92,92,133,133,-75,-40,-40,-6,-6,26,26};
-	float gapY = 22;
-	float gapX = 140;
+	float gapY = 22f;
+	public float gapX = 140f;
+	float rightBoundX = 447f;
 
 	//note variables
 	public int noteIndex = 0;
@@ -50,6 +51,7 @@ public class NoteMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		noteArray = Load ();
+		GetNotes ();
 	
 	}
 	
@@ -58,6 +60,7 @@ public class NoteMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		/*
 		if (noteIndex < noteArray.Length) { // generate new node from noteArray
 			if (lastNote == null) {
 				GenerateNote (noteArray[noteIndex]);
@@ -67,22 +70,25 @@ public class NoteMovement : MonoBehaviour {
 				noteIndex++;
 			}
 		}
+		*/
 
-		if (noteIndex == noteArray.Length && !hasDest) {  // set destination when last note generate
+		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < rightBoundX ) {  // set destination when last note generate
+			Debug.Log("Has Dest");
 			hasDest = true;
 			GameObject myDest = Instantiate (dest);
 			myDest.transform.SetParent (game.transform);
 			//Debug.Log (player.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 50f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 60f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 
-	void GenerateNote(string s) { //generate note GameObject to move in chart
+	void GenerateNote(string s, float x) { //generate note GameObject to move in chart
+		if(s.Equals("*")) return; //this is empty
 		string[] sArray = s.Split (',');
 		for (int i = 0; i < sArray.Length; i++) { 
 			int index = NoteToIndex (sArray[i]);
 			//Debug.Log ("index: " + index);
-			GameObject note = Instantiate (baseNote, new Vector3 (initPosX, initPosYArray [index % 12], 0), Quaternion.identity) as GameObject;
+			GameObject note = Instantiate (baseNote, new Vector3 (x, initPosYArray [(index - 1) % 12 + 1], 0), Quaternion.identity) as GameObject;
 			note.transform.SetParent (gameObject.transform, false);
 			note.GetComponentInChildren<UnityEngine.UI.Text> ().text = sArray[i];
 			note.GetComponent<NoteButtonController> ().sound = soundArray [index];
@@ -165,6 +171,12 @@ public class NoteMovement : MonoBehaviour {
 			return musicFile.text.Split ('\n');
 		else
 			return musicFile.text.Split (' ');
+	}
+
+	void GetNotes() { // generate all notes at start
+		for (int i = 0; i < noteArray.Length; i++) {
+			GenerateNote (noteArray [i], initPosX + i * gapX);
+		}
 	}
 
 

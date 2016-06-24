@@ -64,3 +64,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 Assets/TutorialScript.cs
+Assets/Scripts/DavidScript/NoteButtonController.cs
