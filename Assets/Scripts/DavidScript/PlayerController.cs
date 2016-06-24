@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	public bool hpDown;
 
 
-
+	public int maxHp = 3;
 	int hp = 3;
 
 	bool grounded = true;
@@ -160,13 +160,17 @@ public class PlayerController : MonoBehaviour {
 	void GetHp() {
 		if (hpUp == true) {
 			hpUp = false;
-			hp++;
-			GetComponentInChildren<PeterTextController> ().Show ("HP +1");
+			if (hp < maxHp) {
+				hp++;
+				GetComponentInChildren<PeterTextController> ().Show ("HP +1");
+				hpUi.GetComponent<HpUIController> ().addHp (1);
+			}
 
 		} else if (hpDown == true) {
 			hpDown = false;
 			hp--;
 			GetComponentInChildren<PeterTextController> ().Show ("HP -1");
+			hpUi.GetComponent<HpUIController> ().addHp (-1);
 			if (hp > 0) {
 				hit = true;
 				speedUp = true;
@@ -174,6 +178,7 @@ public class PlayerController : MonoBehaviour {
 				hitDie = true;
 			}
 		}
-		hpUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "HP " + hp;
+		//hpUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "HP " + hp; // hp ui change
+
 	}
 }
