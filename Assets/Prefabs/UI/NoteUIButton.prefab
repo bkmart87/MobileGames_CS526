@@ -98,7 +98,6 @@ MonoBehaviour:
   sound: {fileID: 0}
   triggerLeft: -400
   isDouble: 0
-  clickSprite: {fileID: 21300000, guid: 52c01dae726cc45e59a453431619c877, type: 3}
 --- !u!114 &11452754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.469}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
