@@ -226,6 +226,10 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 399.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: musicFile
+      value: 
+      objectReference: {fileID: 4900000, guid: aaf6746f3b8fcc5428032018c36f3d27, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
   m_IsPrefabParent: 0
