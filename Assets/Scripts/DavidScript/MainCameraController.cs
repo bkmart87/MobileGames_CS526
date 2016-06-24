@@ -8,10 +8,13 @@ public class MainCameraController : MonoBehaviour {
 	public GameObject newBg;
 	public GameObject bgs;
 	public GameObject violin;
+	public GameObject rock;
+	public GameObject heart;
 	float gapX = 87f;
 
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -25,11 +28,27 @@ public class MainCameraController : MonoBehaviour {
 			float newX = oldX + gapX;
 			bg.transform.localPosition = new Vector3 (newX, bg.transform.localPosition.y, bg.transform.localPosition.z);
 
-			GameObject vl = Instantiate (violin) as GameObject;
-			vl.transform.SetParent (bg.transform);
-			float rand = Random.Range (-0.5f, 0.5f);
-			Debug.Log ("Rand: " + rand);
-			vl.transform.localPosition = new Vector3 (gapX * rand, vl.transform.localPosition.y, vl.transform.localPosition.z);
+			//generate all items in new background
+			GenerateItem (violin, bg, 1, gapX, false);
+			GenerateItem (rock, bg, 3, gapX, true);
+			GenerateItem (heart, bg, 2, gapX, true);
+		}
+	}
+
+	void GenerateItem(GameObject obj, GameObject parent, int num, float length, bool randomnum) {// randomly generate items at parent 
+		Random.seed = (int)System.DateTime.Now.Ticks;
+		Debug.Log ("Random.seed = " + Random.seed);
+		if(randomnum) num = (int)Random.Range(0f, num + 0.9f);
+		float left = -length / 2f;
+		float interval = length / num;
+		for (int i = 0; i < num; i++) {
+			GameObject item = Instantiate (obj);
+			item.transform.SetParent (parent.transform);
+			float x = left + interval * Random.Range (0f, 1f);
+			if (x < left + 20) // in case two item is too close
+				left += 30; 
+			item.transform.localPosition = new Vector3 (x, item.transform.localPosition.y, item.transform.localPosition.z);
+			left += interval;
 		}
 	}
 }
