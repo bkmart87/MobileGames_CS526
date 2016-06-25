@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour {
 			hitDie = false;
 			myAnim.SetInteger ("HitPoints", 0);
 			myAnim.SetTrigger ("Hit");
+			Debug.Log ("hit die game over");
 			game.GetComponent<GameController> ().GameOver ();
 		}
 		

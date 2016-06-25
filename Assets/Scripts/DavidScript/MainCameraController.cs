@@ -10,6 +10,7 @@ public class MainCameraController : MonoBehaviour {
 	public GameObject violin;
 	public GameObject rock;
 	public GameObject heart;
+	public GameObject boulder;
 	float gapX = 87f;
 
 	// Use this for initialization
@@ -32,13 +33,14 @@ public class MainCameraController : MonoBehaviour {
 			GenerateItem (violin, bg, 1, gapX, false);
 			GenerateItem (rock, bg, 3, gapX, true);
 			GenerateItem (heart, bg, 2, gapX, true);
+			GenerateItem (boulder, bg, 2, gapX, true);
 		}
 	}
 
-	void GenerateItem(GameObject obj, GameObject parent, int num, float length, bool randomnum) {// randomly generate items at parent 
+	void GenerateItem(GameObject obj, GameObject parent, int num, float length, bool isRandomNum) {// randomly generate items at parent 
 		Random.seed = (int)System.DateTime.Now.Ticks;
-		Debug.Log ("Random.seed = " + Random.seed);
-		if(randomnum) num = (int)Random.Range(0f, num + 0.9f);
+		//Debug.Log ("Random.seed = " + Random.seed);
+		if(isRandomNum) num = (int)Random.Range(0f, num + 0.9f);
 		float left = -length / 2f;
 		float interval = length / num;
 		for (int i = 0; i < num; i++) {
