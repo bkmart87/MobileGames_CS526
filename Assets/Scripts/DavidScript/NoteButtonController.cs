@@ -67,11 +67,12 @@ public class NoteButtonController : MonoBehaviour {
 			DestroyButton ();
 
 		}
-		//if (!pause) {
+		if (!pause) {
 			Move ();
-		//} else {
-		//	pc.speedZero = true;
-		//}
+		} else {
+			//noteSpeed = 0;
+			pc.speedZero = true;
+		}
 		Hold ();
 
 	}
