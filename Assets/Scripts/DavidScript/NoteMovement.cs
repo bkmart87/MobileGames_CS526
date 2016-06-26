@@ -167,9 +167,9 @@ public class NoteMovement : MonoBehaviour {
 	//load music file
 	string[] Load (){
 		
-		if(System.Environment.NewLine == "\n")
-			return musicFile.text.Split ('\n');
-		else
+		//if(System.Environment.NewLine == "\n")
+			//return musicFile.text.Split ('\n');
+		//else
 			return musicFile.text.Split (' ');
 	}
 
