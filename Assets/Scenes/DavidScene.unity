@@ -723,7 +723,7 @@ Prefab:
     - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: musicFile
       value: 
-      objectReference: {fileID: 4900000, guid: aaf6746f3b8fcc5428032018c36f3d27, type: 3}
+      objectReference: {fileID: 4900000, guid: 67eb2296a7f1641879b7995bd4463fcb, type: 3}
     - target: {fileID: 11432600, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: m_FontData.m_Font
       value: 
@@ -764,6 +764,30 @@ Prefab:
       propertyPath: boulder
       value: 
       objectReference: {fileID: 1518843154}
+    - target: {fileID: 187738, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 167488, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 147056, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 116792, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 192186, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 121132, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
   m_IsPrefabParent: 0

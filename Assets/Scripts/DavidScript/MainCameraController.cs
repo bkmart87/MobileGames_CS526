@@ -11,6 +11,7 @@ public class MainCameraController : MonoBehaviour {
 	public GameObject rock;
 	public GameObject heart;
 	public GameObject boulder;
+	public bool generateItem;
 	float gapX = 87f;
 
 	// Use this for initialization
@@ -30,10 +31,12 @@ public class MainCameraController : MonoBehaviour {
 			bg.transform.localPosition = new Vector3 (newX, bg.transform.localPosition.y, bg.transform.localPosition.z);
 
 			//generate all items in new background
-			GenerateItem (violin, bg, 1, gapX, false);
-			GenerateItem (rock, bg, 3, gapX, true);
-			GenerateItem (heart, bg, 2, gapX, true);
-			GenerateItem (boulder, bg, 2, gapX, true);
+			if (generateItem) {
+				GenerateItem (violin, bg, 1, gapX, false);
+				GenerateItem (rock, bg, 3, gapX, true);
+				GenerateItem (heart, bg, 2, gapX, true);
+				GenerateItem (boulder, bg, 2, gapX, true);
+			}
 		}
 	}
 

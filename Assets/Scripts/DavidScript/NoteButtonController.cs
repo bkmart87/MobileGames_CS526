@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class NoteButtonController : MonoBehaviour {
 
+	public int index;
 
 	public GameObject sound = null;
+	public GameObject neighbor = null;
 
 	public static float triggerRight = -148f;
 	public float triggerLeft = -400f;
@@ -23,6 +25,10 @@ public class NoteButtonController : MonoBehaviour {
 	float totalHoldTime = 0.19f;
 
 	public bool isDouble = false;
+
+	bool isTouchable = false;
+
+	public bool calculated = false;
 
 	//sprite change 
 	//public Sprite clickSprite;
@@ -50,9 +56,11 @@ public class NoteButtonController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () { // move note
-		if (transform.localPosition.x < triggerRight) {
+		if (!isTouchable && transform.localPosition.x < triggerRight) { // enter touch area
+			isTouchable = true;
 			GetComponent<UnityEngine.UI.Button> ().interactable = true;
 			GetComponent<Image> ().color = new Color (1f, 1f, 1f, 1f);
+			notemovement.noteCountsInTouchArea++;
 			 
 		}
 		// miss one note
@@ -60,7 +68,7 @@ public class NoteButtonController : MonoBehaviour {
 			//pause = true;
 
 			BestStreakTextController.score = 0;
-			noteSpeed = NoteMovement.minSpeed;
+			noteSpeed = notemovement.minSpeed;
 			pc.speedMin = true;
 			Instantiate (notemovement.errorSound);
 
@@ -95,11 +103,11 @@ public class NoteButtonController : MonoBehaviour {
 
 		if (pause) {
 			pause = false; //if pause, start moving 
-			noteSpeed = NoteMovement.minSpeed;
+			noteSpeed = notemovement.minSpeed;
 			pc.speedMin = true;
 
 		} else {
-			if(!isDouble) noteSpeed = notemovement.calculateSpeed ();
+			CalculateSpeed ();
 			pc.speedUp = true;
 		}
 		Debug.Log ("Click button");
@@ -131,12 +139,12 @@ public class NoteButtonController : MonoBehaviour {
 
 				if (pause) {
 					pause = false; //if pause, start moving 
-					noteSpeed = NoteMovement.minSpeed;
+					noteSpeed = notemovement.minSpeed;
 					pc.speedMin = true;
 
 				} else {
-					if(!isDouble) noteSpeed = notemovement.calculateSpeed ();
-					pc.speedUp = true;
+					CalculateSpeed ();
+					//pc.speedUp = true;
 				}
 
 				pc.jump = true;
@@ -146,10 +154,24 @@ public class NoteButtonController : MonoBehaviour {
 		}
 	}
 
-	void DestroyButton() {
-		//Debug.Log ("Destroy button");
-		if (notemovement.nextNotesIndex < notemovement.nextNotes.Count) {
-			notemovement.nextNotes [notemovement.nextNotesIndex++] = null;
+	void CalculateSpeed() {
+		if (isDouble) {
+			if (neighbor != null && neighbor.GetComponent<NoteButtonController> ().calculated == false) {
+				noteSpeed = notemovement.calculateSpeed ();
+				calculated = true;
+			}
+		} else {
+			noteSpeed = notemovement.calculateSpeed ();
+		}
+		
+	}
+
+	public void DestroyButton() {
+		notemovement.noteCountsInTouchArea--;
+		notemovement.nextNotes[index] = null;
+		if (index == notemovement.nextNotesIndex) { // this note is the head note of nextNoteArray
+			while (notemovement.nextNotesIndex < notemovement.nextNotes.Count && notemovement.nextNotes [notemovement.nextNotesIndex] == null)
+				notemovement.nextNotesIndex++;
 		}
 		Destroy (gameObject);
 	}

@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public int maxHp = 3;
-	int hp = 3;
+	public int hp = 3;
 
 	bool grounded = true;
 

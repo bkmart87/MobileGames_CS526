@@ -194,6 +194,49 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: musicFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 642d6c3f2ee53ff47851d81d4532ce77, type: 3}
+    - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: gapX
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422056, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 12d4d924218824849a51aeed15fc8c7c,
+        type: 3}
+    - target: {fileID: 11425262, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 12d4d924218824849a51aeed15fc8c7c,
+        type: 3}
+    - target: {fileID: 10257858, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 12d4d924218824849a51aeed15fc8c7c,
+        type: 3}
+    - target: {fileID: 2359464, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 12d4d924218824849a51aeed15fc8c7c, type: 3}
+    - target: {fileID: 10257858, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_FontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424304, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -233
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424304, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467868, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -141
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
   m_IsPrefabParent: 0
@@ -223,7 +266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1142631392
 Transform:
   m_ObjectHideFlags: 0
