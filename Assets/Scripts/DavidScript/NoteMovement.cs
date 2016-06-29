@@ -131,20 +131,20 @@ public class NoteMovement : MonoBehaviour {
 	}
 
 	public void ClickTouchArea() { // call when click on touch area
-		if (nextNotesIndex < nextNotes.Count) {
+		if (nextNotesIndex < nextNotes.Count && !NoteButtonController.pause) {
 			// there is note in touch area
 			//if (nextNotes [nextNotesIndex].transform.localPosition.x <= NoteButtonController.triggerRight) {// there is note in touch area
 			if(noteCountsInTouchArea > 0) {
 				GameObject myErrorSound = Instantiate (errorSound);
 				BestStreakTextController.score = 0;
-
+				/*
 				if (NoteButtonController.pause) {
 					NoteButtonController.pause = false;
 					NoteButtonController.noteSpeed = minSpeed;
-				} else {
+				} else {*/
 					NoteButtonController.noteSpeed = calculateSpeed ();
 					player.GetComponent<PlayerController>().speedMin = true;
-				}
+				//}
 				GameObject headNote = nextNotes[nextNotesIndex];
 				if (headNote.GetComponent<NoteButtonController> ().isDouble && headNote.GetComponent<NoteButtonController> ().neighbor != null) { // destroy both notes in double click
 					headNote.GetComponent<NoteButtonController> ().neighbor.GetComponent<NoteButtonController> ().DestroyButton ();

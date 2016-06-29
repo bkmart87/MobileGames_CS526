@@ -77,11 +77,13 @@ public class NoteButtonController : MonoBehaviour {
 		}
 		if (!pause) {
 			Move ();
-		} else {
+			Hold ();
+		} 
+		//else {
 			//noteSpeed = 0;
-			pc.speedZero = true;
-		}
-		Hold ();
+			//pc.speedZero = true;
+		//}
+
 
 	}
 		
@@ -94,24 +96,27 @@ public class NoteButtonController : MonoBehaviour {
 
 	public void Click() { //onclick call
 
-		Instantiate (sound);
+		if (!pause) {
+			Instantiate (sound);
 
-		//gameObject.GetComponent<Image> ().sprite = clickSprite;
+			//gameObject.GetComponent<Image> ().sprite = clickSprite;
 
-		ScoreTextController.score++;
-		BestStreakTextController.score++;
-
+			ScoreTextController.score++;
+			BestStreakTextController.score++;
+			/*
 		if (pause) {
 			pause = false; //if pause, start moving 
 			noteSpeed = notemovement.minSpeed;
 			pc.speedMin = true;
 
-		} else {
+		} else {*/
 			CalculateSpeed ();
 			pc.speedUp = true;
+			//}
+			Debug.Log ("Click button");
+			DestroyButton ();
+
 		}
-		Debug.Log ("Click button");
-		DestroyButton ();
 
 	}
 

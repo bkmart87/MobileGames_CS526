@@ -31,10 +31,13 @@ public class pauseButtonScript : MonoBehaviour {
 
 	public void pauseButtonClickEvent(){
 
-		lastSpeedPeter = PlayerController.currentSpeed;
-		wolfControl.Stop ();
+		//lastSpeedPeter = PlayerController.currentSpeed;
+		//wolfControl.Stop ();
+
 		NoteButtonController.pause = true;
 		popup.SetActive (true);
+		Time.timeScale = 0.0f;
+
 
 
 	}
@@ -44,9 +47,13 @@ public class pauseButtonScript : MonoBehaviour {
 	}
 
 	public void exitEvent(){
+		
+
 		NoteButtonController.pause = false;
 		popup.SetActive (false);
-		PlayerController.currentSpeed = lastSpeedPeter;
-		wolfControl.RecoverSpeed ();
+		Time.timeScale = 1.0f;
+		//PlayerController.currentSpeed = lastSpeedPeter;
+		//wolfControl.RecoverSpeed ();
+
 	}
 }
