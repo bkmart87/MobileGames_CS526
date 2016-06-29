@@ -10,6 +10,10 @@ public class pauseButtonScript : MonoBehaviour {
 	private int level1 = 2;
 	private int level2 = 3;
 	private int level3 = 4;
+
+	//peter' speed before pause
+	private float lastSpeedPeter = 0;
+
 	// Use this for initialization
 	void Start () {
 		//popup = GameObject.Find ("popup");
@@ -23,8 +27,10 @@ public class pauseButtonScript : MonoBehaviour {
 
 	public void pauseButtonClickEvent(){
 
+		lastSpeedPeter = PlayerController.currentSpeed;
 		NoteButtonController.pause = true;
 		popup.SetActive (true);
+
 
 	}
 		
@@ -35,5 +41,6 @@ public class pauseButtonScript : MonoBehaviour {
 	public void exitEvent(){
 		NoteButtonController.pause = false;
 		popup.SetActive (false);
+		PlayerController.currentSpeed = lastSpeedPeter;
 	}
 }
