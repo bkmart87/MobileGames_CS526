@@ -43,6 +43,7 @@ public class pauseButtonScript : MonoBehaviour {
 	}
 		
 	public void replayEvent(){
+		Time.timeScale = 1.0f;
 		SceneManager.LoadScene(Application.loadedLevelName);
 	}
 

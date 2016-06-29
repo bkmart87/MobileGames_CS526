@@ -27,6 +27,7 @@ public class LoadNextLevel : MonoBehaviour
 
 	public void levelMainMenu(){
 		//Application.LoadLevel("level0");
+		Time.timeScale = 1.0f;
 		SceneManager.LoadScene ("level0");
 	}
 
