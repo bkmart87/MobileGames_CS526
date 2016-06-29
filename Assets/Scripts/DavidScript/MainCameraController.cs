@@ -22,6 +22,7 @@ public class MainCameraController : MonoBehaviour {
 	public float boulderProb;
 
 	float gapX = 87f;
+	public float itemRange = 70f;
 
 	// Use this for initialization
 	void Start () {
@@ -41,10 +42,10 @@ public class MainCameraController : MonoBehaviour {
 
 			//generate all items in new background
 			if (generateItem) {
-				GenerateItem (violin, bg, violinNum, gapX, violinProb);
-				GenerateItem (rock, bg, rockNum, gapX, rockProb);
-				GenerateItem (heart, bg, heartNum, gapX, heartProb);
-				GenerateItem (boulder, bg, boulderNum, gapX, boulderProb);
+				GenerateItem (violin, bg, violinNum, itemRange, violinProb);
+				GenerateItem (rock, bg, rockNum, itemRange, rockProb);
+				GenerateItem (heart, bg, heartNum, itemRange, heartProb);
+				GenerateItem (boulder, bg, boulderNum, itemRange, boulderProb);
 			}
 		}
 	}
@@ -60,7 +61,7 @@ public class MainCameraController : MonoBehaviour {
 				item.transform.SetParent (parent.transform);
 				float x = left + interval * Random.Range (0f, 1f);
 				if (x < left + 20) // in case two item is too close
-				left += 30; 
+				left += 20; 
 				item.transform.localPosition = new Vector3 (x, item.transform.localPosition.y, item.transform.localPosition.z);
 				left += interval;
 			}

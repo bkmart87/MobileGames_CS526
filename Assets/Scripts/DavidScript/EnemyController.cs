@@ -66,6 +66,7 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//game.GetComponent<GameController>().GameOver ();
 			player.GetComponent<PlayerController>().hpDown = true;
+			myAnim.SetTrigger ("Bite");
 			if (player.GetComponent<PlayerController> ().hp == 0) {
 				game.GetComponent<GameController>().GameOver ();
 			} else {
