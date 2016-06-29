@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
 	float minSpeed = 7.5f;
 	float midSpeed = 10f;
 	float maxSpeed = 20f;
+	float preSpeed = 0f;
 
 	public float wolfSpeed = 5f;
 	public static float currentSpeed = 5f;
@@ -54,7 +55,8 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	public void Stop() {
-		currentSpeed = 0;
+		preSpeed = currentSpeed;
+		currentSpeed = 0f;
 		stop = true;
 	}
 
@@ -62,10 +64,23 @@ public class EnemyController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//game.GetComponent<GameController>().GameOver ();
 			player.GetComponent<PlayerController>().hpDown = true;
-			Stop ();
+			if (player.GetComponent<PlayerController> ().hp == 0) {
+				game.GetComponent<GameController>().GameOver ();
+			} else {
+				Stop ();
+				Invoke ("RecoverSpeed", 4f);
+			}
 		}
 
 	}
+
+	void RecoverSpeed() {
+		currentSpeed = preSpeed;
+		stop = false;
+	}
+
+
+
 
 	float getPlayerDistance() { //get enemy distance to playr
 		float distance = (player.transform.localPosition.x - transform.localPosition.x - 4f) / 4f;

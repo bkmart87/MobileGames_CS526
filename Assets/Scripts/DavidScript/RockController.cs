@@ -15,7 +15,7 @@ public class RockController : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter2D(Collider2D other) { // player hit the destination and then "you win".
+	void OnTriggerEnter2D(Collider2D other) { // player hit the rock lose 1hp;
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			player.GetComponent<PlayerController> ().hpDown = true;
 			Destroy (gameObject);

@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
 	public void GameStart() { // game start with initialization
 		ScoreTextController.score = 0;
 		BestStreakTextController.score = 0;
-		NoteButtonController.noteSpeed = NoteMovement.minSpeed;
+		NoteButtonController.noteSpeed = notes.GetComponent<NoteMovement>().minSpeed;
 		NoteButtonController.pause = false;
 		Debug.Log ("Game Start");
 
@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void GameWin() {
-		//Debug.Log ("GameWin");
+		Debug.Log ("GameWin");
 		player.GetComponent<PlayerController> ().speedMin = true;
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0f;

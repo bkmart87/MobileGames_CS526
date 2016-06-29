@@ -15,10 +15,10 @@ public class NoteMovement : MonoBehaviour {
 
 	//note speed
 	float lastClickTime = 0f;
-	public static float maxSpeed = 9f;
-	public static float minSpeed = 3f;
-	float slope = -3f;
-	float streakSlope = 0f;
+	public float maxSpeed = 9f;
+	public float minSpeed = 3f;
+	public float slope = -3f;
+	public float streakSlope = 0f;
 
 	//note position 
 	float initPosX = 0f;
@@ -33,6 +33,7 @@ public class NoteMovement : MonoBehaviour {
 	public GameObject lastNote = null;
 	public List<GameObject> nextNotes = new List<GameObject>();
 	public int nextNotesIndex = 0;
+	public int noteCountsInTouchArea = 0;
 
 	//sound variable
 	public GameObject[] soundArray;
@@ -78,7 +79,7 @@ public class NoteMovement : MonoBehaviour {
 			GameObject myDest = Instantiate (dest);
 			myDest.transform.SetParent (game.transform);
 			//Debug.Log (player.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 60f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 62f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 
@@ -92,24 +93,24 @@ public class NoteMovement : MonoBehaviour {
 			note.transform.SetParent (gameObject.transform, false);
 			note.GetComponentInChildren<UnityEngine.UI.Text> ().text = sArray[i];
 			note.GetComponent<NoteButtonController> ().sound = soundArray [index];
-			if (sArray.Length > 1) {
+			if (sArray.Length > 1) { // double click initialization
 				note.GetComponent<NoteButtonController> ().isDouble = true;
+				if(i == 1) {
+					GameObject neighbor = nextNotes [nextNotes.Count - 1];
+					note.GetComponent<NoteButtonController> ().neighbor = neighbor;
+					neighbor.GetComponent<NoteButtonController> ().neighbor = note;
+				}
 			}
 			//5D1F1F80 FF878EFF
 			if (sArray [i] [sArray [i].Length - 2] == 'b') {
 				note.GetComponentInChildren<Image> ().sprite = blendSprite;
 			}
 			else if (sArray [i] [sArray[i].Length - 1] == '5') { // change color
-				/*
-				ColorBlock cb = note.GetComponent<UnityEngine.UI.Button> ().colors;
-				cb.highlightedColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
-				cb.normalColor = new Color (204f / 255f, 84f / 255f, 144f / 255f, 1f);
-				cb.disabledColor = new Color (255f / 255f, 192f / 255f, 203f / 255f, 1f);
-				note.GetComponent<UnityEngine.UI.Button> ().colors = cb;*/
 				note.GetComponentInChildren<Image> ().sprite = highSprite;
 			}
 
 			nextNotes.Add (note);
+			note.GetComponent<NoteButtonController> ().index = nextNotes.Count - 1;
 			lastNote = note;
 		}
 	}
@@ -131,7 +132,9 @@ public class NoteMovement : MonoBehaviour {
 
 	public void ClickTouchArea() { // call when click on touch area
 		if (nextNotesIndex < nextNotes.Count) {
-			if (nextNotes [nextNotesIndex].transform.localPosition.x <= NoteButtonController.triggerRight) {// there is note in touch area
+			// there is note in touch area
+			//if (nextNotes [nextNotesIndex].transform.localPosition.x <= NoteButtonController.triggerRight) {// there is note in touch area
+			if(noteCountsInTouchArea > 0) {
 				GameObject myErrorSound = Instantiate (errorSound);
 				BestStreakTextController.score = 0;
 
@@ -142,8 +145,11 @@ public class NoteMovement : MonoBehaviour {
 					NoteButtonController.noteSpeed = calculateSpeed ();
 					player.GetComponent<PlayerController>().speedMin = true;
 				}
-				Destroy (nextNotes [nextNotesIndex]);
-				nextNotes [nextNotesIndex++] = null;
+				GameObject headNote = nextNotes[nextNotesIndex];
+				if (headNote.GetComponent<NoteButtonController> ().isDouble && headNote.GetComponent<NoteButtonController> ().neighbor != null) { // destroy both notes in double click
+					headNote.GetComponent<NoteButtonController> ().neighbor.GetComponent<NoteButtonController> ().DestroyButton ();
+				}
+				headNote.GetComponent<NoteButtonController> ().DestroyButton ();
 			} else { //note has not came to touch area yet 
 				NoteButtonController.noteSpeed = calculateSpeed ();
 
@@ -153,6 +159,8 @@ public class NoteMovement : MonoBehaviour {
 
 	public float calculateSpeed() {
 		float clickTimeInterval = Time.time - lastClickTime;
+		if (clickTimeInterval < 0.01f)
+			return NoteButtonController.noteSpeed;
 		lastClickTime = Time.time;	
 		//Debug.Log ("interval: " + clickTimeInterval);
 		float speed = slope * clickTimeInterval + maxSpeed + streakSlope * (float)BestStreakTextController.score;
@@ -166,11 +174,7 @@ public class NoteMovement : MonoBehaviour {
 
 	//load music file
 	string[] Load (){
-		
-		if(System.Environment.NewLine == "\n")
-			return musicFile.text.Split ('\n');
-		else
-			return musicFile.text.Split (' ');
+		return System.Text.RegularExpressions.Regex.Split(musicFile.text, @"\s+");
 	}
 
 	void GetNotes() { // generate all notes at start

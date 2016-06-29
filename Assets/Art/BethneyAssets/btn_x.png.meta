@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 55c087802242943faa7dad3ea6d0d240
 timeCreated: 1466793738
+=======
+guid: 3178e0acee730b444b380213e5159aaa
+timeCreated: 1466792448
+>>>>>>> origin/master
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -49,7 +54,10 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+<<<<<<< HEAD
     serializedVersion: 2
+=======
+>>>>>>> origin/master
     sprites: []
     outline: []
   spritePackingTag: 

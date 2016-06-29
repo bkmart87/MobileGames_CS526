@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	public int maxHp = 3;
-	int hp = 3;
+	public int hp = 3;
 
 	bool grounded = true;
 
@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour {
 			hitDie = false;
 			myAnim.SetInteger ("HitPoints", 0);
 			myAnim.SetTrigger ("Hit");
+			Debug.Log ("hit die game over");
 			game.GetComponent<GameController> ().GameOver ();
 		}
 		
