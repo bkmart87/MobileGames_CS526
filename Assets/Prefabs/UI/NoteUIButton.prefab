@@ -95,9 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbf95d4c334d48e6a0d47cde5605d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   sound: {fileID: 0}
+  neighbor: {fileID: 0}
   triggerLeft: -400
   isDouble: 0
+  calculated: 0
 --- !u!114 &11452754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.469}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
