@@ -125,7 +125,7 @@ public class NoteButtonController : MonoBehaviour {
 	}
 
 	public void Hold() { //hold button effect
-		if (holdButton) {
+		if (isTouchable && holdButton) {
 			holdTime += Time.deltaTime;
 			if (holdTime > totalHoldTime) {
 				GameObject mySound = Instantiate (sound);

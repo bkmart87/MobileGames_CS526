@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour {
 
 	float inCameraDistance = 5f;
 
+
+
 	bool stop = false;
 
 	Rigidbody2D myRB;
