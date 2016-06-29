@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour {
 
 	}
 
-	void RecoverSpeed() {
+	public void RecoverSpeed() {
 		currentSpeed = preSpeed;
 		stop = false;
 	}

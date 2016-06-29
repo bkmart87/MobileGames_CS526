@@ -14,10 +14,14 @@ public class pauseButtonScript : MonoBehaviour {
 	//peter' speed before pause
 	private float lastSpeedPeter = 0;
 
+	//wolf speed control for Pause
+	EnemyController wolfControl;
+
 	// Use this for initialization
 	void Start () {
 		//popup = GameObject.Find ("popup");
 		popup.SetActive (false);
+		wolfControl = GameObject.Find ("Wolf").GetComponent<EnemyController> ();
 	}
 	
 	// Update is called once per frame
@@ -28,6 +32,7 @@ public class pauseButtonScript : MonoBehaviour {
 	public void pauseButtonClickEvent(){
 
 		lastSpeedPeter = PlayerController.currentSpeed;
+		wolfControl.Stop ();
 		NoteButtonController.pause = true;
 		popup.SetActive (true);
 
@@ -42,5 +47,6 @@ public class pauseButtonScript : MonoBehaviour {
 		NoteButtonController.pause = false;
 		popup.SetActive (false);
 		PlayerController.currentSpeed = lastSpeedPeter;
+		wolfControl.RecoverSpeed ();
 	}
 }
