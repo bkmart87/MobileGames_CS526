@@ -7,11 +7,20 @@ public class MainCameraController : MonoBehaviour {
 	public GameObject bg;
 	public GameObject newBg;
 	public GameObject bgs;
-	public GameObject violin;
-	public GameObject rock;
-	public GameObject heart;
-	public GameObject boulder;
 	public bool generateItem;
+	public GameObject violin;
+	public int violinNum;
+	public float violinProb;
+	public GameObject rock;
+	public int rockNum;
+	public float rockProb;
+	public GameObject heart;
+	public int heartNum;
+	public float heartProb;
+	public GameObject boulder;
+	public int boulderNum;
+	public float boulderProb;
+
 	float gapX = 87f;
 
 	// Use this for initialization
@@ -32,28 +41,29 @@ public class MainCameraController : MonoBehaviour {
 
 			//generate all items in new background
 			if (generateItem) {
-				GenerateItem (violin, bg, 1, gapX, false);
-				GenerateItem (rock, bg, 3, gapX, true);
-				GenerateItem (heart, bg, 2, gapX, true);
-				GenerateItem (boulder, bg, 2, gapX, true);
+				GenerateItem (violin, bg, violinNum, gapX, violinProb);
+				GenerateItem (rock, bg, rockNum, gapX, rockProb);
+				GenerateItem (heart, bg, heartNum, gapX, heartProb);
+				GenerateItem (boulder, bg, boulderNum, gapX, boulderProb);
 			}
 		}
 	}
 
-	void GenerateItem(GameObject obj, GameObject parent, int num, float length, bool isRandomNum) {// randomly generate items at parent 
+	void GenerateItem(GameObject obj, GameObject parent, int num, float length, float prob) {// randomly generate items at parent 
 		Random.seed = (int)System.DateTime.Now.Ticks;
 		//Debug.Log ("Random.seed = " + Random.seed);
-		if(isRandomNum) num = (int)Random.Range(0f, num + 0.9f);
 		float left = -length / 2f;
 		float interval = length / num;
 		for (int i = 0; i < num; i++) {
-			GameObject item = Instantiate (obj);
-			item.transform.SetParent (parent.transform);
-			float x = left + interval * Random.Range (0f, 1f);
-			if (x < left + 20) // in case two item is too close
+			if (Random.Range (0f, 1f) <= prob) {
+				GameObject item = Instantiate (obj);
+				item.transform.SetParent (parent.transform);
+				float x = left + interval * Random.Range (0f, 1f);
+				if (x < left + 20) // in case two item is too close
 				left += 30; 
-			item.transform.localPosition = new Vector3 (x, item.transform.localPosition.y, item.transform.localPosition.z);
-			left += interval;
+				item.transform.localPosition = new Vector3 (x, item.transform.localPosition.y, item.transform.localPosition.z);
+				left += interval;
+			}
 		}
 	}
 }

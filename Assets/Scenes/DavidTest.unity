@@ -197,10 +197,10 @@ Prefab:
     - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: musicFile
       value: 
-      objectReference: {fileID: 4900000, guid: 642d6c3f2ee53ff47851d81d4532ce77, type: 3}
+      objectReference: {fileID: 4900000, guid: 5180b5fb129b8403e9014a724b414aff, type: 3}
     - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: gapX
-      value: 180
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 11422056, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: m_FontData.m_Font

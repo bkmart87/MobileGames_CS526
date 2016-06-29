@@ -723,7 +723,7 @@ Prefab:
     - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: musicFile
       value: 
-      objectReference: {fileID: 4900000, guid: 67eb2296a7f1641879b7995bd4463fcb, type: 3}
+      objectReference: {fileID: 4900000, guid: 5180b5fb129b8403e9014a724b414aff, type: 3}
     - target: {fileID: 11432600, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: m_FontData.m_Font
       value: 
@@ -787,6 +787,82 @@ Prefab:
     - target: {fileID: 121132, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: maxSpeed
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: generateItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: violinNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: violinIsRandomNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: rockNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: rockIsRandomNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: heartNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: heartIsRandomNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: boulderNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: boulderIsRandomNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478478, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: gapX
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424304, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -238
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424304, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 216
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467868, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -134
+      objectReference: {fileID: 0}
+    - target: {fileID: 100848, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: violinProb
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: rockProb
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: heartProb
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485408, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
+      propertyPath: boulderProb
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5094d5e80154056b0730a820824bd7, type: 2}
