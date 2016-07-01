@@ -20,6 +20,9 @@ public class MainCameraController : MonoBehaviour {
 	public GameObject boulder;
 	public int boulderNum;
 	public float boulderProb;
+	public GameObject shield;
+	public int shieldNum;
+	public float shieldProb;
 
 	float gapX = 87f;
 	public float itemRange = 70f;
@@ -46,6 +49,7 @@ public class MainCameraController : MonoBehaviour {
 				GenerateItem (rock, bg, rockNum, itemRange, rockProb);
 				GenerateItem (heart, bg, heartNum, itemRange, heartProb);
 				GenerateItem (boulder, bg, boulderNum, itemRange, boulderProb);
+				//GenerateItem (shield, bg, shieldNum, itemRange, shieldProb);
 			}
 		}
 	}

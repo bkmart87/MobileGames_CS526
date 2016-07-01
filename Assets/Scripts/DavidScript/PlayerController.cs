@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject hpUi;
 	public GameObject game;
+	public GameObject peterBird;
 
 	//control speed bool
 	public bool speedUp;
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour {
 	public bool hitDie;
 	public bool hpUp;
 	public bool hpDown;
+	public bool getShield;
+	public bool invincible;
 
 
 	public int maxHp = 3;
@@ -158,6 +161,8 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 
+
+
 	void GetHp() {
 		if (hpUp == true) {
 			hpUp = false;
@@ -167,19 +172,32 @@ public class PlayerController : MonoBehaviour {
 				hpUi.GetComponent<HpUIController> ().addHp (1);
 			}
 
-		} else if (hpDown == true) {
+		} else if (hpDown == true && !invincible) {
 			hpDown = false;
 			hp--;
 			GetComponentInChildren<PeterTextController> ().Show ("HP -1");
 			hpUi.GetComponent<HpUIController> ().addHp (-1);
 			if (hp > 0) {
 				hit = true;
-				speedUp = true;
+				//speedUp = true;
 			} else {
 				hitDie = true;
 			}
 		}
 		//hpUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "HP " + hp; // hp ui change
 
+	}
+
+	public void GetShield() {
+		invincible = true;				
+		GetComponentInChildren<PeterTextController> ().Show ("Bird Shield");
+		peterBird.SetActive (true);
+		Invoke ("DropShield", 15f);
+
+	}
+
+	void DropShield() {
+		invincible = false;
+		peterBird.SetActive (false);
 	}
 }

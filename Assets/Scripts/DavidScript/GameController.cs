@@ -11,8 +11,14 @@ public class GameController : MonoBehaviour {
 	public GameObject notes;
 	public GameObject touchArea;
 
+	// global varible for game status
+	public static bool gameHasStarted = false;
+	public static bool gameIsOver = false;
+
 	// Use this for initialization
 	void Start () {
+		gameHasStarted = false;
+		gameIsOver = false;
 		GameStart ();
 	
 	}
@@ -27,6 +33,9 @@ public class GameController : MonoBehaviour {
 		BestStreakTextController.score = 0;
 		NoteButtonController.noteSpeed = notes.GetComponent<NoteMovement>().minSpeed;
 		NoteButtonController.pause = false;
+
+		// game has started, begin recording
+		gameHasStarted = true;
 		Debug.Log ("Game Start");
 
 	}
@@ -41,9 +50,9 @@ public class GameController : MonoBehaviour {
 		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Game Over";
 
+		// game is over, stop recording
+		gameIsOver = true;
 		Invoke("GameOverDelay", 2f);
-
-
 	}
 
 	void GameOverDelay() {
@@ -60,6 +69,8 @@ public class GameController : MonoBehaviour {
 		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
 
+		// game is over, stop recording
+		gameIsOver = true;
 
 		Invoke("GameWinDelay", 3f);
 

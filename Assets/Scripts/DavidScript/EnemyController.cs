@@ -67,11 +67,9 @@ public class EnemyController : MonoBehaviour {
 			//game.GetComponent<GameController>().GameOver ();
 			player.GetComponent<PlayerController>().hpDown = true;
 			myAnim.SetTrigger ("Bite");
-			if (player.GetComponent<PlayerController> ().hp == 0) {
-				game.GetComponent<GameController>().GameOver ();
-			} else {
+			if (player.GetComponent<PlayerController> ().hp > 0) {
 				Stop ();
-				Invoke ("RecoverSpeed", 4f);
+				Invoke ("RecoverSpeed", 4f); // wolf will stop for 4 sec and then recover previous speed
 			}
 		}
 

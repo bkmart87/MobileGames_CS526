@@ -23,8 +23,10 @@ public class BoulderController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) { // player hit the boulder lose 1hp;
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			player.GetComponent<PlayerController> ().hpDown = true;
-			Destroy (gameObject);
+			if (player.GetComponent<PlayerController> ().invincible == false) {
+				player.GetComponent<PlayerController> ().hpDown = true;
+				Destroy (gameObject);
+			}
 		}
 	}
 
