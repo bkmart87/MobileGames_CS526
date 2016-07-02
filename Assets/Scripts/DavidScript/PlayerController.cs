@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	public bool hpDown;
 	public bool getShield;
 	public bool invincible;
+	int shildNum = 0;
 
 
 	public int maxHp = 3;
@@ -189,7 +190,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void GetShield() {
-		invincible = true;				
+		invincible = true;
+		shildNum++;
 		GetComponentInChildren<PeterTextController> ().Show ("Bird Shield");
 		peterBird.SetActive (true);
 		Invoke ("DropShield", 15f);
@@ -197,7 +199,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void DropShield() {
-		invincible = false;
-		peterBird.SetActive (false);
+		shildNum--;
+		if (shildNum == 0) {
+			invincible = false;
+			peterBird.SetActive (false);
+		}
 	}
 }

@@ -17,8 +17,8 @@ TagManager:
   - Player
   - Ground
   - InvinciblePlayer
-  - 
-  - 
+  - Obstacle
+  - Item
   - 
   - 
   - 

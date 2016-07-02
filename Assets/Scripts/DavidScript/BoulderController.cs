@@ -4,12 +4,15 @@ using System.Collections;
 public class BoulderController : MonoBehaviour {
 	public GameObject player;
 	public float gapX = 14f;
-	public float fallSpeed = 1f;
+	public float forceX = 0.15f;
 	bool isFall = false;
+
+	Rigidbody2D myRB;
 
 	// Use this for initialization
 	void Start () {
-	
+		myRB = GetComponent<Rigidbody2D> ();
+		myRB.isKinematic = true;
 	}
 	
 	// Update is called once per frame
@@ -21,23 +24,19 @@ public class BoulderController : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(Collider2D other) { // player hit the boulder lose 1hp;
+	void OnCollisionEnter2D(Collision2D other) { // player hit the boulder lose 1hp;
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			if (player.GetComponent<PlayerController> ().invincible == false) {
 				player.GetComponent<PlayerController> ().hpDown = true;
-				Destroy (gameObject);
 			}
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other) { // player hit the boulder lose 1hp;
-		if (other.gameObject.layer == LayerMask.NameToLayer ("Ground")) {
 			Destroy (gameObject);
 		}
 	}
+		
 
 	public void Fall() {
-		GetComponent<Rigidbody2D> ().gravityScale = fallSpeed;
+		myRB.isKinematic = false;
 		isFall = true;
+		myRB.AddForce (new Vector3(-forceX,0,0));
 	}
 }

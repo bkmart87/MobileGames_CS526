@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour {
 		BestStreakTextController.score = 0;
 		NoteButtonController.noteSpeed = notes.GetComponent<NoteMovement>().minSpeed;
 		NoteButtonController.pause = false;
+		Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("Obstacle"), LayerMask.NameToLayer("Obstacle"));
 
 		// game has started, begin recording
 		gameHasStarted = true;
@@ -64,20 +65,19 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("GameWin");
 		player.GetComponent<PlayerController> ().speedMin = true;
 		enemy.GetComponent<EnemyController> ().Stop();
-		NoteButtonController.noteSpeed = 0f;
-		notes.SetActive (false);
-		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
-
+		player.GetComponent<PlayerController> ().invincible = true;
 		// game is over, stop recording
 		gameIsOver = true;
 
-		Invoke("GameWinDelay", 3f);
+		Invoke("GameWinDelay", 4f);
 
 	}
 
 	void GameWinDelay() {
 		player.GetComponent<PlayerController> ().Stop ();
+		notes.SetActive (false);
+		touchArea.SetActive (false);
 		SceneManager.LoadScene ("WinScene");
 	}
 }
