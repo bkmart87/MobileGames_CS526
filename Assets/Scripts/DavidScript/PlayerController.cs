@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject game;
 	public GameObject peterBird;
 
+	public bool controllable;
+
 	//control speed bool
 	public bool speedUp;
 	public bool speedDown;
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public bool jump;
 	public float jumpHeight;
 	public float jumpDistance;
-	public static float currentSpeed = 0f;
+	public float currentSpeed = 0f;
 	public bool hit;
 	public bool hitDie;
 	public bool hpUp;
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour {
 		myRB = GetComponent<Rigidbody2D> ();
 		myAnim = GetComponentInChildren<Animator> ();
 
+		controllable = true;
 		facingRight = true;
 		grounded = true;
 		currentSpeed = minSpeed;
@@ -69,7 +72,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			grounded = true;
 		}
-		if(grounded) Jump ();
+		if(controllable && grounded) Jump ();
 
 
 	}
@@ -78,16 +81,15 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		float move = Input.GetAxis ("Horizontal");
-		GetSpeed ();
-		// currentSpeed += move * 0.1f; ///test!!!
+		if (controllable) {
+			GetSpeed ();
+			GetHit ();
+			GetHp ();
+		}
 		myAnim.SetFloat ("Speed", Mathf.Abs(currentSpeed));
-
 		myRB.velocity = new Vector2 (currentSpeed , myRB.velocity.y);
 
-		GetHit ();
-		GetHp ();
-
-		if (move > 0 && !facingRight) {
+		if (move > 0 && !facingRight) { //flip peter's body
 			Flip ();
 		} else if (move < 0 && facingRight) {
 			Flip ();

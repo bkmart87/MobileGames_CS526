@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour {
 	public GameObject wolfMessage = null;
 	public GameObject game = null;
 
+	public float distance;
 	float inCameraDistance = 5f;
 
 
@@ -35,7 +36,7 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float distance = getPlayerDistance ();
+		distance = getPlayerDistance ();
 		if (distance > inCameraDistance) {
 			wolfMessage.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Wolf " + (int)distance + "M";
 		} else {

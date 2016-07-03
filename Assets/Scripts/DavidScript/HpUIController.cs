@@ -7,20 +7,18 @@ public class HpUIController : MonoBehaviour {
 	int hp = 3;
 	public GameObject heartHp;
 	public GameObject heartHpGrey;
-	float initPosX = -229f;
-	float gapX = 41f;
+	float initPosX = 0f;
+	float gapX = 45f;
 	GameObject[] hpArray = new GameObject[20];
 
 	// Use this for initialization
 	void Start () {
+		initPosX = - GetComponent<RectTransform> ().rect.width / 2f + 20f;
 		GetHp ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		for (int i = 0; i < maxHp; i++) {
-			
-		}
 	}
 
 	public void addHp(int num) {
@@ -40,7 +38,7 @@ public class HpUIController : MonoBehaviour {
 			} else {
 				hpArray [i] = Instantiate (heartHpGrey);
 			}
-			hpArray[i].transform.SetParent (gameObject.transform, false);
+			hpArray [i].transform.SetParent (gameObject.transform, false);
 			hpArray [i].transform.localPosition = new Vector3 (initPosX + i * gapX, hpArray [i].transform.localPosition.y, hpArray [i].transform.localPosition.z);
 		}
 	}

@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("After hit die");
 		enemy.GetComponent<EnemyController> ().Stop();
 		NoteButtonController.noteSpeed = 0f;
+		player.GetComponent<PlayerController> ().controllable = false;
 		notes.SetActive (false);
 		touchArea.SetActive (false);
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Game Over";
@@ -63,10 +64,10 @@ public class GameController : MonoBehaviour {
 
 	public void GameWin() {
 		Debug.Log ("GameWin");
-		player.GetComponent<PlayerController> ().speedMin = true;
+		player.GetComponent<PlayerController> ().currentSpeed = player.GetComponent<PlayerController> ().minSpeed;
 		enemy.GetComponent<EnemyController> ().Stop();
 		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
-		player.GetComponent<PlayerController> ().invincible = true;
+		player.GetComponent<PlayerController> ().controllable = false;
 		// game is over, stop recording
 		gameIsOver = true;
 
