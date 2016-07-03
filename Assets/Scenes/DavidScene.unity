@@ -764,7 +764,7 @@ MonoBehaviour:
   heartProb: 0.8
   boulder: {fileID: 1518843154}
   boulderNum: 2
-  boulderProb: 0.4
+  boulderProb: 0.6
   shield: {fileID: 2023022999}
   shieldNum: 1
   shieldProb: 0.5
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   spikeNum: 2
   spikeProb: 0.8
   boulderNum: 2
-  boulderProb: 0.5
+  boulderProb: 0.7
   notesMaxSpeed: 12
   notesMinSpeed: 3
   gapX: 88

@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour {
-
-	public int level;
+	public static int level = 0;
 
 	public GameObject[] levelSetting;
 	public GameObject player;
