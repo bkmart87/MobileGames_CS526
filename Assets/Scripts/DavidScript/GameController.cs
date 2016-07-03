@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+	public int level;
+
+	public GameObject[] levelSetting;
 	public GameObject player;
 	public GameObject enemy;
 	public GameObject gameMessageUi;
@@ -14,6 +17,11 @@ public class GameController : MonoBehaviour {
 	// global varible for game status
 	public static bool gameHasStarted = false;
 	public static bool gameIsOver = false;
+
+	void Awake () {
+		levelSetting [level].SetActive (true);
+	}
+
 
 	// Use this for initialization
 	void Start () {
