@@ -18,6 +18,17 @@ public class LoadNextLevel : MonoBehaviour
 	public void level1(){
 		//Application.LoadLevel("DavidScene");
 		SceneManager.LoadScene ("DavidScene");
+
+	}
+
+	public void level2(){
+		//Application.LoadLevel("DavidScene");
+		SceneManager.LoadScene ("DavidScene");
+	}
+
+	public void level3(){
+		//Application.LoadLevel("DavidScene");
+		SceneManager.LoadScene ("DavidScene");
 	}
 
 	public void levelTutorial(){
