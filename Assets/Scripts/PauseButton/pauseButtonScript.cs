@@ -22,8 +22,6 @@ public class pauseButtonScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//popup = GameObject.Find ("popup");
-		levelName = GameController.level;
-		levelText.text = "LEVEL: " + levelName;
 		popup.SetActive (false);
 		wolfControl = GameObject.Find ("Wolf").GetComponent<EnemyController> ();
 
@@ -31,7 +29,9 @@ public class pauseButtonScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		levelName = GameController.level;
+		levelText.text = "LEVEL: " + levelName.ToString();
+		Debug.Log (levelText.text.ToString ());
 	}
 
 	public void pauseButtonClickEvent(){
