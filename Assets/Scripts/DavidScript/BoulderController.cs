@@ -17,6 +17,9 @@ public class BoulderController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (GameController.gameIsOver) {
+			gameObject.SetActive (false);
+		}
 		float distance = transform.position.x - player.transform.position.x;
 		if (!isFall && distance > 0f && distance < gapX ) {
 			Fall ();

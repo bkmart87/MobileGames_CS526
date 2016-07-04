@@ -21,6 +21,7 @@ public class ItemController : MonoBehaviour {
 			if (isViolin) { // violin bonus
 				Debug.Log ("get violin");
 				ScoreTextController.score += 20;
+				other.gameObject.GetComponentInChildren<PeterTextController>().Show ("Score + 20");
 
 			} else if (isHeart) {
 				Debug.Log ("get heart");

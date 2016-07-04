@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour {
 		shildNum++;
 		GetComponentInChildren<PeterTextController> ().Show ("Bird Shield");
 		peterBird.SetActive (true);
-		Invoke ("DropShield", 15f);
+		Invoke ("DropShield", 12f); //shiled time 
 
 	}
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	//speed 
-	float minSpeed = 7.5f;
+	float minSpeed = 8.4f;
 	float midSpeed = 10f;
 	float maxSpeed = 20f;
 	float preSpeed = 0f;
