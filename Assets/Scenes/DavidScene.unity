@@ -151,7 +151,7 @@ MonoBehaviour:
   nextNotesIndex: 0
   noteCountsInTouchArea: 0
   soundArray:
-  - {fileID: 167478, guid: 33ea2743f63d64ce3934b008c1a46741, type: 2}
+  - {fileID: 0}
   - {fileID: 195612, guid: 56c273f17ca4f41728136c0fbb0836b2, type: 2}
   - {fileID: 187216, guid: fa00aef78d07d4a63adc4c191467cf9e, type: 2}
   - {fileID: 190606, guid: c5f64193e73fc41489fb75b39772b800, type: 2}
@@ -5218,7 +5218,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189.6, y: 8.1}
+  m_AnchoredPosition: {x: -189.6, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126120907
@@ -5717,7 +5717,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -139.1, y: 8.1}
+  m_AnchoredPosition: {x: -139, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313723816
