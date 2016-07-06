@@ -52,4 +52,5 @@ public class MiniMapController : MonoBehaviour {
 		return driftY;
 		
 	}
+
 }

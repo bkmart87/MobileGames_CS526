@@ -13,6 +13,10 @@ public class GameController : MonoBehaviour {
 	public GameObject notes;
 	public GameObject touchArea;
 
+	public int wolfHit = 0;
+	public int obstacleHit = 0;
+	public int totalObstacle = 0;
+
 	// global varible for game status
 	public static bool gameHasStarted = false;
 	public static bool gameIsOver = false;

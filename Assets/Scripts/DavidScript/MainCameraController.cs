@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MainCameraController : MonoBehaviour {
 
+	public GameObject game;
 	public GameObject player;
 	public GameObject bg;
 	public GameObject newBg;
@@ -113,7 +114,7 @@ public class MainCameraController : MonoBehaviour {
 				obstacle.transform.SetParent (parent.transform);
 				float x = left + interval * Random.Range (0.3f, 0.7f);
 				obstacle.transform.localPosition = new Vector3 (x, obstacle.transform.localPosition.y, obstacle.transform.localPosition.z);
-
+				game.GetComponent<GameController> ().totalObstacle++;
 			}
 			left += interval;
 		}

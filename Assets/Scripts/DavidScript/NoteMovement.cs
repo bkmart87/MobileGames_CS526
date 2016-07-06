@@ -72,12 +72,12 @@ public class NoteMovement : MonoBehaviour {
 		}
 
 
-		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < rightBoundX ) {  // set destination when last note generate
+		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < rightBoundX + 300f) {  // set destination when last note generate
 			Debug.Log("Dest");
 			hasDest = true;
 			GameObject myDest = Instantiate (dest);
 			myDest.transform.SetParent (game.transform);
-			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 38f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 40f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 

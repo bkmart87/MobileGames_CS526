@@ -66,6 +66,7 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) { //hit player 
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//game.GetComponent<GameController>().GameOver ();
+			game.GetComponent<GameController>().wolfHit++;
 			player.GetComponent<PlayerController>().hpDown = true;
 			myAnim.SetTrigger ("Bite");
 			if (player.GetComponent<PlayerController> ().hp > 0) {

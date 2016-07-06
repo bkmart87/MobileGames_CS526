@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BoulderController : MonoBehaviour {
 	public GameObject player;
+	public GameObject game;
 	public float gapX = 14f;
 	public float forceX = 0.15f;
 	bool isFall = false;
@@ -31,6 +32,7 @@ public class BoulderController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			if (player.GetComponent<PlayerController> ().invincible == false) {
 				player.GetComponent<PlayerController> ().hpDown = true;
+				game.GetComponent<GameController> ().obstacleHit++;
 			}
 			Destroy (gameObject);
 		}

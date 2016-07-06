@@ -170,16 +170,16 @@ public class PlayerController : MonoBehaviour {
 		if (hpUp == true) {
 			hpUp = false;
 			if (hp < maxHp) {
-				hp++;
-				GetComponentInChildren<PeterTextController> ().Show ("HP +1");
-				hpUi.GetComponent<HpUIController> ().addHp (1);
+				//hp++;
+				//GetComponentInChildren<PeterTextController> ().Show ("HP +1");
+				//hpUi.GetComponent<HpUIController> ().addHp (1);
 			}
 
 		} else if (hpDown == true && !invincible) {
 			hpDown = false;
-			hp--;
-			GetComponentInChildren<PeterTextController> ().Show ("HP -1");
-			hpUi.GetComponent<HpUIController> ().addHp (-1);
+			//hp--;
+			// GetComponentInChildren<PeterTextController> ().Show ("HP -1");
+			//hpUi.GetComponent<HpUIController> ().addHp (-1);
 			if (hp > 0) {
 				hit = true;
 				//speedUp = true;

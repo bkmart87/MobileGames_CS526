@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RockController : MonoBehaviour {
 
+	public GameObject game;
 	public GameObject player;
 
 	// Use this for initialization
@@ -19,6 +20,7 @@ public class RockController : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			if (player.GetComponent<PlayerController> ().invincible == false) {
 				player.GetComponent<PlayerController> ().hpDown = true;
+				game.GetComponent<GameController> ().obstacleHit++;
 				Destroy (gameObject);
 			}
 		}
