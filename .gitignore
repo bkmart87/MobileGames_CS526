@@ -65,3 +65,7 @@ $RECYCLE.BIN/
 *.lnk
 Assets/TutorialScript.cs
 Assets/Scripts/DavidScript/NoteButtonController.cs
+
+Assets/Art/BethneyAssets/barriers.psd
+
+Assets/Art/BethneyAssets/jump.psd.meta

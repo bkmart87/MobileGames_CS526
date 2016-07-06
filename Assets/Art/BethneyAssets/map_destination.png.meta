@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: c41fa59e76a6347099d66e2dbf259a21
 timeCreated: 1467484520
+=======
+guid: 13b175b4be362431cbc85e362820a6f7
+timeCreated: 1467395456
+>>>>>>> Stashed changes
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -49,6 +54,10 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+<<<<<<< Updated upstream
+=======
+    serializedVersion: 2
+>>>>>>> Stashed changes
     sprites: []
     outline: []
   spritePackingTag: 
