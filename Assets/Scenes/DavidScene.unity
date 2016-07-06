@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseNote: {fileID: 154988, guid: 317b8c9d626184659bf85d3ba368aec9, type: 2}
   errorSound: {fileID: 176646, guid: c65b7d8c33185be42ab57993150f00b9, type: 2}
-  dest: {fileID: 171202, guid: d694960767be1438fb81e91f20a47c67, type: 2}
+  dest: {fileID: 176862, guid: d694960767be1438fb81e91f20a47c67, type: 2}
   game: {fileID: 682498249}
   player: {fileID: 690208734}
   maxSpeed: 11
@@ -2869,7 +2869,7 @@ MonoBehaviour:
   boulderProb: 0.7
   notesMaxSpeed: 12
   notesMinSpeed: 3
-  gapX: 90
+  gapX: 95
   musicFile: {fileID: 4900000, guid: 431c9d0ca555a45be966bbc2cdfd942d, type: 3}
 --- !u!1 &599616736
 GameObject:
@@ -2912,7 +2912,7 @@ MonoBehaviour:
   boulderProb: 0
   notesMaxSpeed: 12
   notesMinSpeed: 3
-  gapX: 88
+  gapX: 95
   musicFile: {fileID: 4900000, guid: 67eb2296a7f1641879b7995bd4463fcb, type: 3}
 --- !u!4 &599616738
 Transform:
@@ -3233,6 +3233,7 @@ MonoBehaviour:
   gameMessageUi: {fileID: 830893939}
   notes: {fileID: 1978077}
   touchArea: {fileID: 1496822727}
+  miniMapUI: {fileID: 406263433}
   wolfHit: 0
   obstacleHit: 0
   totalObstacle: 0
@@ -3289,6 +3290,7 @@ MonoBehaviour:
   hpUi: {fileID: 558992779}
   game: {fileID: 682498249}
   peterBird: {fileID: 1856187017}
+  miniMapUI: {fileID: 406263433}
   controllable: 0
   speedUp: 0
   speedDown: 0
@@ -3766,7 +3768,7 @@ MonoBehaviour:
   boulderProb: 0
   notesMaxSpeed: 11
   notesMinSpeed: 3
-  gapX: 90
+  gapX: 95
   musicFile: {fileID: 4900000, guid: 5180b5fb129b8403e9014a724b414aff, type: 3}
 --- !u!4 &766268468
 Transform:
@@ -5704,6 +5706,7 @@ GameObject:
   - 224: {fileID: 1313723815}
   - 222: {fileID: 1313723817}
   - 114: {fileID: 1313723816}
+  - 95: {fileID: 1313723818}
   m_Layer: 5
   m_Name: MapPeter
   m_TagString: Untagged
@@ -5762,6 +5765,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1313723814}
+--- !u!95 &1313723818
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313723814}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1ba804e31a2b4ef987e3b98cfd3b8aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1352999663
 GameObject:
   m_ObjectHideFlags: 0

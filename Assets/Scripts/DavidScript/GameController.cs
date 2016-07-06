@@ -12,10 +12,12 @@ public class GameController : MonoBehaviour {
 	public GameObject gameMessageUi;
 	public GameObject notes;
 	public GameObject touchArea;
+	public GameObject miniMapUI;
 
 	public int wolfHit = 0;
 	public int obstacleHit = 0;
 	public int totalObstacle = 0;
+	public static float rate = 0f;
 
 	// global varible for game status
 	public static bool gameHasStarted = false;
@@ -75,12 +77,15 @@ public class GameController : MonoBehaviour {
 
 	public void GameWin() {
 		Debug.Log ("GameWin");
+		rate = (totalObstacle + wolfHit) == 0 ? 0 : (obstacleHit + wolfHit) / (totalObstacle + wolfHit);  // hit rate for letter grade.
 		player.GetComponent<PlayerController> ().currentSpeed = player.GetComponent<PlayerController> ().minSpeed;
 		enemy.GetComponent<EnemyController> ().Stop();
-		gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
+		//gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
+		miniMapUI.SetActive(false);
 		player.GetComponent<PlayerController> ().controllable = false;
 		// game is over, stop recording
 		gameIsOver = true;
+
 
 		Invoke("GameWinDelay", 4f);
 

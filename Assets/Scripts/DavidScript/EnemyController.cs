@@ -4,8 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	//speed 
-	float minSpeed = 8.4f;
-	float midSpeed = 10f;
+	float minSpeed = 9.8f;
 	float maxSpeed = 20f;
 	float preSpeed = 0f;
 
@@ -71,7 +70,7 @@ public class EnemyController : MonoBehaviour {
 			myAnim.SetTrigger ("Bite");
 			if (player.GetComponent<PlayerController> ().hp > 0) {
 				Stop ();
-				Invoke ("RecoverSpeed", 4f); // wolf will stop for 4 sec and then recover previous speed
+				Invoke ("RecoverSpeed", 3f); // wolf will stop for 3 sec and then recover previous speed
 			}
 		}
 

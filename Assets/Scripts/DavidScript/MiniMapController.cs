@@ -24,12 +24,15 @@ public class MiniMapController : MonoBehaviour {
 	float mapPeterCenter;
 	float mapWolfCenter;
 
+	Animator mapPeterAnim;
+
 	// Use this for initialization
 	void Start () {
 		startX = mapStart.transform.localPosition.x;
 		length = mapDestination.transform.localPosition.x - mapStart.transform.localPosition.x;
 		mapPeterCenter = mapPeter.transform.localPosition.y;
 		mapWolfCenter = mapWolf.transform.localPosition.y;
+		mapPeterAnim = mapPeter.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -51,6 +54,10 @@ public class MiniMapController : MonoBehaviour {
 		} 
 		return driftY;
 		
+	}
+
+	public void Hit() {
+		mapPeterAnim.SetTrigger ("peterHited");
 	}
 
 }

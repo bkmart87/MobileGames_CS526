@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject hpUi;
 	public GameObject game;
 	public GameObject peterBird;
+	public GameObject miniMapUI;
 
 	public bool controllable;
 
@@ -177,6 +178,7 @@ public class PlayerController : MonoBehaviour {
 
 		} else if (hpDown == true && !invincible) {
 			hpDown = false;
+			miniMapUI.GetComponent<MiniMapController> ().Hit ();
 			//hp--;
 			// GetComponentInChildren<PeterTextController> ().Show ("HP -1");
 			//hpUi.GetComponent<HpUIController> ().addHp (-1);
