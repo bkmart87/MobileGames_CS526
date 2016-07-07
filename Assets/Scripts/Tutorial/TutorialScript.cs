@@ -14,6 +14,8 @@ public class TutorialScript : MonoBehaviour {
 	private GameObject noteA;
 	private GameObject noteB;
 
+	private PlayerController peter;
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,8 @@ public class TutorialScript : MonoBehaviour {
 		TutorialNotesController.pause = true;
 		noteA = GameObject.Find ("NoteUIButtonA");
 		noteB = GameObject.Find ("NoteUIButtonB");
+		//peter = GameObject.Find ("Peter").GetComponent<PlayerController> ();
+
 		noteA.SetActive (false);
 		noteB.SetActive (false);
 

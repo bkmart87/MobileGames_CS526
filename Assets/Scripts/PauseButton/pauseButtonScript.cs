@@ -9,6 +9,9 @@ public class pauseButtonScript : MonoBehaviour {
 
 	public Text levelText;
 
+	public Text ButtonText1;
+	public Text ButtonText2;
+
 	//three level scenes -- index
 	private int levelName; 
 
@@ -31,7 +34,8 @@ public class pauseButtonScript : MonoBehaviour {
 	void Update () {
 		levelName = GameController.level;
 		levelText.text = "LEVEL: " + levelName.ToString();
-		Debug.Log (levelText.text.ToString ());
+		ShowLevelButtonName ();
+		//Debug.Log (levelText.text.ToString ());
 	}
 
 	public void pauseButtonClickEvent(){
@@ -61,5 +65,45 @@ public class pauseButtonScript : MonoBehaviour {
 		//PlayerController.currentSpeed = lastSpeedPeter;
 		//wolfControl.RecoverSpeed ();
 
+	}
+
+	public void LevelButton1(){
+		if (levelName == 1) {
+			GameController.level = 2;
+			SceneManager.LoadScene ("DavidScene");	
+		} 
+		else {
+			GameController.level = 1;
+			SceneManager.LoadScene ("DavidScene");	
+		} 
+		Time.timeScale = 1.0f;
+	}
+
+	public void LevelButton2(){
+		if (levelName == 3) {
+			GameController.level = 2;
+			SceneManager.LoadScene ("DavidScene");
+		} 
+		else {
+			GameController.level = 3;
+			SceneManager.LoadScene ("DavidScene");
+		}
+		Time.timeScale = 1.0f;
+	}
+
+	void ShowLevelButtonName(){
+
+	if (levelName == 1) {
+			ButtonText1.text = "GO LEVEL2";	
+			ButtonText2.text = "GO LEVEL3";
+	} 
+	else if (levelName == 2) {
+			ButtonText1.text = "GO LEVEL1";	
+			ButtonText2.text = "GO LEVEL3";
+	} 
+	else {
+			ButtonText1.text = "GO LEVEL1";	
+			ButtonText2.text = "GO LEVEL2";
+	}
 	}
 }

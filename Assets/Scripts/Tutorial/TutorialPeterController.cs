@@ -38,6 +38,7 @@ public class TutorialPeterController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		Debug.Log ("Update!");
 		Jump ();
 
 
@@ -100,6 +101,7 @@ public class TutorialPeterController : MonoBehaviour {
 
 	void Jump() {
 		if (jump) {
+			Debug.Log ("Jump function!");
 			myRB.AddForce (new Vector2 (0, jumpHeight));
 			jump = false;
 		}

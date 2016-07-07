@@ -12,7 +12,7 @@ public class TutorialNotesController : MonoBehaviour {
 	public static float noteSpeed = 2f;
 
 	//PlayerController script
-	TutorialPeterController pc;
+	PlayerController pc;
 
 	//hold button for jumping
 	bool holdButton = false;
@@ -24,7 +24,7 @@ public class TutorialNotesController : MonoBehaviour {
 		triggerRight = GameObject.Find ("Glowbit").transform.localPosition.x;
 		RectTransform touchRect = GameObject.Find ("TouchArea").GetComponent<RectTransform> ();
 		triggerLeft = touchRect.localPosition.x - touchRect.rect.width / 2f;
-		pc = GameObject.Find ("Peter").GetComponent<TutorialPeterController> ();
+		pc = GameObject.Find ("Peter").GetComponent<PlayerController> ();
 
 
 	}
@@ -56,7 +56,7 @@ public class TutorialNotesController : MonoBehaviour {
 		//pause = false; //if pause, start moving
 		ScoreTextController.score++;
 		BestStreakTextController.score++;
-		pc.speedUp = true;
+		//pc.speedUp = true;
 		gameObject.SetActive (false);
 		//Destroy (gameObject);
 

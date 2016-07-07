@@ -37,6 +37,10 @@ public class LoadNextLevel : MonoBehaviour
 
 	}
 
+	public void replay(){
+		SceneManager.LoadScene ("DavidScene");
+	}
+
 	public void levelTutorial(){
 		//Application.LoadLevel("TutorialScene");
 		SceneManager.LoadScene ("TutorialScene");
