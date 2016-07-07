@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject hpUi;
 	public GameObject game;
 	public GameObject peterBird;
+	public GameObject peterBody;
 	public GameObject miniMapUI;
 
 	public bool controllable;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 	public bool hpDown;
 	public bool getShield;
 	public bool invincible;
-	int shildNum = 0;
+	int shieldNum = 0;
 
 
 	public int maxHp = 3;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myRB = GetComponent<Rigidbody2D> ();
-		myAnim = GetComponentInChildren<Animator> ();
+		myAnim = peterBody.GetComponentInChildren<Animator> ();
 
 		controllable = true;
 		facingRight = true;
@@ -180,7 +181,7 @@ public class PlayerController : MonoBehaviour {
 			hpDown = false;
 			miniMapUI.GetComponent<MiniMapController> ().Hit ();
 			//hp--;
-			// GetComponentInChildren<PeterTextController> ().Show ("HP -1");
+			GetComponentInChildren<PeterTextController> ().Show ("Hit!");
 			//hpUi.GetComponent<HpUIController> ().addHp (-1);
 			if (hp > 0) {
 				hit = true;
@@ -195,17 +196,26 @@ public class PlayerController : MonoBehaviour {
 
 	public void GetShield() {
 		invincible = true;
-		shildNum++;
+		shieldNum++;
 		GetComponentInChildren<PeterTextController> ().Show ("Bird Shield");
 		peterBird.SetActive (true);
+		peterBird.GetComponent<Animator> ().SetBool ("Fade", false);
+		Invoke ("FadeShield", 9f);
 		Invoke ("DropShield", 12f); //shiled time 
 
 	}
 
+	public void FadeShield() {
+		if (shieldNum == 1) {
+			peterBird.GetComponent<Animator> ().SetBool ("Fade", true);
+		}
+	}
+
 	void DropShield() {
-		shildNum--;
-		if (shildNum == 0) {
+		shieldNum--;
+		if (shieldNum == 0) {
 			invincible = false;
+			peterBird.GetComponent<Animator> ().SetBool ("Fade", false);
 			peterBird.SetActive (false);
 		}
 	}

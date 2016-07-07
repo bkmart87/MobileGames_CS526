@@ -36,6 +36,7 @@ public class NoteMovement : MonoBehaviour {
 	public GameObject glowbit;
 	public int nextNotesIndex = 0;
 	public int noteCountsInTouchArea = 0;
+	public GameObject enemy;
 
 	//sound variable
 	public GameObject[] soundArray;
@@ -67,6 +68,11 @@ public class NoteMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		if (lastNote == null) { //when last note is clicked or it disappeared
+			enemy.GetComponent<EnemyController>().Stop();
+			player.GetComponent<PlayerController> ().invincible = true;
+		}
+
 		if (lastNote != null && progressScale <= 1) { //get the game progress in percentage
 			progressScale = 1 - (lastNote.transform.localPosition.x - glowbit.transform.localPosition.x) / lastNoteLength;
 		}
@@ -149,7 +155,7 @@ public class NoteMovement : MonoBehaviour {
 				}
 				headNote.GetComponent<NoteButtonController> ().DestroyButton ();
 			} else { //note has not came to touch area yet 
-				NoteButtonController.noteSpeed = calculateSpeed ();
+				//NoteButtonController.noteSpeed = calculateSpeed ();
 
 			}
 		}

@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour {
 
 	void Awake () {
 		levelSetting [level].SetActive (true);
+		wolfHit = 0;
+		obstacleHit = 0;
+		totalObstacle = 0;
 	}
 
 
@@ -77,7 +80,6 @@ public class GameController : MonoBehaviour {
 
 	public void GameWin() {
 		Debug.Log ("GameWin");
-		rate = (totalObstacle + wolfHit) == 0 ? 0 : (obstacleHit + wolfHit) / (totalObstacle + wolfHit);  // hit rate for letter grade.
 		player.GetComponent<PlayerController> ().currentSpeed = player.GetComponent<PlayerController> ().minSpeed;
 		enemy.GetComponent<EnemyController> ().Stop();
 		//gameMessageUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "You Win";
@@ -85,6 +87,12 @@ public class GameController : MonoBehaviour {
 		player.GetComponent<PlayerController> ().controllable = false;
 		// game is over, stop recording
 		gameIsOver = true;
+
+
+		Statistics.wolfHit = wolfHit;
+		Statistics.obstacleHit = obstacleHit;
+		Statistics.totalObstacle = totalObstacle;
+
 
 
 		Invoke("GameWinDelay", 4f);

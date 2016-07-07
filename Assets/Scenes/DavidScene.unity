@@ -150,6 +150,7 @@ MonoBehaviour:
   glowbit: {fileID: 1859492978}
   nextNotesIndex: 0
   noteCountsInTouchArea: 0
+  enemy: {fileID: 346977930}
   soundArray:
   - {fileID: 0}
   - {fileID: 195612, guid: 56c273f17ca4f41728136c0fbb0836b2, type: 2}
@@ -1885,7 +1886,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: 243}
+  m_AnchoredPosition: {x: 25.56, y: 243}
   m_SizeDelta: {x: 379.92, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406263435
@@ -3204,6 +3205,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 682498251}
   - 114: {fileID: 682498250}
+  - 114: {fileID: 682498252}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -3256,6 +3258,17 @@ Transform:
   - {fileID: 1884244553}
   m_Father: {fileID: 363428529}
   m_RootOrder: 0
+--- !u!114 &682498252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682498249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58b60c6435154ee3a6afb7cb95556ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &690208734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,6 +3303,7 @@ MonoBehaviour:
   hpUi: {fileID: 558992779}
   game: {fileID: 682498249}
   peterBird: {fileID: 1856187017}
+  peterBody: {fileID: 709957383}
   miniMapUI: {fileID: 406263433}
   controllable: 0
   speedUp: 0
@@ -4939,7 +4953,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1071217947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: -28.8, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -7631,6 +7645,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1856187018}
+  - 95: {fileID: 1856187019}
   m_Layer: 8
   m_Name: PeterBird
   m_TagString: Untagged
@@ -7655,6 +7670,23 @@ Transform:
   - {fileID: 599702993}
   m_Father: {fileID: 709957384}
   m_RootOrder: 1
+--- !u!95 &1856187019
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856187017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 889ecd7dd97f644c5b1355352b21276f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1859492978
 GameObject:
   m_ObjectHideFlags: 0
