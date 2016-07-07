@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class pauseButtonScript : MonoBehaviour {
 
 	public GameObject popup;
 
+	public Text levelText;
+
 	//three level scenes -- index
-	private int level1 = 2;
-	private int level2 = 3;
-	private int level3 = 4;
+	private int levelName; 
+
 
 	//peter' speed before pause
 	private float lastSpeedPeter = 0;
@@ -22,11 +24,14 @@ public class pauseButtonScript : MonoBehaviour {
 		//popup = GameObject.Find ("popup");
 		popup.SetActive (false);
 		wolfControl = GameObject.Find ("Wolf").GetComponent<EnemyController> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		levelName = GameController.level;
+		levelText.text = "LEVEL: " + levelName.ToString();
+		Debug.Log (levelText.text.ToString ());
 	}
 
 	public void pauseButtonClickEvent(){
@@ -43,6 +48,7 @@ public class pauseButtonScript : MonoBehaviour {
 	}
 		
 	public void replayEvent(){
+		Time.timeScale = 1.0f;
 		SceneManager.LoadScene(Application.loadedLevelName);
 	}
 

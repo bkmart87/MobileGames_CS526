@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RockController : MonoBehaviour {
 
+	public GameObject game;
 	public GameObject player;
 
 	// Use this for initialization
@@ -17,8 +18,11 @@ public class RockController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) { // player hit the rock lose 1hp;
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
-			player.GetComponent<PlayerController> ().hpDown = true;
-			Destroy (gameObject);
+			if (player.GetComponent<PlayerController> ().invincible == false) {
+				player.GetComponent<PlayerController> ().hpDown = true;
+				game.GetComponent<GameController> ().obstacleHit++;
+				Destroy (gameObject);
+			}
 		}
 	}
 }

@@ -32,11 +32,15 @@ public class NoteMovement : MonoBehaviour {
 	public string[] noteArray;
 	public GameObject lastNote = null;
 	public List<GameObject> nextNotes = new List<GameObject>();
+	public float lastNoteLength = 0f;
+	public GameObject glowbit;
 	public int nextNotesIndex = 0;
 	public int noteCountsInTouchArea = 0;
 
 	//sound variable
 	public GameObject[] soundArray;
+
+	public float progressScale = 0f;
 
 	//read music file
 	public TextAsset musicFile = null;
@@ -53,33 +57,27 @@ public class NoteMovement : MonoBehaviour {
 	void Start () {
 		noteArray = Load ();
 		GetNotes ();
+		lastNoteLength = lastNote.transform.localPosition.x - glowbit.transform.localPosition.x;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
 	void FixedUpdate () {
-		/*
-		if (noteIndex < noteArray.Length) { // generate new node from noteArray
-			if (lastNote == null) {
-				GenerateNote (noteArray[noteIndex]);
-				noteIndex++;
-			} else if(initPosX - lastNote.transform.localPosition.x > gapX){
-				GenerateNote (noteArray[noteIndex]);
-				noteIndex++;
-			}
+		if (lastNote != null && progressScale <= 1) { //get the game progress in percentage
+			progressScale = 1 - (lastNote.transform.localPosition.x - glowbit.transform.localPosition.x) / lastNoteLength;
 		}
-		*/
 
-		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < rightBoundX ) {  // set destination when last note generate
-			Debug.Log("Has Dest");
+
+		if (!hasDest && lastNote != null && lastNote.transform.localPosition.x < rightBoundX + 300f) {  // set destination when last note generate
+			Debug.Log("Dest");
 			hasDest = true;
 			GameObject myDest = Instantiate (dest);
 			myDest.transform.SetParent (game.transform);
-			//Debug.Log (player.transform.localPosition.x.ToString ());
-			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 62f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
+			myDest.transform.localPosition = new Vector3 (player.transform.localPosition.x + 40f, myDest.transform.localPosition.y, myDest.transform.localPosition.z);
 		}
 	}
 

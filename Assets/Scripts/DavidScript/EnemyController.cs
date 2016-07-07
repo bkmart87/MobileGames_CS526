@@ -4,8 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	//speed 
-	float minSpeed = 7.5f;
-	float midSpeed = 10f;
+	float minSpeed = 9.8f;
 	float maxSpeed = 20f;
 	float preSpeed = 0f;
 
@@ -15,6 +14,7 @@ public class EnemyController : MonoBehaviour {
 	public GameObject wolfMessage = null;
 	public GameObject game = null;
 
+	public float distance;
 	float inCameraDistance = 5f;
 
 
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float distance = getPlayerDistance ();
+		distance = getPlayerDistance ();
 		if (distance > inCameraDistance) {
 			wolfMessage.GetComponentInChildren<UnityEngine.UI.Text> ().text = "Wolf " + (int)distance + "M";
 		} else {
@@ -65,13 +65,12 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) { //hit player 
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//game.GetComponent<GameController>().GameOver ();
+			game.GetComponent<GameController>().wolfHit++;
 			player.GetComponent<PlayerController>().hpDown = true;
 			myAnim.SetTrigger ("Bite");
-			if (player.GetComponent<PlayerController> ().hp == 0) {
-				game.GetComponent<GameController>().GameOver ();
-			} else {
+			if (player.GetComponent<PlayerController> ().hp > 0) {
 				Stop ();
-				Invoke ("RecoverSpeed", 4f);
+				Invoke ("RecoverSpeed", 3f); // wolf will stop for 3 sec and then recover previous speed
 			}
 		}
 

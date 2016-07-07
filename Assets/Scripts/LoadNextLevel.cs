@@ -17,7 +17,24 @@ public class LoadNextLevel : MonoBehaviour
 
 	public void level1(){
 		//Application.LoadLevel("DavidScene");
+		GameController.level = 1;
 		SceneManager.LoadScene ("DavidScene");
+
+
+	}
+
+	public void level2(){
+		//Application.LoadLevel("DavidScene");
+		GameController.level = 2;
+		SceneManager.LoadScene ("DavidScene");
+
+	}
+
+	public void level3(){
+		//Application.LoadLevel("DavidScene");
+		GameController.level = 3;
+		SceneManager.LoadScene ("DavidScene");
+
 	}
 
 	public void levelTutorial(){
@@ -27,6 +44,7 @@ public class LoadNextLevel : MonoBehaviour
 
 	public void levelMainMenu(){
 		//Application.LoadLevel("level0");
+		Time.timeScale = 1.0f;
 		SceneManager.LoadScene ("level0");
 	}
 

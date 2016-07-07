@@ -4,6 +4,7 @@ using System.Collections;
 public class ItemController : MonoBehaviour {
 	public bool isViolin;
 	public bool isHeart;
+	public bool isShield;
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +21,16 @@ public class ItemController : MonoBehaviour {
 			if (isViolin) { // violin bonus
 				Debug.Log ("get violin");
 				ScoreTextController.score += 20;
-				Destroy (gameObject);
+				other.gameObject.GetComponentInChildren<PeterTextController>().Show ("Score + 20");
+
 			} else if (isHeart) {
 				Debug.Log ("get heart");
 				other.gameObject.GetComponentInParent<PlayerController> ().hpUp = true; // player add hp
-				Destroy (gameObject);
+			} else if (isShield) {
+				Debug.Log ("get shield");
+				other.gameObject.GetComponentInParent<PlayerController> ().GetShield (); // get shield to be invincible
 			}
+			Destroy (gameObject);
 		}
 	}
 }

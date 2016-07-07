@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject hpUi;
 	public GameObject game;
+	public GameObject peterBird;
+	public GameObject miniMapUI;
+
+	public bool controllable;
 
 	//control speed bool
 	public bool speedUp;
@@ -18,11 +22,14 @@ public class PlayerController : MonoBehaviour {
 	public bool jump;
 	public float jumpHeight;
 	public float jumpDistance;
-	public static float currentSpeed = 0f;
+	public float currentSpeed = 0f;
 	public bool hit;
 	public bool hitDie;
 	public bool hpUp;
 	public bool hpDown;
+	public bool getShield;
+	public bool invincible;
+	int shildNum = 0;
 
 
 	public int maxHp = 3;
@@ -47,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 		myRB = GetComponent<Rigidbody2D> ();
 		myAnim = GetComponentInChildren<Animator> ();
 
+		controllable = true;
 		facingRight = true;
 		grounded = true;
 		currentSpeed = minSpeed;
@@ -65,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			grounded = true;
 		}
-		if(grounded) Jump ();
+		if(controllable && grounded) Jump ();
 
 
 	}
@@ -74,16 +82,15 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		float move = Input.GetAxis ("Horizontal");
-		GetSpeed ();
-		// currentSpeed += move * 0.1f; ///test!!!
+		if (controllable) {
+			GetSpeed ();
+			GetHit ();
+			GetHp ();
+		}
 		myAnim.SetFloat ("Speed", Mathf.Abs(currentSpeed));
-
 		myRB.velocity = new Vector2 (currentSpeed , myRB.velocity.y);
 
-		GetHit ();
-		GetHp ();
-
-		if (move > 0 && !facingRight) {
+		if (move > 0 && !facingRight) { //flip peter's body
 			Flip ();
 		} else if (move < 0 && facingRight) {
 			Flip ();
@@ -158,28 +165,48 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 
+
+
 	void GetHp() {
 		if (hpUp == true) {
 			hpUp = false;
 			if (hp < maxHp) {
-				hp++;
-				GetComponentInChildren<PeterTextController> ().Show ("HP +1");
-				hpUi.GetComponent<HpUIController> ().addHp (1);
+				//hp++;
+				//GetComponentInChildren<PeterTextController> ().Show ("HP +1");
+				//hpUi.GetComponent<HpUIController> ().addHp (1);
 			}
 
-		} else if (hpDown == true) {
+		} else if (hpDown == true && !invincible) {
 			hpDown = false;
-			hp--;
-			GetComponentInChildren<PeterTextController> ().Show ("HP -1");
-			hpUi.GetComponent<HpUIController> ().addHp (-1);
+			miniMapUI.GetComponent<MiniMapController> ().Hit ();
+			//hp--;
+			// GetComponentInChildren<PeterTextController> ().Show ("HP -1");
+			//hpUi.GetComponent<HpUIController> ().addHp (-1);
 			if (hp > 0) {
 				hit = true;
-				speedUp = true;
+				//speedUp = true;
 			} else {
 				hitDie = true;
 			}
 		}
 		//hpUi.GetComponentInChildren<UnityEngine.UI.Text> ().text = "HP " + hp; // hp ui change
 
+	}
+
+	public void GetShield() {
+		invincible = true;
+		shildNum++;
+		GetComponentInChildren<PeterTextController> ().Show ("Bird Shield");
+		peterBird.SetActive (true);
+		Invoke ("DropShield", 12f); //shiled time 
+
+	}
+
+	void DropShield() {
+		shildNum--;
+		if (shildNum == 0) {
+			invincible = false;
+			peterBird.SetActive (false);
+		}
 	}
 }

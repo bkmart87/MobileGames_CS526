@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c655975593ee64b929b52ff3a2fe12ea
-timeCreated: 1465357051
+timeCreated: 1467772736
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,7 +22,8 @@ TextureImporter:
     21300030: buildingback6
     21300032: buildingfront3
     21300034: buildingfront2
-    21300036: BG_Assets_1_18
+    21300036: Fence
+    21300038: GOAL!
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -68,8 +69,10 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: snow1
+    - serializedVersion: 2
+      name: snow1
       rect:
         serializedVersion: 2
         x: 32
@@ -79,15 +82,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -68, y: 39}
-        - {x: -122, y: 5}
-        - {x: -122, y: -37}
-        - {x: -85, y: -39}
-        - {x: 122, y: -39}
-        - {x: 122, y: 28}
-        - {x: 66, y: 39}
-    - name: snow2
+      outline: []
+    - serializedVersion: 2
+      name: snow2
       rect:
         serializedVersion: 2
         x: 360
@@ -97,13 +94,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -106.5, y: 37}
-        - {x: -106.5, y: -37}
-        - {x: 106.5, y: -37}
-        - {x: 106.5, y: -11}
-        - {x: 78.5, y: 37}
-    - name: snow3
+      outline: []
+    - serializedVersion: 2
+      name: snow3
       rect:
         serializedVersion: 2
         x: 737
@@ -113,15 +106,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -147.5, y: -16.5}
-        - {x: -146.5, y: -17.5}
-        - {x: -132.5, y: -36.5}
-        - {x: 147.5, y: -36.5}
-        - {x: 147.5, y: 36.5}
-        - {x: -125.5, y: 36.5}
-        - {x: -147.5, y: 23.5}
-    - name: snow4
+      outline: []
+    - serializedVersion: 2
+      name: snow4
       rect:
         serializedVersion: 2
         x: 1087
@@ -131,18 +118,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -12, y: 35.5}
-        - {x: -71, y: 35.5}
-        - {x: -85, y: 24.5}
-        - {x: -85, y: -28.5}
-        - {x: -83, y: -35.5}
-        - {x: 58, y: -35.5}
-        - {x: 81, y: -29.5}
-        - {x: 85, y: -21.5}
-        - {x: 85, y: 1.5}
-        - {x: 66, y: 19.5}
-    - name: ground
+      outline: []
+    - serializedVersion: 2
+      name: ground
       rect:
         serializedVersion: 2
         x: 0
@@ -152,90 +130,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 979, y: 36.5}
-        - {x: 975, y: 39.5}
-        - {x: 941, y: 48.5}
-        - {x: 911, y: 50.5}
-        - {x: 911, y: 48.5}
-        - {x: 863, y: 48.5}
-        - {x: 849, y: 47.5}
-        - {x: 831, y: 44.5}
-        - {x: 810, y: 38.5}
-        - {x: 792, y: 39.5}
-        - {x: 766, y: 45.5}
-        - {x: 750, y: 47.5}
-        - {x: 732, y: 47.5}
-        - {x: 669, y: 59.5}
-        - {x: 653, y: 61.5}
-        - {x: 614, y: 61.5}
-        - {x: 595, y: 58.5}
-        - {x: 574, y: 54.5}
-        - {x: 540, y: 41.5}
-        - {x: 528, y: 53.5}
-        - {x: 509, y: 61.5}
-        - {x: 451, y: 61.5}
-        - {x: 434, y: 58.5}
-        - {x: 406, y: 52.5}
-        - {x: 395, y: 49.5}
-        - {x: 385, y: 56.5}
-        - {x: 363, y: 61.5}
-        - {x: 317, y: 61.5}
-        - {x: 295, y: 58.5}
-        - {x: 281, y: 55.5}
-        - {x: 268, y: 51.5}
-        - {x: 245, y: 53.5}
-        - {x: 225, y: 56.5}
-        - {x: 183, y: 56.5}
-        - {x: 153, y: 51.5}
-        - {x: 122, y: 43.5}
-        - {x: 89, y: 47.5}
-        - {x: 78, y: 48.5}
-        - {x: 55, y: 53.5}
-        - {x: 39, y: 59.5}
-        - {x: 27, y: 61.5}
-        - {x: -29, y: 61.5}
-        - {x: -33, y: 60.5}
-        - {x: -100, y: 46.5}
-        - {x: -125, y: 43.5}
-        - {x: -152, y: 49.5}
-        - {x: -194, y: 57.5}
-        - {x: -237, y: 56.5}
-        - {x: -262, y: 50.5}
-        - {x: -298, y: 58.5}
-        - {x: -312, y: 60.5}
-        - {x: -320, y: 61.5}
-        - {x: -366, y: 61.5}
-        - {x: -379, y: 59.5}
-        - {x: -403, y: 51.5}
-        - {x: -432, y: 57.5}
-        - {x: -452, y: 61.5}
-        - {x: -510, y: 61.5}
-        - {x: -521, y: 57.5}
-        - {x: -531, y: 53.5}
-        - {x: -549, y: 44.5}
-        - {x: -581, y: 54.5}
-        - {x: -588, y: 57.5}
-        - {x: -617, y: 61.5}
-        - {x: -655, y: 61.5}
-        - {x: -665, y: 60.5}
-        - {x: -688, y: 56.5}
-        - {x: -726, y: 48.5}
-        - {x: -763, y: 46.5}
-        - {x: -795, y: 39.5}
-        - {x: -813, y: 39.5}
-        - {x: -844, y: 47.5}
-        - {x: -866, y: 48.5}
-        - {x: -914, y: 48.5}
-        - {x: -914, y: 50.5}
-        - {x: -936, y: 49.5}
-        - {x: -960, y: 43.5}
-        - {x: -979, y: 37.5}
-        - {x: -979, y: -60.5}
-        - {x: -972, y: -61.5}
-        - {x: 969, y: -61.5}
-        - {x: 979, y: -60.5}
-    - name: cloud
+      outline: []
+    - serializedVersion: 2
+      name: cloud
       rect:
         serializedVersion: 2
         x: 400
@@ -245,15 +142,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 185, y: 39}
-        - {x: -104, y: 39}
-        - {x: -295, y: 20}
-        - {x: -295, y: -39}
-        - {x: 295, y: -39}
-        - {x: 295, y: -20}
-        - {x: 291, y: -18}
-    - name: building_back
+      outline: []
+    - serializedVersion: 2
+      name: building_back
       rect:
         serializedVersion: 2
         x: 1350
@@ -263,32 +154,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 58, y: 91}
-        - {x: 36, y: 65}
-        - {x: 35, y: 62}
-        - {x: 32, y: 33}
-        - {x: 32, y: 43}
-        - {x: 31, y: 49}
-        - {x: 29, y: 55}
-        - {x: 25, y: 62}
-        - {x: 11, y: 124}
-        - {x: 5, y: 124}
-        - {x: 2, y: 97}
-        - {x: -39, y: 118}
-        - {x: -45, y: 116}
-        - {x: -89, y: 46}
-        - {x: -78, y: 18}
-        - {x: -88, y: 21}
-        - {x: -92, y: 59}
-        - {x: -94, y: 61}
-        - {x: -114, y: 68}
-        - {x: -163, y: -48}
-        - {x: -163, y: -124}
-        - {x: 163, y: -124}
-        - {x: 163, y: -37}
-        - {x: 160, y: -30}
-    - name: cloud4
+      outline: []
+    - serializedVersion: 2
+      name: cloud4
       rect:
         serializedVersion: 2
         x: 399
@@ -298,15 +166,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44, y: 32.5}
-        - {x: -101, y: -19.5}
-        - {x: -101, y: -32.5}
-        - {x: 37, y: -32.5}
-        - {x: 101, y: -22.5}
-        - {x: 101, y: 25.5}
-        - {x: 66, y: 32.5}
-    - name: cloud3
+      outline: []
+    - serializedVersion: 2
+      name: cloud3
       rect:
         serializedVersion: 2
         x: 656
@@ -317,7 +179,8 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: coud2
+    - serializedVersion: 2
+      name: coud2
       rect:
         serializedVersion: 2
         x: 866
@@ -327,17 +190,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44.5, y: 33.5}
-        - {x: -177.5, y: 12.5}
-        - {x: -201.5, y: -9.5}
-        - {x: -201.5, y: -30.5}
-        - {x: 22.5, y: -33.5}
-        - {x: 192.5, y: -33.5}
-        - {x: 201.5, y: -26.5}
-        - {x: 201.5, y: 14.5}
-        - {x: 124.5, y: 33.5}
-    - name: buildingback2
+      outline: []
+    - serializedVersion: 2
+      name: buildingback2
       rect:
         serializedVersion: 2
         x: 1711
@@ -347,15 +202,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -16, y: 55}
-        - {x: -42, y: 55}
-        - {x: -88, y: 37}
-        - {x: -88, y: -55}
-        - {x: 88, y: -55}
-        - {x: 88, y: -18}
-        - {x: 75, y: 2}
-    - name: treeback
+      outline: []
+    - serializedVersion: 2
+      name: treeback
       rect:
         serializedVersion: 2
         x: 32
@@ -365,31 +214,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 68, y: 39.5}
-        - {x: 65, y: 38.5}
-        - {x: 59, y: 34.5}
-        - {x: 53, y: 33.5}
-        - {x: 59, y: 34.5}
-        - {x: 69, y: 41.5}
-        - {x: 70, y: 42.5}
-        - {x: 70, y: 85.5}
-        - {x: 44, y: 107.5}
-        - {x: -43, y: 107.5}
-        - {x: -58, y: 72.5}
-        - {x: -68, y: 23.5}
-        - {x: -56, y: 5.5}
-        - {x: -54, y: 0.5}
-        - {x: -59, y: 10.5}
-        - {x: -63, y: 14.5}
-        - {x: -70, y: 17.5}
-        - {x: -70, y: -38.5}
-        - {x: -27, y: -107.5}
-        - {x: -1, y: -107.5}
-        - {x: -1, y: -102.5}
-        - {x: 70, y: 8.5}
-        - {x: 70, y: 36.5}
-    - name: buildingback3
+      outline: []
+    - serializedVersion: 2
+      name: buildingback3
       rect:
         serializedVersion: 2
         x: 1608
@@ -399,22 +226,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 91.5, y: 52.5}
-        - {x: 74.5, y: 82.5}
-        - {x: 32.5, y: 82.5}
-        - {x: 22.5, y: 76.5}
-        - {x: 9.5, y: 82.5}
-        - {x: -8.5, y: 82.5}
-        - {x: -45.5, y: 54.5}
-        - {x: -90.5, y: 40.5}
-        - {x: -112.5, y: 11.5}
-        - {x: -142.5, y: 7.5}
-        - {x: -142.5, y: -82.5}
-        - {x: 142.5, y: -82.5}
-        - {x: 142.5, y: 20.5}
-        - {x: 133.5, y: 32.5}
-    - name: skycolor
+      outline: []
+    - serializedVersion: 2
+      name: skycolor
       rect:
         serializedVersion: 2
         x: 573
@@ -424,12 +238,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -159.5, y: 99.5}
-        - {x: -159.5, y: -99.5}
-        - {x: 159.5, y: -99.5}
-        - {x: 159.5, y: 99.5}
-    - name: building front
+      outline: []
+    - serializedVersion: 2
+      name: building front
       rect:
         serializedVersion: 2
         x: 1575
@@ -439,16 +250,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 11.5, y: 72}
-        - {x: -61.5, y: 22}
-        - {x: -87.5, y: -3}
-        - {x: -87.5, y: -72}
-        - {x: 83.5, y: -72}
-        - {x: 87.5, y: -27}
-        - {x: 87.5, y: 30}
-        - {x: 28.5, y: 72}
-    - name: buildingback6
+      outline: []
+    - serializedVersion: 2
+      name: buildingback6
       rect:
         serializedVersion: 2
         x: 43
@@ -458,31 +262,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 194.5, y: 23}
-        - {x: 153.5, y: -11}
-        - {x: 159.5, y: 51}
-        - {x: 153.5, y: 71}
-        - {x: 143.5, y: 83}
-        - {x: 127.5, y: 83}
-        - {x: 112.5, y: 49}
-        - {x: 89.5, y: 83}
-        - {x: 39.5, y: 83}
-        - {x: 24.5, y: 71}
-        - {x: -53.5, y: 77}
-        - {x: -71.5, y: 83}
-        - {x: -151.5, y: 83}
-        - {x: -167.5, y: 73}
-        - {x: -172.5, y: -10}
-        - {x: -197.5, y: 32}
-        - {x: -224.5, y: -11}
-        - {x: -250.5, y: 6}
-        - {x: -283.5, y: -40}
-        - {x: -283.5, y: -83}
-        - {x: 283.5, y: -83}
-        - {x: 283.5, y: -43}
-        - {x: 252.5, y: 10}
-    - name: buildingfront3
+      outline: []
+    - serializedVersion: 2
+      name: buildingfront3
       rect:
         serializedVersion: 2
         x: 744
@@ -492,25 +274,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 134.5, y: 42.5}
-        - {x: 100.5, y: 44.5}
-        - {x: 78.5, y: 91.5}
-        - {x: 58.5, y: 91.5}
-        - {x: 39.5, y: 86.5}
-        - {x: 22.5, y: 71.5}
-        - {x: 7.5, y: 91.5}
-        - {x: 6.5, y: 91.5}
-        - {x: -34.5, y: 71.5}
-        - {x: -95.5, y: 48.5}
-        - {x: -106.5, y: 21.5}
-        - {x: -143.5, y: 20.5}
-        - {x: -143.5, y: -91.5}
-        - {x: 102.5, y: -91.5}
-        - {x: 139.5, y: -90.5}
-        - {x: 143.5, y: -88.5}
-        - {x: 143.5, y: 24.5}
-    - name: buildingfront2
+      outline: []
+    - serializedVersion: 2
+      name: buildingfront2
       rect:
         serializedVersion: 2
         x: 1087
@@ -520,18 +286,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 93.5, y: 44.5}
-        - {x: 70.5, y: 96.5}
-        - {x: -68.5, y: 96.5}
-        - {x: -71.5, y: 95.5}
-        - {x: -93.5, y: 40.5}
-        - {x: -93.5, y: -96.5}
-        - {x: 90.5, y: -96.5}
-        - {x: 90.5, y: -34.5}
-        - {x: 87.5, y: 25.5}
-        - {x: 93.5, y: 27.5}
-    - name: BG_Assets_1_18
+      outline: []
+    - serializedVersion: 2
+      name: Fence
       rect:
         serializedVersion: 2
         x: 1506
@@ -541,22 +298,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 54, y: 39}
-        - {x: 21, y: 39}
-        - {x: 19, y: 37}
-        - {x: 16, y: 27}
-        - {x: 16, y: 8}
-        - {x: 15, y: 27}
-        - {x: 11, y: 39}
-        - {x: -60, y: 39}
-        - {x: -70, y: 24}
-        - {x: -79, y: -5}
-        - {x: -79, y: -24}
-        - {x: -75, y: -39}
-        - {x: 78, y: -39}
-        - {x: 79, y: -34}
-        - {x: 79, y: 19}
+      outline: []
+    - serializedVersion: 2
+      name: GOAL!
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 490
+        width: 300
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
