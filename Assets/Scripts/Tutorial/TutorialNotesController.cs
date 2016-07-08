@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TutorialNotesController : MonoBehaviour {
 
@@ -31,7 +32,10 @@ public class TutorialNotesController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(transform.localPosition.x < triggerRight) GetComponent<UnityEngine.UI.Button> ().interactable = true;
+		if (transform.localPosition.x < triggerRight) {
+			GetComponent<UnityEngine.UI.Button> ().interactable = true;
+			GetComponent<Image> ().color = new Color (1f, 1f, 1f, 1f);
+		}
 		if (transform.localPosition.x <= triggerLeft)
 			pause = true;
 		if (!pause) {
@@ -62,6 +66,18 @@ public class TutorialNotesController : MonoBehaviour {
 
 	}
 
+	public void ClickJump() {
+
+		GameObject mySound = Instantiate (sound);
+		//pause = false; //if pause, start moving
+		//ScoreTextController.score++;
+		//BestStreakTextController.score++;
+		//pc.speedUp = true;
+		//gameObject.SetActive (false);
+		//Destroy (gameObject);
+
+	}
+
 	public void Down() {
 		holdButton = true;
 	}
@@ -76,10 +92,10 @@ public class TutorialNotesController : MonoBehaviour {
 			holdTime += Time.deltaTime;
 			if (holdTime > totalHoldTime) {
 				GameObject mySound = Instantiate (sound);
-				Debug.Log ("Jump");
+				//Debug.Log ("Jump");
 				pc.jump = true;
 				holdButton = false;
-				Destroy (gameObject);
+				//Destroy (gameObject);
 			}
 		}
 	}
