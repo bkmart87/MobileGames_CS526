@@ -68,6 +68,9 @@ public class EnemyController : MonoBehaviour {
 			game.GetComponent<GameController>().wolfHit++;
 			player.GetComponent<PlayerController>().hpDown = true;
 			myAnim.SetTrigger ("Bite");
+			ScoreTextController.score -= 10;
+			other.gameObject.GetComponentInChildren<PeterTextController>().Show ("Score -10");
+
 			if (player.GetComponent<PlayerController> ().hp > 0) {
 				Stop ();
 				Invoke ("RecoverSpeed", 3f); // wolf will stop for 3 sec and then recover previous speed

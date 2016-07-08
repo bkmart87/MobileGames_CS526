@@ -181,7 +181,6 @@ public class PlayerController : MonoBehaviour {
 			hpDown = false;
 			miniMapUI.GetComponent<MiniMapController> ().Hit ();
 			//hp--;
-			GetComponentInChildren<PeterTextController> ().Show ("Hit!");
 			//hpUi.GetComponent<HpUIController> ().addHp (-1);
 			if (hp > 0) {
 				hit = true;

@@ -33,6 +33,8 @@ public class BoulderController : MonoBehaviour {
 			if (player.GetComponent<PlayerController> ().invincible == false) {
 				player.GetComponent<PlayerController> ().hpDown = true;
 				game.GetComponent<GameController> ().obstacleHit++;
+				ScoreTextController.score -= 5;
+				other.gameObject.GetComponentInChildren<PeterTextController>().Show ("Score -5");
 			}
 			Destroy (gameObject);
 		}

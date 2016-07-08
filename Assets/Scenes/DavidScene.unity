@@ -1420,6 +1420,7 @@ MonoBehaviour:
   isViolin: 1
   isHeart: 0
   isShield: 0
+  sound: {fileID: 114816, guid: 12ad37815f166410a9b7e9301b1b5047, type: 2}
 --- !u!60 &284253804
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6932,6 +6933,7 @@ MonoBehaviour:
   isViolin: 0
   isHeart: 1
   isShield: 0
+  sound: {fileID: 114816, guid: 12ad37815f166410a9b7e9301b1b5047, type: 2}
 --- !u!212 &1498418881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8410,6 +8412,7 @@ MonoBehaviour:
   isViolin: 0
   isHeart: 0
   isShield: 1
+  sound: {fileID: 114816, guid: 12ad37815f166410a9b7e9301b1b5047, type: 2}
 --- !u!212 &2023023002
 SpriteRenderer:
   m_ObjectHideFlags: 0
