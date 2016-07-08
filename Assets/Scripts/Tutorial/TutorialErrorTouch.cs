@@ -7,9 +7,9 @@ public class TutorialErrorTouch : MonoBehaviour {
 	public void Click() {
 		GameObject myErrorSound = Instantiate(errorSound);
 
-		TutorialPeterController pc = GameObject.Find ("Peter").GetComponent<TutorialPeterController> ();
+		PlayerController pc = GameObject.Find ("Peter").GetComponent<PlayerController> ();
 		BestStreakTextController.score = 0;
-		pc.speedMin = true;
+		//pc.speedMin = true;
 
 	}
 }
