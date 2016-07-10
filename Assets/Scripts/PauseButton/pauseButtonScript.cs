@@ -93,17 +93,18 @@ public class pauseButtonScript : MonoBehaviour {
 
 	void ShowLevelButtonName(){
 
-	if (levelName == 1) {
+		if (levelName == 1) {
 			ButtonText1.text = "GO LEVEL2";	
 			ButtonText2.text = "GO LEVEL3";
-	} 
-	else if (levelName == 2) {
+		} 
+		else if (levelName == 2) {
 			ButtonText1.text = "GO LEVEL1";	
 			ButtonText2.text = "GO LEVEL3";
-	} 
-	else {
+		} 
+		else {
 			ButtonText1.text = "GO LEVEL1";	
 			ButtonText2.text = "GO LEVEL2";
+		}
 	}
-	}
+
 }

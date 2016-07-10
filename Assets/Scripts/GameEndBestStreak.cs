@@ -6,7 +6,7 @@ public class GameEndBestStreak : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<Text> ().text = "BestStreak: " + BestStreakTextController.bestStreak;
+		gameObject.GetComponent<Text> ().text = BestStreakTextController.bestStreak.ToString();
 	}
 	
 	// Update is called once per frame
