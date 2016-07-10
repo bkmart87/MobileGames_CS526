@@ -134,7 +134,7 @@ public class NoteButtonController : MonoBehaviour {
 			holdTime += Time.deltaTime;
 			if (holdTime > totalHoldTime) {
 				GameObject mySound = Instantiate (sound);
-				Debug.Log ("Jump");
+				//Debug.Log ("Jump");
 
 
 

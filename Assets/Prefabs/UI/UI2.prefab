@@ -315,13 +315,22 @@ MonoBehaviour:
   dest: {fileID: 0}
   game: {fileID: 0}
   player: {fileID: 0}
+  maxSpeed: 9
+  minSpeed: 3
+  slope: -3
+  streakSlope: 0
+  gapX: 140
   noteIndex: 0
   noteArray: []
   lastNote: {fileID: 0}
   nextNotes: []
+  lastNoteLength: 0
+  glowbit: {fileID: 0}
   nextNotesIndex: 0
+  noteCountsInTouchArea: 0
+  enemy: {fileID: 0}
   soundArray:
-  - {fileID: 167478, guid: 33ea2743f63d64ce3934b008c1a46741, type: 2}
+  - {fileID: 0}
   - {fileID: 128630, guid: 034970bf6fc13da4089abe9a3bdeaae8, type: 2}
   - {fileID: 118868, guid: 573f4d5c3655c864aa3d57216f2dd7ba, type: 2}
   - {fileID: 123742, guid: 5eb375f3798bcc04b82570b2d81b14ad, type: 2}
@@ -329,7 +338,10 @@ MonoBehaviour:
   - {fileID: 153422, guid: e474b625c7e4f094783bd7396675eb7e, type: 2}
   - {fileID: 195858, guid: 1ba2146d0533bf042ba8e41a49db1fbe, type: 2}
   - {fileID: 121618, guid: 9be0614fdfaede6429107c5713939ead, type: 2}
+  progressScale: 0
   musicFile: {fileID: 0}
+  highSprite: {fileID: 0}
+  blendSprite: {fileID: 0}
 --- !u!114 &11413482
 MonoBehaviour:
   m_ObjectHideFlags: 1
