@@ -2934,7 +2934,7 @@ MonoBehaviour:
   mainCamera: {fileID: 124663046}
   notes: {fileID: 1978077}
   violinNum: 2
-  violinProb: 0.4
+  violinProb: 0.25
   heartNum: 2
   heartProb: 0.5
   shieldNum: 1
@@ -2977,9 +2977,9 @@ MonoBehaviour:
   mainCamera: {fileID: 124663046}
   notes: {fileID: 1978077}
   violinNum: 2
-  violinProb: 0.4
+  violinProb: 0.25
   heartNum: 2
-  heartProb: 0.3
+  heartProb: 0.4
   shieldNum: 0
   shieldProb: 0
   spikeNum: 0
@@ -3848,9 +3848,9 @@ MonoBehaviour:
   mainCamera: {fileID: 124663046}
   notes: {fileID: 1978077}
   violinNum: 2
-  violinProb: 0.4
+  violinProb: 0.25
   heartNum: 2
-  heartProb: 0.5
+  heartProb: 0.45
   shieldNum: 1
   shieldProb: 0.25
   spikeNum: 3
