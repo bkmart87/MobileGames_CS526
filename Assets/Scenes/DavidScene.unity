@@ -2988,7 +2988,7 @@ MonoBehaviour:
   boulderProb: 0
   notesMaxSpeed: 12
   notesMinSpeed: 3
-  gapX: 95
+  gapX: 98
   musicFile: {fileID: 4900000, guid: 67eb2296a7f1641879b7995bd4463fcb, type: 3}
 --- !u!4 &599616738
 Transform:
@@ -3859,7 +3859,7 @@ MonoBehaviour:
   boulderProb: 0
   notesMaxSpeed: 11
   notesMinSpeed: 3
-  gapX: 95
+  gapX: 96
   musicFile: {fileID: 4900000, guid: 5180b5fb129b8403e9014a724b414aff, type: 3}
 --- !u!4 &766268468
 Transform:
@@ -6870,8 +6870,8 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -236.2, y: 0}
-  m_SizeDelta: {x: 318.3, y: 0}
+  m_AnchoredPosition: {x: -232, y: 0}
+  m_SizeDelta: {x: 326, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1498418877
 GameObject:
@@ -8044,7 +8044,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88, y: -7}
+  m_AnchoredPosition: {x: -87, y: -7}
   m_SizeDelta: {x: 100, y: 262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859492980

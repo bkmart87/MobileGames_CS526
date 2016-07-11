@@ -56,7 +56,7 @@ public class NoteButtonController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () { // move note
-		if (!isTouchable && transform.localPosition.x < triggerRight) { // enter touch area
+		if (!isTouchable && transform.localPosition.x < triggerRight + 20f) { // enter touch area
 			isTouchable = true;
 			GetComponent<UnityEngine.UI.Button> ().interactable = true;
 			GetComponent<Image> ().color = new Color (1f, 1f, 1f, 1f);
