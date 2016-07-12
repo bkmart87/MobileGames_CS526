@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class gameEndHitText : MonoBehaviour {
+public class GameEndHitText : MonoBehaviour {
 
 
 	// Use this for initialization
