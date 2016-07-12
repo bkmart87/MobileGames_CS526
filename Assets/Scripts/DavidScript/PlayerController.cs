@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour {
 	void Jump() {
 		if (jump) {
 			myRB.AddForce (new Vector2 (0, jumpHeight));
+			myAnim.SetTrigger ("Jump");
 			jump = false;
 		}
 	}

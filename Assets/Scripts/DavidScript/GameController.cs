@@ -92,6 +92,8 @@ public class GameController : MonoBehaviour {
 		Statistics.wolfHit = wolfHit;
 		Statistics.obstacleHit = obstacleHit;
 		Statistics.totalObstacle = totalObstacle;
+		Statistics.hit = wolfHit + obstacleHit;
+		Statistics.grade = getGrade (wolfHit + obstacleHit);
 
 
 
@@ -104,5 +106,23 @@ public class GameController : MonoBehaviour {
 		notes.SetActive (false);
 		touchArea.SetActive (false);
 		SceneManager.LoadScene ("WinScene");
+	}
+
+	int getGrade(int hit) {
+		if (hit == 0) {
+			return 1; //S
+		} else if (hit <= 5) {
+			return 2; // A
+		} else if (hit <= 10) {
+			return 3; // B
+		} else if (hit <= 15) {
+			return 4; // C
+		} else if (hit <= 20) {
+			return 5; // D
+		} else if (hit <= 25) {
+			return 6; // E
+		} else {
+			return 7; // F
+		}
 	}
 }
