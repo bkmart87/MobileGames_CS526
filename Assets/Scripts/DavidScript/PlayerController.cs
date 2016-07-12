@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
+
+
 		
 		if (transform.localPosition.y > groundY) {
 			grounded = false;
@@ -137,7 +139,10 @@ public class PlayerController : MonoBehaviour {
 	void Jump() {
 		if (jump) {
 			myRB.AddForce (new Vector2 (0, jumpHeight));
-			myAnim.SetTrigger ("Jump");
+			AnimatorStateInfo asi = myAnim.GetCurrentAnimatorStateInfo (0);
+			if(asi.fullPathHash == Animator.StringToHash("Base Layer.Run")) {
+				myAnim.SetTrigger ("Jump");
+			}
 			jump = false;
 		}
 	}

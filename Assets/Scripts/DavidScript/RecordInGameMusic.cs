@@ -24,8 +24,6 @@ public class RecordInGameMusic : MonoBehaviour {
 				Debug.Log ("length:" + soundData.Count);
 				cnt++;
 			}
-		} else {
-			Debug.Log ("Not started or Game is over");
 		}
 	}
 
