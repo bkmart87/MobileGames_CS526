@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8a27c1c8755254097482a9d8b86dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Peter1:
+  Peter:
   - {fileID: 21300000, guid: f054d1b5cfdcf48dc98b953f3302c653, type: 3}
   - {fileID: 21300000, guid: 5ac77c9645a3f4cfe8ef09e9ddb3056e, type: 3}
   - {fileID: 21300000, guid: eab043da6ae2f4f6ea303166ccf36159, type: 3}
