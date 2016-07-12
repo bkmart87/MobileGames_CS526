@@ -65,11 +65,14 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) { //hit player 
 		if (other.gameObject.layer == LayerMask.NameToLayer ("Player")) {
 			//game.GetComponent<GameController>().GameOver ();
-			game.GetComponent<GameController>().wolfHit++;
-			player.GetComponent<PlayerController>().hpDown = true;
+			if (player.GetComponent<PlayerController> ().invincible == false) {
+				player.GetComponent<PlayerController> ().hpDown = true;
+				ScoreTextController.score -= 10;
+				other.gameObject.GetComponentInChildren<PeterTextController>().Show ("Score -10");
+				game.GetComponent<GameController>().wolfHit++;
+			}
 			myAnim.SetTrigger ("Bite");
-			ScoreTextController.score -= 10;
-			other.gameObject.GetComponentInChildren<PeterTextController>().Show ("Score -10");
+
 
 			if (player.GetComponent<PlayerController> ().hp > 0) {
 				Stop ();

@@ -960,6 +960,7 @@ GameObject:
   - 4: {fileID: 163765120}
   - 212: {fileID: 163765122}
   - 114: {fileID: 163765121}
+  - 95: {fileID: 163765123}
   m_Layer: 0
   m_Name: Bird (1)
   m_TagString: Untagged
@@ -975,7 +976,7 @@ Transform:
   m_GameObject: {fileID: 163765119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5, y: -0.77, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1856187018}
@@ -1018,10 +1019,27 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 84d97539c46704cd6854b8b33a64c161, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff6eb2c00ee2e42f7a5073ac1fced375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &163765123
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 163765119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c270143de29184ce9bbd08c4578a1f24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &169386980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2424,7 @@ GameObject:
   - 4: {fileID: 501471074}
   - 212: {fileID: 501471076}
   - 114: {fileID: 501471075}
+  - 95: {fileID: 501471077}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -2421,7 +2440,7 @@ Transform:
   m_GameObject: {fileID: 501471073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: -0.77, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1856187018}
@@ -2464,10 +2483,27 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 84d97539c46704cd6854b8b33a64c161, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff6eb2c00ee2e42f7a5073ac1fced375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &501471077
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 501471073}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c270143de29184ce9bbd08c4578a1f24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &502468311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3013,6 +3049,7 @@ GameObject:
   - 4: {fileID: 599702993}
   - 212: {fileID: 599702995}
   - 114: {fileID: 599702994}
+  - 95: {fileID: 599702996}
   m_Layer: 0
   m_Name: Bird (3)
   m_TagString: Untagged
@@ -3028,7 +3065,7 @@ Transform:
   m_GameObject: {fileID: 599702992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.77, z: -2.5}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1856187018}
@@ -3071,10 +3108,27 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 84d97539c46704cd6854b8b33a64c161, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff6eb2c00ee2e42f7a5073ac1fced375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &599702996
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599702992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c270143de29184ce9bbd08c4578a1f24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &600355475
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,6 +6618,7 @@ GameObject:
   - 4: {fileID: 1466929597}
   - 212: {fileID: 1466929599}
   - 114: {fileID: 1466929598}
+  - 95: {fileID: 1466929600}
   m_Layer: 0
   m_Name: Bird (2)
   m_TagString: Untagged
@@ -6579,7 +6634,7 @@ Transform:
   m_GameObject: {fileID: 1466929596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.77, z: 2.5}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1856187018}
@@ -6622,10 +6677,27 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 84d97539c46704cd6854b8b33a64c161, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff6eb2c00ee2e42f7a5073ac1fced375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1466929600
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1466929596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c270143de29184ce9bbd08c4578a1f24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1469117675
 GameObject:
   m_ObjectHideFlags: 0
@@ -7969,7 +8041,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1856187018}
-  - 95: {fileID: 1856187019}
+  - 114: {fileID: 1856187019}
   m_Layer: 8
   m_Name: PeterBird
   m_TagString: Untagged
@@ -7994,23 +8066,22 @@ Transform:
   - {fileID: 599702993}
   m_Father: {fileID: 709957384}
   m_RootOrder: 1
---- !u!95 &1856187019
-Animator:
-  serializedVersion: 3
+--- !u!114 &1856187019
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1856187017}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 889ecd7dd97f644c5b1355352b21276f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e896c8a599b445fbe5c2071117cbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birds:
+  - {fileID: 501471073}
+  - {fileID: 163765119}
+  - {fileID: 1466929596}
+  - {fileID: 599702992}
 --- !u!1 &1859492978
 GameObject:
   m_ObjectHideFlags: 0
@@ -8393,7 +8464,7 @@ Transform:
   m_GameObject: {fileID: 2023022999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -75.8, y: 10.126091, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1884244553}
@@ -8439,7 +8510,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 84d97539c46704cd6854b8b33a64c161, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5abb6666fa037400bb34ac7ea5a9164b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8454,9 +8525,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.25, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.71
+  m_Radius: 1
 --- !u!1 &2032495154
 GameObject:
   m_ObjectHideFlags: 0

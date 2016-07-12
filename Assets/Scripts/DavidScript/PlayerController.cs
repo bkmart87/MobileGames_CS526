@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour {
 		shieldNum++;
 		GetComponentInChildren<PeterTextController> ().Show ("Bird Shield");
 		peterBird.SetActive (true);
-		peterBird.GetComponent<Animator> ().SetBool ("Fade", false);
+		if(shieldNum > 1) peterBird.GetComponent<PeterBirdAnimController> ().FadeIn ();
 		Invoke ("FadeShield", 9f);
 		Invoke ("DropShield", 12f); //shiled time 
 
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void FadeShield() {
 		if (shieldNum == 1) {
-			peterBird.GetComponent<Animator> ().SetBool ("Fade", true);
+			peterBird.GetComponent<PeterBirdAnimController> ().FadeOut (true);
 		}
 	}
 
@@ -214,7 +214,7 @@ public class PlayerController : MonoBehaviour {
 		shieldNum--;
 		if (shieldNum == 0) {
 			invincible = false;
-			peterBird.GetComponent<Animator> ().SetBool ("Fade", false);
+			peterBird.GetComponent<PeterBirdAnimController> ().FadeOut (false);
 			peterBird.SetActive (false);
 		}
 	}
