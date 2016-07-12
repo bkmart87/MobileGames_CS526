@@ -7,7 +7,7 @@ public class gameEndHitText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//gameObject.GetComponent<Text> ().text = Statistics.hit.ToString();
+		gameObject.GetComponent<Text> ().text = Statistics.hit.ToString();
 	}
 
 	// Update is called once per frame
